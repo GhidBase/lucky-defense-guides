@@ -34,7 +34,7 @@ body {
 }
 
 .max-width-img {
-    width: 50%;
+    width: 45%;
     height: auto;
     margin: auto;
     display: block;
@@ -42,4 +42,8 @@ body {
 
 .section-header {
     text-decoration: underline;
+}
+
+.force-inline-block {
+    display: inline-block;
 }
