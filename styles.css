@@ -36,7 +36,7 @@ body {
 .max-width-img {
     width: 50%;
     height: auto;
-    /* margin: auto; */
+    margin: auto;
     display: block;
 }
 
