@@ -34,8 +34,12 @@ body {
 }
 
 .max-width-img {
-    width: 300px;
+    width: 50%;
     height: auto;
     /* margin: auto; */
     display: block;
+}
+
+.section-header {
+    text-decoration: underline;
 }
