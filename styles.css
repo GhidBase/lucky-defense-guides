@@ -1,0 +1,29 @@
+/* 
+    Dark Brown (Background & Panels): #4A3C30
+    Light Brown (Subpanels & Tabs): #8C7B6B
+    Gold (Icons & Highlights): #D9B44A
+    Teal (Active Selections & Headers): #417D7A
+    Red (Critical Elements): #C34D42
+    Off-White (Text): #E8E1D9
+    Dark Gray (Secondary Text & Icons): #5C5348
+*/
+body {
+    background-color: #4A3C30;
+}
+
+.main-title {
+    color: #E8E1D9;
+    padding: 8px;
+    width: 450px;
+    margin: auto;
+    text-align: center;
+    background-color: #8C7B6B;
+}
+
+.main-body {
+    color: #E8E1D9;
+    background-color: #8C7B6B;
+    width: 600px;
+    margin: 20px auto;
+    padding: 4px 16px;
+}
