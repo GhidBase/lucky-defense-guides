@@ -32,3 +32,10 @@ body {
     text-align: center;
     display: block;
 }
+
+.max-width-img {
+    width: 300px;
+    height: auto;
+    /* margin: auto; */
+    display: block;
+}
