@@ -40,10 +40,21 @@ body {
     display: block;
 }
 
+.max-width-img-23 {
+    width: 23%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
 .section-header {
     text-decoration: underline;
 }
 
 .force-inline-block {
     display: inline-block;
+}
+
+.middle {
+    text-align: center;
 }
