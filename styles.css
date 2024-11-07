@@ -6,6 +6,29 @@
     Red (Critical Elements): #C34D42
     Off-White (Text): #E8E1D9
     Dark Gray (Secondary Text & Icons): #5C5348
+
+    Flex notes:
+        justify-content: space-between;
+        This adds an even amount of space between objects in a
+        flex container (use padding to keep the items from
+        touching the edges)
+
+        justify-content: center;
+        This moves all the objects so that they're at the center
+        of the container.
+
+        align-items: center;
+        Centers objects along the vertical axis
+
+        gap: 8px;
+        Adding this to a centered flex container will add a gap
+        to all objects in the container
+
+        Note: if flex-direction is column instead of the default
+        row, justify-content modifies the vertical axis instead.
+        To adjust on the horizontal axis still, you would want to
+        use align-items. I assume this axis swap affects gap as
+        well as all other things like it
 */
 body {
     background-color: #4A3C30;
