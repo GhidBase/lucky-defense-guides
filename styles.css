@@ -17,8 +17,29 @@
         This moves all the objects so that they're at the center
         of the container.
 
+        other justify-content options:
+            - space-evenly
+            - space-around
+            - flex-end (the opposite of the default)
+
         align-items: center;
-        Centers objects along the vertical axis
+        Centers objects along the vertical axis - also removes
+        stretching on the off axis
+
+        align-items notes:
+        align-items has these settings
+            - center
+            - flex-start
+            - flex-end
+            - baseline
+            - stretch (default)
+
+        align-self
+        align-self is a child property, not a container property.
+        The values are the same as align-items but on a per item
+        basis. Technically, the container setting align-items is
+        a syntactic sugar that simply automatically sets the
+        alignment on all it's children at once.
 
         gap: 8px;
         Adding this to a centered flex container will add a gap
@@ -29,12 +50,161 @@
         To adjust on the horizontal axis still, you would want to
         use align-items. I assume this axis swap affects gap as
         well as all other things like it
+
+        flex-basis
+        the size of the child on the main axis. 300px flex-basis = 300px width
+        If the container is too small, the children will shrink proportionally
+        e.g. if they shrink, they all shrink by the same percentage.
+
+        flex-shrink + flex-grow
+        flex shrink and flex-grow basically adjust like this:
+        if each of 3 flex objects have the same grow value
+        of 1, the total between them is 3. So each item will
+        take 1/3 the space. If one has 2 flex-grow, the total
+        is 4. The one with 2 will take 2/4, and the other 2
+        will take 1/4 each. Shrink is the same, staying in
+        this proportion
+        
+        grow is how extra space is distributed
+        shrink is how space is removed to fit
+        0 opts out of the grow/shrink process
+
+        sometimes, when you have a flex-shrink value of 1, even though it should
+        shrink down all the way, it doesn't for some reason. This is often
+        because the minimum size has default values for certain objects. For
+        example, text-inputs on browsers have a minimum size of 170px-200px
+        (it varies between browsers). Also, often things won't shrink past
+        the size of the longest full word. We can redefine the minimum size
+        using min-width. Setting min-width: 0px will allow things to shrink
+        as small as needed.
+
+        For the sidebar, using justify-content:flex-start and
+        gap: (some amount of pixels) should work
+
+        Auto margins will gobble up any extra space like flex-grow usually does
+        for example: having a list of three items in a flex container, and giving
+        the first item in the container margin-right: auto will keep the first
+        item all the way to left, and add the rest of the space between it and
+        the other two items in the flex container
+
+        Giving it margin-left and margin-right will make both margins fill the
+        empty space with an even amount of margin on each side
+
+        border-radius to make objects look nicer
+
+        flex-wrap: wrap
+        Items with this property won't shrink below their size unless wrapping
+        onto the next column isn't an option
+        
+        Using wrapping, since every wrap creates another instance of the main
+        axis's row or column (based on flex-direction), align-items will adjust
+        items on their off-axis, within the bounds of that main axis's row or
+        columns range. align-items has
+            - flex-start
+            - center
+            - flex-end
+            - stretch
+
+        To adjust the actual main axis row or column itself, you have to use
+        align-content, which has
+            - flex-start
+            - center
+            - flex-end
+            - stretch
+            - space-between
+            - space-around
+            - space-evenly
+
 */
 body {
     background-color: #4A3C30;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.main-title {
+.footer,
+.header {
+    background-color: #8C7B6B;
+    height: 50px;
+    display: flex;
+}
+
+.header {
+    box-shadow: 2px 4px 16px rgba(0,0,0,.3);
+}
+
+.footer {
+    margin-top: auto;
+    box-shadow: 2px -4px 16px rgba(0,0,0,.3);
+}
+
+.title {
+    background-color: #8C7B6B;
+    padding: 8px 16px 8px 16px;
+    display: flex;
+    align-self: center;
+    margin-top: 125px;
+    border-radius: 8px;
+    border: 4px solid #352b22;
+    font-size: 40px;
+    box-shadow: 2px 4px 16px rgba(0,0,0,.3);
+}
+
+.main-body {
+    background-color: #8C7B6B;
+    padding: 8px 16px 8px 16px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-top: 40px;
+    border-radius: 8px;
+    border: 4px solid #352b22;
+    /* font-size: 40px; */
+    box-shadow: 2px 4px 16px rgba(0,0,0,.3);
+    max-width: 800px;
+    flex: 1;
+    margin-bottom: 100px;
+}
+
+.flex-row {
+    display: flex;
+}
+
+
+
+
+
+/* GENERAL SETTINGS */
+
+.middle {
+    align-self: center;
+}
+
+.max-width-img {
+    width: 45%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+.max-width-img-23 {
+    width: 23%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+.centered-text-block {
+    text-align: center;
+    display: block;
+}
+
+
+
+/* .main-title {
     color: #E8E1D9;
     padding: 8px;
     width: 450px;
@@ -81,3 +251,5 @@ body {
 .middle {
     text-align: center;
 }
+*/
+
