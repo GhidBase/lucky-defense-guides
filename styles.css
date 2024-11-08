@@ -125,6 +125,10 @@ body {
     justify-content: flex-end;
 }
 
+ul {
+    margin: 0;
+}
+
 .footer,
 .header {
     background-color: #8C7B6B;
@@ -146,7 +150,7 @@ body {
     padding: 8px 16px 8px 16px;
     display: flex;
     align-self: center;
-    margin-top: 125px;
+    margin-top: 40px;
     border-radius: 8px;
     border: 4px solid #352b22;
     font-size: 40px;
@@ -158,21 +162,54 @@ body {
     padding: 8px 16px 8px 16px;
     display: flex;
     flex-direction: column;
-    align-self: center;
-    margin-top: 40px;
+    /* align-self: flex-start; */
+    
     border-radius: 8px;
     border: 4px solid #352b22;
     /* font-size: 40px; */
     box-shadow: 2px 4px 16px rgba(0,0,0,.3);
     max-width: 800px;
     flex: 1;
-    margin-bottom: 100px;
 }
 
 .flex-row {
     display: flex;
 }
 
+.side-bar-body-row {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: stretch;
+}
+
+.side-bar {
+    background-color: #8C7B6B;
+    padding: 8px 16px 8px 16px;
+    display: flex;
+    flex-direction: column;
+    /* align-self: center; */
+    /* text-align: center; */
+    
+    border-radius: 8px;
+    border: 4px solid #352b22;
+    /* font-size: 40px; */
+    box-shadow: 2px 4px 16px rgba(0,0,0,.3);
+    max-width: 180px;
+    /* min-height: 500px; */
+    flex: 1;
+}
+
+.side-bar > ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-bar > ul > li {
+    padding-bottom: 8px;
+}
 
 
 
@@ -201,6 +238,8 @@ body {
     text-align: center;
     display: block;
 }
+
+
 
 
 
