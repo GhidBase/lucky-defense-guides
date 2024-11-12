@@ -160,8 +160,6 @@ ul {
 .main-body {
     background-color: #8C7B6B;
     padding: 8px 16px 8px 16px;
-    display: flex;
-    flex-direction: column;
     /* align-self: flex-start; */
     
     border-radius: 8px;
@@ -218,6 +216,10 @@ ul {
     justify-content: center;
     align-items: center;
     gap: 8px;
+}
+
+h2 {
+    text-decoration: underline;
 }
 
 
