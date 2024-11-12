@@ -211,6 +211,15 @@ ul {
     padding-bottom: 8px;
 }
 
+.view-counter {
+    display: flex;
+    margin-top: auto;
+    
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
 
 
 
