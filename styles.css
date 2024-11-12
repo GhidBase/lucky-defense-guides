@@ -116,12 +116,15 @@
             - space-evenly
 
 */
+
+
 body {
     background-color: #4A3C30;
     min-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
+    color: black;
     /* justify-content: flex-end; */
 }
 
@@ -250,56 +253,4 @@ h2 {
     display: block;
 }
 
-
-
-
-
-/* .main-title {
-    color: #E8E1D9;
-    padding: 8px;
-    width: 450px;
-    margin: auto;
-    text-align: center;
-    background-color: #8C7B6B;
-}
-
-.main-body {
-    color: #E8E1D9;
-    background-color: #8C7B6B;
-    width: 600px;
-    margin: 20px auto;
-    padding: 4px 16px;
-}
-
-.centered-text-block {
-    text-align: center;
-    display: block;
-}
-
-.max-width-img {
-    width: 45%;
-    height: auto;
-    margin: auto;
-    display: block;
-}
-
-.max-width-img-23 {
-    width: 23%;
-    height: auto;
-    margin: auto;
-    display: block;
-}
-
-.section-header {
-    text-decoration: underline;
-}
-
-.force-inline-block {
-    display: inline-block;
-}
-
-.middle {
-    text-align: center;
-}
-*/
 
