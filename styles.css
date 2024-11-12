@@ -23,7 +23,7 @@
             - flex-end (the opposite of the default)
 
         align-items: center;
-        Centers objects along the vertical axis - also removes
+        Centers objects along the main axis - also removes
         stretching on the off axis
 
         align-items notes:
