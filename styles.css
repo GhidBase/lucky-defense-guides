@@ -225,7 +225,23 @@ h2 {
     text-decoration: underline;
 }
 
-
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+table th {
+    background-color: #007bff;
+    color: white;
+}
+table tr {
+    background-color: #f2f2f236;
+}
 
 
 /* GENERAL SETTINGS */
