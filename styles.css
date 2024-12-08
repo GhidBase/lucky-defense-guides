@@ -1,122 +1,3 @@
-/* 
-    Dark Brown (Background & Panels): #4A3C30
-    Light Brown (Subpanels & Tabs): #8C7B6B
-    Gold (Icons & Highlights): #D9B44A
-    Teal (Active Selections & Headers): #417D7A
-    Red (Critical Elements): #C34D42
-    Off-White (Text): #E8E1D9
-    Dark Gray (Secondary Text & Icons): #5C5348
-
-    Flex notes:
-        justify-content: space-between;
-        This adds an even amount of space between objects in a
-        flex container (use padding to keep the items from
-        touching the edges)
-
-        justify-content: center;
-        This moves all the objects so that they're at the center
-        of the container.
-
-        other justify-content options:
-            - space-evenly
-            - space-around
-            - flex-end (the opposite of the default)
-
-        align-items: center;
-        Centers objects along the main axis - also removes
-        stretching on the off axis
-
-        align-items notes:
-        align-items has these settings
-            - center
-            - flex-start
-            - flex-end
-            - baseline
-            - stretch (default)
-
-        align-self
-        align-self is a child property, not a container property.
-        The values are the same as align-items but on a per item
-        basis. Technically, the container setting align-items is
-        a syntactic sugar that simply automatically sets the
-        alignment on all it's children at once.
-
-        gap: 8px;
-        Adding this to a centered flex container will add a gap
-        to all objects in the container
-
-        Note: if flex-direction is column instead of the default
-        row, justify-content modifies the vertical axis instead.
-        To adjust on the horizontal axis still, you would want to
-        use align-items. I assume this axis swap affects gap as
-        well as all other things like it
-
-        flex-basis
-        the size of the child on the main axis. 300px flex-basis = 300px width
-        If the container is too small, the children will shrink proportionally
-        e.g. if they shrink, they all shrink by the same percentage.
-
-        flex-shrink + flex-grow
-        flex shrink and flex-grow basically adjust like this:
-        if each of 3 flex objects have the same grow value
-        of 1, the total between them is 3. So each item will
-        take 1/3 the space. If one has 2 flex-grow, the total
-        is 4. The one with 2 will take 2/4, and the other 2
-        will take 1/4 each. Shrink is the same, staying in
-        this proportion
-        
-        grow is how extra space is distributed
-        shrink is how space is removed to fit
-        0 opts out of the grow/shrink process
-
-        sometimes, when you have a flex-shrink value of 1, even though it should
-        shrink down all the way, it doesn't for some reason. This is often
-        because the minimum size has default values for certain objects. For
-        example, text-inputs on browsers have a minimum size of 170px-200px
-        (it varies between browsers). Also, often things won't shrink past
-        the size of the longest full word. We can redefine the minimum size
-        using min-width. Setting min-width: 0px will allow things to shrink
-        as small as needed.
-
-        For the sidebar, using justify-content:flex-start and
-        gap: (some amount of pixels) should work
-
-        Auto margins will gobble up any extra space like flex-grow usually does
-        for example: having a list of three items in a flex container, and giving
-        the first item in the container margin-right: auto will keep the first
-        item all the way to left, and add the rest of the space between it and
-        the other two items in the flex container
-
-        Giving it margin-left and margin-right will make both margins fill the
-        empty space with an even amount of margin on each side
-
-        border-radius to make objects look nicer
-
-        flex-wrap: wrap
-        Items with this property won't shrink below their size unless wrapping
-        onto the next column isn't an option
-        
-        Using wrapping, since every wrap creates another instance of the main
-        axis's row or column (based on flex-direction), align-items will adjust
-        items on their off-axis, within the bounds of that main axis's row or
-        columns range. align-items has
-            - flex-start
-            - center
-            - flex-end
-            - stretch
-
-        To adjust the actual main axis row or column itself, you have to use
-        align-content, which has
-            - flex-start
-            - center
-            - flex-end
-            - stretch
-            - space-between
-            - space-around
-            - space-evenly
-
-*/
-
 
 /*
     Colors
@@ -127,6 +8,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
 
+html, body {
+    width: 100%;
+}
 
 body {
     background: repeating-linear-gradient(
@@ -213,9 +97,6 @@ ul {
 
 .main-body {
     padding: 8px 16px 8px 16px;
-    /* align-self: flex-start; */
-    
-    /* font-size: 40px; */
     box-shadow: 2px 4px 16px rgba(0,0,0,.3);
     max-width: 800px;
     flex: 1;
