@@ -1,0 +1,54 @@
+.recruitment-simulator {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+    gap: 20px;
+    
+    width: 90%;
+    height: 300px;
+    border-radius: 12px;
+
+    background: repeating-linear-gradient(
+                to right, 
+                #794E3B, /* Reddish Brown */
+                #794E3B 50px, /* Adjust width of each column */
+                #845744 50px, /* Second color starts here */
+                #845744 100px /* Second column width */
+            );
+    border: 4px solid #352b22;
+}
+
+.recruitment-simulator .title {
+    font-size: 40px;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.recruitment-simulator .inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
+    width: 90%;
+    height: 100%;
+    border-radius: 12px;
+
+    background-color: #d1bc9f;
+    border: 2px solid #352b22;
+}
+
+.recruitment-simulator .inner .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px;
+}
+
+.recruitment-simulator .inner .button-container button {
+    width: 20%;
+}
