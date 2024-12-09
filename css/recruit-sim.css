@@ -67,11 +67,18 @@
 .recruitment-simulator .inner .results-container div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
     padding: 12px;
 }
 
-.underline {
+.recruitment-simulator .inner .results-container div ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.recruitment-simulator .inner .results-container div ul .underline {
     text-decoration: underline;
+    padding-top: 0px;
+    padding-bottom: 12px;
 }
