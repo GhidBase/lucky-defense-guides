@@ -35,7 +35,7 @@ function calculatePulls() {
     }
     console.clear();
     console.table(recruitPulls)
-    console.log(pull.name)
+    console.log(pull)
     inputField.value = pull.name + " " + pull.acquisition;
 
 }
@@ -48,15 +48,6 @@ function getRandomPull() {
     for (const pull of pullTypes) {
         cumulativeChance += pull.chance;
 
-        // if (randomChance <= cumulativeChance && pull.acquireChance < randomChance2) {
-        //     let guardian = !pull.possibleGuardians ? pull.name : pull.possibleGuardians[Math.trunc(Math.random() * pull.possibleGuardians.length)]; 
-        //     return {pullType: pull.name, acquisition: true, name: guardian};
-        // }
-        // if (randomChance <= cumulativeChance && !pull.acquireChance < randomChance2) {
-        //     let guardian = !pull.possibleGuardians ? pull.name : pull.possibleGuardians[Math.trunc(Math.random() * pull.possibleGuardians.length)];
-        //     return {pullType: pull.name, acquisition: false, name: guardian};
-        // }
-
         if (randomChance <= cumulativeChance) {
             let randomChance3 = null;
             let guardian = pull.name;
@@ -68,7 +59,6 @@ function getRandomPull() {
                 guardian = pull.possibleGuardians[randomChance3];
             }
 
-            console.log(pullType)
             return {pullType: pullType, acquisition: acquisition, name: guardian}
         }
 
