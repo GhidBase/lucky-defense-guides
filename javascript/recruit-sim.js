@@ -8,8 +8,8 @@ let recruitPulls = {};
 
 const commons = [ "Archer", "Thrower", "Barbarian", "Water Elemental", "Bandit" ];
 
-const units = [
-    { name: "Common", chance: 30.8642, acquireChance: 50, possibleUnits: commons},
+const pullTypes = [
+    { name: "Common", chance: 30.8642, acquireChance: 50, possibleGuardians: commons},
     { name: "Rare", chance: 18.51585, acquireChance: 50 },
     { name: "Epic", chance: 12.3457, acquireChance: 50 },
     { name: "Legendary", chance: 9.2593, acquireChance: 50 },
@@ -28,28 +28,32 @@ function calculatePulls() {
     let singlePulls = Math.trunc(inputField.value / 30);
     let tenPulls = Math.trunc(inputField.value / 300);
 
-    let pull = getRandomUnit();
+    let pull = getRandomPull();
+    // using the pull type property will return "common" instead of "bandit"
     if (pull.acquisition) {
-        recruitPulls[pull.unit] ? recruitPulls[pull.unit] += 1 : recruitPulls[pull.unit] = 1;
+        recruitPulls[pull.name] ? recruitPulls[pull.name] += 1 : recruitPulls[pull.name] = 1;
     }
     console.clear();
     console.table(recruitPulls)
-    inputField.value = pull.unit + " " + pull.acquisition;
+    console.log(pull.name)
+    inputField.value = pull.name + " " + pull.acquisition;
 
 }
 
-function getRandomUnit() {
+function getRandomPull() {
     const randomChance = Math.random() * 100;
     const randomChance2 = Math.random() * 100;
 
     let cumulativeChance = 0;
-    for (const unit of units) {
-        cumulativeChance += unit.chance;
-        if (randomChance <= cumulativeChance && unit.acquireChance < randomChance2) {
-            return {unit: unit.name, acquisition: true};
+    for (const pull of pullTypes) {
+        cumulativeChance += pull.chance;
+        if (randomChance <= cumulativeChance && pull.acquireChance < randomChance2) {
+            let guardian = !pull.possibleGuardians ? pull.name : pull.possibleGuardians[Math.trunc(Math.random() * pull.possibleGuardians.length)]; 
+            return {pullType: pull.name, acquisition: true, name: guardian};
         }
-        if (randomChance <= cumulativeChance && !unit.acquireChance < randomChance2) {
-            return {unit: unit.name, acquisition: false};
+        if (randomChance <= cumulativeChance && !pull.acquireChance < randomChance2) {
+            let guardian = !pull.possibleGuardians ? pull.name : pull.possibleGuardians[Math.trunc(Math.random() * pull.possibleGuardians.length)];
+            return {pullType: pull.name, acquisition: false, name: guardian};
         }
 
     }
