@@ -52,3 +52,26 @@
 .recruitment-simulator .inner .button-container button {
     width: 20%;
 }
+
+.recruitment-simulator .inner .button-container input {
+    /* min-width: 0px; */
+    width: 20%;
+}
+
+.recruitment-simulator .inner .results-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px;
+}
+
+.recruitment-simulator .inner .results-container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+}
+
+.underline {
+    text-decoration: underline;
+}
