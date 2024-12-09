@@ -47,13 +47,29 @@ function getRandomPull() {
     let cumulativeChance = 0;
     for (const pull of pullTypes) {
         cumulativeChance += pull.chance;
-        if (randomChance <= cumulativeChance && pull.acquireChance < randomChance2) {
-            let guardian = !pull.possibleGuardians ? pull.name : pull.possibleGuardians[Math.trunc(Math.random() * pull.possibleGuardians.length)]; 
-            return {pullType: pull.name, acquisition: true, name: guardian};
-        }
-        if (randomChance <= cumulativeChance && !pull.acquireChance < randomChance2) {
-            let guardian = !pull.possibleGuardians ? pull.name : pull.possibleGuardians[Math.trunc(Math.random() * pull.possibleGuardians.length)];
-            return {pullType: pull.name, acquisition: false, name: guardian};
+
+        // if (randomChance <= cumulativeChance && pull.acquireChance < randomChance2) {
+        //     let guardian = !pull.possibleGuardians ? pull.name : pull.possibleGuardians[Math.trunc(Math.random() * pull.possibleGuardians.length)]; 
+        //     return {pullType: pull.name, acquisition: true, name: guardian};
+        // }
+        // if (randomChance <= cumulativeChance && !pull.acquireChance < randomChance2) {
+        //     let guardian = !pull.possibleGuardians ? pull.name : pull.possibleGuardians[Math.trunc(Math.random() * pull.possibleGuardians.length)];
+        //     return {pullType: pull.name, acquisition: false, name: guardian};
+        // }
+
+        if (randomChance <= cumulativeChance) {
+            let randomChance3 = null;
+            let guardian = pull.name;
+            let acquisition = pull.acquireChance < randomChance2 ? true : false;
+            let pullType = pull.name;
+
+            if (pull.possibleGuardians) {
+                randomChance3 = Math.trunc(Math.random() * pull.possibleGuardians.length);
+                guardian = pull.possibleGuardians[randomChance3];
+            }
+
+            console.log(pullType)
+            return {pullType: pullType, acquisition: acquisition, name: guardian}
         }
 
     }
