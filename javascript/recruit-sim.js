@@ -3,11 +3,13 @@ let useScrollsButton = document.querySelector("#use-scrolls-button");
 useScrollsButton.addEventListener("click",calculatePulls);
 let singlePullList = document.querySelector("#singleList");
 let tenPullList = document.querySelector("#tenList");
-let pulledUnits = {};
+let recruitPulls = {};
 
+
+const commons = [ "Archer", "Thrower", "Barbarian", "Water Elemental", "Bandit" ];
 
 const units = [
-    { name: "Common", chance: 30.8642, acquireChance: 50 },
+    { name: "Common", chance: 30.8642, acquireChance: 50, possibleUnits: commons},
     { name: "Rare", chance: 18.51585, acquireChance: 50 },
     { name: "Epic", chance: 12.3457, acquireChance: 50 },
     { name: "Legendary", chance: 9.2593, acquireChance: 50 },
@@ -26,13 +28,13 @@ function calculatePulls() {
     let singlePulls = Math.trunc(inputField.value / 30);
     let tenPulls = Math.trunc(inputField.value / 300);
 
-    let pulledUnit = getRandomUnit();
-    if (pulledUnit.acquisition) {
-        pulledUnits[pulledUnit.unit] ? pulledUnits[pulledUnit.unit] += 1 : pulledUnits[pulledUnit.unit] = 1;
+    let pull = getRandomUnit();
+    if (pull.acquisition) {
+        recruitPulls[pull.unit] ? recruitPulls[pull.unit] += 1 : recruitPulls[pull.unit] = 1;
     }
     console.clear();
-    console.table(pulledUnits)
-    inputField.value = pulledUnit.unit + " " + pulledUnit.acquisition;
+    console.table(recruitPulls)
+    inputField.value = pull.unit + " " + pull.acquisition;
 
 }
 
@@ -55,6 +57,7 @@ function getRandomUnit() {
     // Covers possible edge cases where rounding errors might occur
     throw new Error("Probabilities do not sum to 100.");
 }
+
 
 
 
