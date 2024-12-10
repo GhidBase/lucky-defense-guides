@@ -55,10 +55,12 @@ function calculatePulls() {
     
     console.table(oneXPulls)
 
+    singlePullList.replaceChildren();
     for(item of oneXPulls) {
         addItemToList(singlePullList, item.name + " " + item.collected);
     }
 
+    tenPullList.replaceChildren();
     for(item of tenXPulls) {
         addItemToList(tenPullList, item.name + " " + item.collected);
     }
