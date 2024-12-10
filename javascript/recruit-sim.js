@@ -55,6 +55,10 @@ function calculatePulls() {
     
     console.table(oneXPulls)
 
+    for(item of oneXPulls) {
+        addItemToList(singlePullList, item.name + " " + item.collected);
+    }
+
 }
 
 function getRandomPull() {
@@ -141,3 +145,8 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
     }))
 }
 
+function addItemToList(listChoice, text) {
+    let listItem = document.createElement("li");
+    listItem.textContent = text;
+    listChoice.appendChild(listItem);
+}
