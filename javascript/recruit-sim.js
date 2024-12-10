@@ -53,10 +53,11 @@ function calculatePulls() {
         return sortOrder.indexOf(a.type) - sortOrder.indexOf(b.type);
     });
     
-    console.table(oneXPulls)
 
+    oneXPulls = sumResources(oneXPulls);
     displayListOnScreen(singlePullList, oneXPulls);
 
+    tenXPulls = sumResources(tenXPulls);
     displayListOnScreen(tenPullList, tenXPulls);
 
 }
@@ -158,6 +159,87 @@ function addItemToList(listChoice, text) {
     listChoice.appendChild(listItem);
 }
 
+function sumGoldValues(list) {
+    goldless = list.filter((item) => {
+        return (!item.name.includes("Gold +200") && !item.name.includes("Gold +400") && !item.name.includes("Gold +600"))
+    });
+
+    goldOnly = list.filter((item) => {
+        return (item.name.includes("Gold +200") || item.name.includes("Gold +400") || item.name.includes("Gold +600"))
+    });
+
+    let totalGold = goldOnly.reduce((total, item) => {
+        return total += item.name.split(" ")[1] * item.collected
+    },0)
+
+    if (totalGold > 0) {
+        goldless.push({
+            name: "Gold",
+            collected: totalGold,
+            type: "Gold",
+        })
+    }
+
+
+    return goldless
+}
+
+function sumMythicStonesValues(list) {
+    stoneless = list.filter((item) => {
+        return (!item.name.includes("Stone"))
+    });
+
+    stonesOnly = list.filter((item) => {
+        return (item.name.includes("Mythic Stone +1") || item.name.includes("Mythic Stone +2"))
+    });
+
+    let totalStones = stonesOnly.reduce((total, item) => {
+        return total += item.name.split(" ")[2] * item.collected
+    },0)
+
+    if (totalStones > 0) {stoneless.push({
+        name: "Mythic Stones",
+        collected: totalStones,
+        type: "Mythic Stones",
+        })
+    }
+
+    
+
+    return stoneless
+}
+
+function sumDiamondValues(list) {
+    diamondless = list.filter((item) => {
+        return (!item.name.includes("Diamond"))
+    });
+
+    diamondOnly = list.filter((item) => {
+        return (item.name.includes("Diamond +10") || item.name.includes("Diamond +20") || item.name.includes("Diamond +30"))
+    });
+
+    let totalDiamond = diamondOnly.reduce((total, item) => {
+        return total += item.name.split(" ")[1] * item.collected
+    },0)
+
+    if (totalDiamond > 0) {diamondless.push({
+        name: "Diamond",
+        collected: totalDiamond,
+        type: "Diamond",
+        })
+    }
+
+    
+
+    return diamondless
+}
+
+function sumResources(pulls) {
+    let summedResources = sumGoldValues(pulls);
+    summedResources = sumDiamondValues(summedResources);
+    summedResources = sumMythicStonesValues(summedResources);
+    return summedResources;
+}
 /*
     GOALS
     - sum gold/diamonds/mythic stones
@@ -166,4 +248,10 @@ function addItemToList(listChoice, text) {
     - show the number of double/triple pulls
     - pull until you get a mythic
 
+    PLAN FOR SUM GOLD
+    Filter gold values and Filter non gold values
+    Reduce gold values
+    Push the new gold value to non gold value list
+
 */
+
