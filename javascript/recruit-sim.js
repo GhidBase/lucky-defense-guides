@@ -19,7 +19,7 @@ const guardians = {
 
 const pullTypes = [
     { name: "Common", chance: 30.8642, acquireChance: 50, possibleGuardians: guardians.commons },
-    { name: "Rare", chance: 18.51585, acquireChance: 50, possibleGuardians: guardians.rares },
+    { name: "Rare", chance: 18.5185, acquireChance: 50, possibleGuardians: guardians.rares },
     { name: "Epic", chance: 12.3457, acquireChance: 50, possibleGuardians: guardians.epics },
     { name: "Legendary", chance: 9.2593, acquireChance: 50, possibleGuardians: guardians.legendaries },
     { name: "Mythic", chance: 1.8519, acquireChance: 5, possibleGuardians: guardians.mythics },
@@ -39,11 +39,12 @@ function calculatePulls() {
     let tenPulls = Math.trunc(inputField.value / 300);
     let pull;
 
-    let pullsPerBatch = 10;
+    let pullsPerBatch = 100;
     for (i = 0; i < pullsPerBatch; i++) {
         let pull = getRandomPull();
         addPullToList(pull);
     }
+
     console.table(recruitPulls)
     console.log(pull)
 
@@ -52,6 +53,8 @@ function calculatePulls() {
 function getRandomPull() {
     const randomChance = Math.random() * 100;
     const randomChance2 = Math.random() * 100;
+    // console.log(randomChance);
+    // console.log(randomChance2)
 
     let cumulativeChance = 0;
     for (const pull of pullTypes) {
@@ -60,7 +63,7 @@ function getRandomPull() {
         if (randomChance <= cumulativeChance) {
             let randomChance3 = null;
             let guardian = pull.name;
-            let acquisition = pull.acquireChance < randomChance2 ? true : false;
+            let acquisition = pull.acquireChance > randomChance2 ? true : false;
             let pullType = pull.name;
 
             if (pull.possibleGuardians) {
