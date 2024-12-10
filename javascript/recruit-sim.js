@@ -55,57 +55,16 @@ function calculatePulls() {
     
     console.table(oneXPulls)
 
-    singlePullList.replaceChildren();
-    for(item of oneXPulls) {
-        addItemToList(singlePullList, item.name + " " + item.collected);
-    }
+    displayListOnScreen(singlePullList, oneXPulls);
 
-    tenPullList.replaceChildren();
-    for(item of tenXPulls) {
-        addItemToList(tenPullList, item.name + " " + item.collected);
-    }
+    displayListOnScreen(tenPullList, tenXPulls);
 
 }
 
-function getRandomPull() {
-    const randomChance = Math.random() * 100;
-    const randomChance2 = Math.random() * 100;
-
-    let cumulativeChance = 0;
-    for (const pull of pullTypes) {
-        cumulativeChance += pull.chance;
-
-        if (randomChance <= cumulativeChance) {
-            let randomChance3 = null;
-            let guardian = pull.name;
-            let acquisition = pull.acquireChance > randomChance2 ? true : false;
-            let pullType = pull.name;
-
-            if (pull.possibleGuardians) {
-                randomChance3 = Math.trunc(Math.random() * pull.possibleGuardians.length);
-                guardian = pull.possibleGuardians[randomChance3];
-            }
-
-            return {pullType: pullType, acquisition: acquisition, name: guardian}
-        }
-
-    }
-
-    // Covers possible edge cases where rounding errors might occur
-    throw new Error("Probabilities do not sum to 100.");
-}
-
-function addPullToList(pull, recruitPulls, pullIncrement) {
-    if (pull.acquisition) {
-        if (!recruitPulls[pull.name]) {
-            recruitPulls[pull.name] = pull;
-            recruitPulls[pull.name].collected = 0;
-        }
-        recruitPulls[pull.name].collected += pullIncrement;
-        return true;
-    }
-    else {
-        return false;
+function displayListOnScreen(list, pulls) {
+    list.replaceChildren();
+    for(item of pulls) {
+        addItemToList(list, item.name + " " + item.collected);
     }
 }
 
@@ -149,6 +108,48 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
         collected: item.collected,
         type: item.pullType
     }))
+}
+
+function getRandomPull() {
+    const randomChance = Math.random() * 100;
+    const randomChance2 = Math.random() * 100;
+
+    let cumulativeChance = 0;
+    for (const pull of pullTypes) {
+        cumulativeChance += pull.chance;
+
+        if (randomChance <= cumulativeChance) {
+            let randomChance3 = null;
+            let guardian = pull.name;
+            let acquisition = pull.acquireChance > randomChance2 ? true : false;
+            let pullType = pull.name;
+
+            if (pull.possibleGuardians) {
+                randomChance3 = Math.trunc(Math.random() * pull.possibleGuardians.length);
+                guardian = pull.possibleGuardians[randomChance3];
+            }
+
+            return {pullType: pullType, acquisition: acquisition, name: guardian}
+        }
+
+    }
+
+    // Covers possible edge cases where rounding errors might occur
+    throw new Error("Probabilities do not sum to 100.");
+}
+
+function addPullToList(pull, recruitPulls, pullIncrement) {
+    if (pull.acquisition) {
+        if (!recruitPulls[pull.name]) {
+            recruitPulls[pull.name] = pull;
+            recruitPulls[pull.name].collected = 0;
+        }
+        recruitPulls[pull.name].collected += pullIncrement;
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 function addItemToList(listChoice, text) {
