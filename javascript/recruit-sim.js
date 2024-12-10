@@ -17,6 +17,7 @@ const guardians = {
     ]
 }
 
+// NOTE: Colors for Diamond and Mythic Stones are in sumDiamondValues and sumMythicStoneValues
 const pullTypes = [
     { name: "Common", chance: 30.8642, acquireChance: 50, possibleGuardians: guardians.commons },
     { name: "Rare", chance: 18.5185, acquireChance: 50, possibleGuardians: guardians.rares, textColor: "blue" },
@@ -211,6 +212,7 @@ function sumMythicStonesValues(list) {
         name: "Mythic Stones",
         collected: totalStones,
         type: "Mythic Stones",
+        textColor: "#e81313"
         })
     }
 
@@ -236,6 +238,7 @@ function sumDiamondValues(list) {
         name: "Diamond",
         collected: totalDiamond,
         type: "Diamond",
+        textColor: "#88adb9"
         })
     }
 
