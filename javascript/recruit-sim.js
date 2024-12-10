@@ -34,16 +34,38 @@ const pullTypes = [
 ];
 
 function calculatePulls() {
-    console.clear();
+    // console.clear();
     let singlePulls = Math.trunc(inputField.value / 30);
     let tenPulls = Math.trunc(inputField.value / 300);
     let pull;
+    let rerolls = 0;
+    let reroll = false;
+    let acquiresToReroll = 6;
+    let acquires = 0;
+    let pullsPerBatch = 10
 
-    let pullsPerBatch = 100;
-    for (i = 0; i < pullsPerBatch; i++) {
-        let pull = getRandomPull();
-        addPullToList(pull);
-    }
+    do {
+        
+        for (i = 0; i < pullsPerBatch; i++) {
+            let pull = getRandomPull();
+            if (addPullToList(pull)) {
+                acquires += 1;
+            }
+        }
+        if (acquires >= acquiresToReroll && pullsPerBatch != 14) {
+            reroll = true;
+            // console.log("Reroll " + acquires + "/" + acquiresToReroll);
+            acquires = 0;
+            acquiresToReroll += 1;
+            pullsPerBatch += 1;
+        }
+        else {
+            reroll = false;
+            // console.log(acquires + "/" + acquiresToReroll);
+            acquires = 0;
+            acquiresToReroll = 6;
+        }
+    } while (reroll);
 
     console.table(recruitPulls)
     console.log(pull)
@@ -53,8 +75,6 @@ function calculatePulls() {
 function getRandomPull() {
     const randomChance = Math.random() * 100;
     const randomChance2 = Math.random() * 100;
-    // console.log(randomChance);
-    // console.log(randomChance2)
 
     let cumulativeChance = 0;
     for (const pull of pullTypes) {
@@ -87,6 +107,10 @@ function addPullToList(pull) {
             recruitPulls[pull.name].collected = 0;
         }
         recruitPulls[pull.name].collected += 1;
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
