@@ -3,7 +3,7 @@ let useScrollsButton = document.querySelector("#use-scrolls-button");
 useScrollsButton.addEventListener("click",calculatePulls);
 let singlePullList = document.querySelector("#singleList");
 let tenPullList = document.querySelector("#tenList");
-let recruitPulls = {};
+
 
 const guardians = {
     commons: [ "Archer", "Thrower", "Barbarian", "Water Elemental", "Bandit" ],
@@ -35,40 +35,13 @@ const pullTypes = [
 
 function calculatePulls() {
     // console.clear();
-    let singlePulls = Math.trunc(inputField.value / 30);
-    let tenPulls = Math.trunc(inputField.value / 300);
-    let pull;
-    let rerolls = 0;
-    let reroll = false;
-    let acquiresToReroll = 6;
-    let acquires = 0;
-    let pullsPerBatch = 10
+    let timesToDoOneX = Math.trunc(inputField.value / 30);
+    let oneXPulls = simulateBatchOfRecruiting(timesToDoOneX);
+    let timesToDoTenX = Math.trunc(inputField.value / 300);
+    let tenXPulls = simulateBatchOfRecruiting(timesToDoTenX, 10);
 
-    do {
-        
-        for (i = 0; i < pullsPerBatch; i++) {
-            let pull = getRandomPull();
-            if (addPullToList(pull)) {
-                acquires += 1;
-            }
-        }
-        if (acquires >= acquiresToReroll && pullsPerBatch != 14) {
-            reroll = true;
-            // console.log("Reroll " + acquires + "/" + acquiresToReroll);
-            acquires = 0;
-            acquiresToReroll += 1;
-            pullsPerBatch += 1;
-        }
-        else {
-            reroll = false;
-            // console.log(acquires + "/" + acquiresToReroll);
-            acquires = 0;
-            acquiresToReroll = 6;
-        }
-    } while (reroll);
-
-    console.table(recruitPulls)
-    console.log(pull)
+    console.table(tenXPulls)
+    // console.log(pull)
 
 }
 
@@ -100,13 +73,13 @@ function getRandomPull() {
     throw new Error("Probabilities do not sum to 100.");
 }
 
-function addPullToList(pull) {
+function addPullToList(pull, recruitPulls, pullIncrement) {
     if (pull.acquisition) {
         if (!recruitPulls[pull.name]) {
             recruitPulls[pull.name] = pull;
             recruitPulls[pull.name].collected = 0;
         }
-        recruitPulls[pull.name].collected += 1;
+        recruitPulls[pull.name].collected += pullIncrement;
         return true;
     }
     else {
@@ -114,6 +87,43 @@ function addPullToList(pull) {
     }
 }
 
+function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
+    let pullType = numberOfPulls;
+    let pull;
+    let rerolls = 0;
+    let reroll = false;
+    let acquiresToReroll = 6;
+    let acquires = 0;
+    let pullsPerBatch = 10
+    let recruitPulls = {};
+
+    for (y = 0; y < numberOfPulls; y++) {
+        do {
+        
+            for (i = 0; i < pullsPerBatch; i++) {
+                let pull = getRandomPull();
+                if (addPullToList(pull, recruitPulls, pullIncrement)) {
+                    acquires += 1;
+                }
+            }
+            if (acquires >= acquiresToReroll && pullsPerBatch != 14) {
+                reroll = true;
+                // console.log("Reroll " + acquires + "/" + acquiresToReroll);
+                acquires = 0;
+                acquiresToReroll += 1;
+                pullsPerBatch += 1;
+            }
+            else {
+                reroll = false;
+                // console.log(acquires + "/" + acquiresToReroll);
+                acquires = 0;
+                acquiresToReroll = 6;
+            }
+        } while (reroll);
+    }
+
+    return recruitPulls;
+}
 
 
 /*
