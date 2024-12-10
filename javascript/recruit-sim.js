@@ -59,6 +59,10 @@ function calculatePulls() {
         addItemToList(singlePullList, item.name + " " + item.collected);
     }
 
+    for(item of tenXPulls) {
+        addItemToList(tenPullList, item.name + " " + item.collected);
+    }
+
 }
 
 function getRandomPull() {
