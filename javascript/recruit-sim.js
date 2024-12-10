@@ -19,10 +19,10 @@ const guardians = {
 
 const pullTypes = [
     { name: "Common", chance: 30.8642, acquireChance: 50, possibleGuardians: guardians.commons },
-    { name: "Rare", chance: 18.5185, acquireChance: 50, possibleGuardians: guardians.rares },
-    { name: "Epic", chance: 12.3457, acquireChance: 50, possibleGuardians: guardians.epics },
-    { name: "Legendary", chance: 9.2593, acquireChance: 50, possibleGuardians: guardians.legendaries },
-    { name: "Mythic", chance: 1.8519, acquireChance: 5, possibleGuardians: guardians.mythics },
+    { name: "Rare", chance: 18.5185, acquireChance: 50, possibleGuardians: guardians.rares, textColor: "blue" },
+    { name: "Epic", chance: 12.3457, acquireChance: 50, possibleGuardians: guardians.epics, textColor: "purple" },
+    { name: "Legendary", chance: 9.2593, acquireChance: 50, possibleGuardians: guardians.legendaries, textColor: "yellow" },
+    { name: "Mythic", chance: 1.8519, acquireChance: 5, possibleGuardians: guardians.mythics,textColor: "#e98000" },
     { name: "Gold +200", chance: 6.1728, acquireChance: 50 },
     { name: "Gold +400", chance: 3.0864, acquireChance: 40 },
     { name: "Gold +600", chance: 1.8519, acquireChance: 30 },
@@ -40,7 +40,6 @@ const sortOrder = [
 ];
 
 function calculatePulls() {
-    // console.clear();
     let timesToDoOneX = Math.trunc(inputField.value / 30);
     let oneXPulls = simulateBatchOfRecruiting(timesToDoOneX);
     oneXPulls.sort((a, b) => {
@@ -49,6 +48,7 @@ function calculatePulls() {
 
     let timesToDoTenX = Math.trunc(inputField.value / 300);
     let tenXPulls = simulateBatchOfRecruiting(timesToDoTenX, 10);
+    
     tenXPulls.sort((a, b) => {
         return sortOrder.indexOf(a.type) - sortOrder.indexOf(b.type);
     });
@@ -60,12 +60,16 @@ function calculatePulls() {
     tenXPulls = sumResources(tenXPulls);
     displayListOnScreen(tenPullList, tenXPulls);
 
+    // console.table(oneXPulls)
+
 }
 
 function displayListOnScreen(list, pulls) {
     list.replaceChildren();
     for(item of pulls) {
-        addItemToList(list, item.name + " " + item.collected);
+        // console.log(item)
+        let textColor = item.textColor ? item.textColor : null;
+        addItemToList(list, item.name + " " + item.collected, textColor);
     }
 }
 
@@ -104,10 +108,12 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
         } while (reroll);
     }
 
+    // console.table(Object.entries(recruitPulls)[1])
     return Object.entries(recruitPulls).map(([index, item]) => ({
         name: item.name,
         collected: item.collected,
-        type: item.pullType
+        type: item.pullType,
+        textColor: item.textColor,
     }))
 }
 
@@ -124,13 +130,14 @@ function getRandomPull() {
             let guardian = pull.name;
             let acquisition = pull.acquireChance > randomChance2 ? true : false;
             let pullType = pull.name;
+            let textColor = pull.textColor;
 
             if (pull.possibleGuardians) {
                 randomChance3 = Math.trunc(Math.random() * pull.possibleGuardians.length);
                 guardian = pull.possibleGuardians[randomChance3];
             }
 
-            return {pullType: pullType, acquisition: acquisition, name: guardian}
+            return {pullType: pullType, acquisition: acquisition, name: guardian, textColor: textColor}
         }
 
     }
@@ -153,8 +160,11 @@ function addPullToList(pull, recruitPulls, pullIncrement) {
     }
 }
 
-function addItemToList(listChoice, text) {
+function addItemToList(listChoice, text, optionalColor = null) {
     let listItem = document.createElement("li");
+    if (optionalColor) {
+        listItem.style.color = optionalColor
+    }
     listItem.textContent = text;
     listChoice.appendChild(listItem);
 }
@@ -242,16 +252,11 @@ function sumResources(pulls) {
 }
 /*
     GOALS
-    - sum gold/diamonds/mythic stones
+    - DONE - sum gold/diamonds/mythic stones
     - sum common/rare/epic/legendary/mythic pulls
     - color coding
     - show the number of double/triple pulls
     - pull until you get a mythic
-
-    PLAN FOR SUM GOLD
-    Filter gold values and Filter non gold values
-    Reduce gold values
-    Push the new gold value to non gold value list
 
 */
 
