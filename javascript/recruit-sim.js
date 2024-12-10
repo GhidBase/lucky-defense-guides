@@ -34,18 +34,18 @@ const pullTypes = [
 ];
 
 function calculatePulls() {
+    console.clear();
     let singlePulls = Math.trunc(inputField.value / 30);
     let tenPulls = Math.trunc(inputField.value / 300);
+    let pull;
 
-    let pull = getRandomPull();
-    // using the pull type property will return "common" instead of "bandit"
-    if (pull.acquisition) {
-        recruitPulls[pull.name] = pull;
+    let pullsPerBatch = 10;
+    for (i = 0; i < pullsPerBatch; i++) {
+        let pull = getRandomPull();
+        addPullToList(pull);
     }
-    console.clear();
     console.table(recruitPulls)
     console.log(pull)
-    inputField.value = pull.name + " " + pull.acquisition;
 
 }
 
@@ -77,6 +77,15 @@ function getRandomPull() {
     throw new Error("Probabilities do not sum to 100.");
 }
 
+function addPullToList(pull) {
+    if (pull.acquisition) {
+        if (!recruitPulls[pull.name]) {
+            recruitPulls[pull.name] = pull;
+            recruitPulls[pull.name].collected = 0;
+        }
+        recruitPulls[pull.name].collected += 1;
+    }
+}
 
 
 
