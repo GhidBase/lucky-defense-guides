@@ -33,15 +33,23 @@ const pullTypes = [
     { name: "Diamond +30", chance: 1.8519, acquireChance: 30 },
 ];
 
+const sortOrder = [
+    "Common", "Rare", "Epic", "Legendary", "Mythic", "Gold +200",
+    "Gold +400", "Gold +600", "Diamond +10", "Diamond +20", "Diamond +30",
+    "Mythic Stone +1", "Mythic Stone +2"
+];
+
 function calculatePulls() {
     // console.clear();
     let timesToDoOneX = Math.trunc(inputField.value / 30);
     let oneXPulls = simulateBatchOfRecruiting(timesToDoOneX);
     let timesToDoTenX = Math.trunc(inputField.value / 300);
     let tenXPulls = simulateBatchOfRecruiting(timesToDoTenX, 10);
-
-    console.table(tenXPulls)
-    // console.log(pull)
+    oneXPulls.sort((a, b) => {
+        return sortOrder.indexOf(a.type) - sortOrder.indexOf(b.type);
+    });
+    
+    console.table(oneXPulls)
 
 }
 
@@ -122,7 +130,11 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
         } while (reroll);
     }
 
-    return recruitPulls;
+    return Object.entries(recruitPulls).map(([index, item]) => ({
+        name: item.name,
+        collected: item.collected,
+        type: item.pullType
+    }))
 }
 
 
