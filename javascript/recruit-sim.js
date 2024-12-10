@@ -156,3 +156,13 @@ function addItemToList(listChoice, text) {
     listItem.textContent = text;
     listChoice.appendChild(listItem);
 }
+
+/*
+    GOALS
+    - sum gold/diamonds/mythic stones
+    - sum common/rare/epic/legendary/mythic pulls
+    - color coding
+    - show the number of double/triple pulls
+    - pull until you get a mythic
+
+*/
