@@ -5,15 +5,24 @@ let singlePullList = document.querySelector("#singleList");
 let tenPullList = document.querySelector("#tenList");
 let recruitPulls = {};
 
-
-const commons = [ "Archer", "Thrower", "Barbarian", "Water Elemental", "Bandit" ];
+const guardians = {
+    commons: [ "Archer", "Thrower", "Barbarian", "Water Elemental", "Bandit" ],
+    rares: [ "Ranger", "Shock Robot", "Paladin", "Sandman", "Demon Soldier"],
+    epics: [ "Electro Robot", "Tree", "Hunter", "Eagle General", "Wolf Warrior"],
+    legendaries: [ "War Machine", "Tiger Master", "Storm Giant", "Sheriff"],
+    mythics: [
+        "Rocket Chu", "Graviton", "Kitty Mage", "Lancelot", "Frog Prince", "Vayne",
+        "Ninja", "Orc Shaman", "Pulse Generator", "Bomba", "Coldy", "Iron Meow", "Blob",
+        "Dragon", "Monopoly Man", "Bat Man", "Indy", "Tar", "Lazy Taoist", "Mama", "Watt"
+    ]
+}
 
 const pullTypes = [
-    { name: "Common", chance: 30.8642, acquireChance: 50, possibleGuardians: commons},
-    { name: "Rare", chance: 18.51585, acquireChance: 50 },
-    { name: "Epic", chance: 12.3457, acquireChance: 50 },
-    { name: "Legendary", chance: 9.2593, acquireChance: 50 },
-    { name: "Mythic", chance: 1.8519, acquireChance: 5 },
+    { name: "Common", chance: 30.8642, acquireChance: 50, possibleGuardians: guardians.commons },
+    { name: "Rare", chance: 18.51585, acquireChance: 50, possibleGuardians: guardians.rares },
+    { name: "Epic", chance: 12.3457, acquireChance: 50, possibleGuardians: guardians.epics },
+    { name: "Legendary", chance: 9.2593, acquireChance: 50, possibleGuardians: guardians.legendaries },
+    { name: "Mythic", chance: 1.8519, acquireChance: 5, possibleGuardians: guardians.mythics },
     { name: "Gold +200", chance: 6.1728, acquireChance: 50 },
     { name: "Gold +400", chance: 3.0864, acquireChance: 40 },
     { name: "Gold +600", chance: 1.8519, acquireChance: 30 },
@@ -31,7 +40,7 @@ function calculatePulls() {
     let pull = getRandomPull();
     // using the pull type property will return "common" instead of "bandit"
     if (pull.acquisition) {
-        recruitPulls[pull.name] ? recruitPulls[pull.name] += 1 : recruitPulls[pull.name] = 1;
+        recruitPulls[pull.name] = pull;
     }
     console.clear();
     console.table(recruitPulls)
