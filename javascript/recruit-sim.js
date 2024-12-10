@@ -141,26 +141,3 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
     }))
 }
 
-
-/*
-    PLAN FOR CALCULATION
-    Calculate the number of pulls
-    Perform pulls
-    Store each pull in a dictionary
-    After pulls are calculated, display them
-
-
-    HOW DO PULLS WORK
-    First pull is 10 random units
-    If you pull 5, pull again but another unit
-    if 6, pull again, another unit
-    up to 8
-
-    Like so
-    Pulls   ReRollGoal
-    10      5
-    11      6
-    12      7
-    13      8
-    14
-*/
