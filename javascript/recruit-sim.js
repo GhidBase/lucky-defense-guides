@@ -43,9 +43,13 @@ function calculatePulls() {
     // console.clear();
     let timesToDoOneX = Math.trunc(inputField.value / 30);
     let oneXPulls = simulateBatchOfRecruiting(timesToDoOneX);
+    oneXPulls.sort((a, b) => {
+        return sortOrder.indexOf(a.type) - sortOrder.indexOf(b.type);
+    });
+
     let timesToDoTenX = Math.trunc(inputField.value / 300);
     let tenXPulls = simulateBatchOfRecruiting(timesToDoTenX, 10);
-    oneXPulls.sort((a, b) => {
+    tenXPulls.sort((a, b) => {
         return sortOrder.indexOf(a.type) - sortOrder.indexOf(b.type);
     });
     
