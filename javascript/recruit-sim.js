@@ -73,6 +73,10 @@ function displayListOnScreen(list, pulls) {
         addItemToList(list, item.name + " " + item.collected, type);
     }
 
+    addCategoriesToList(list, pulls);
+}
+
+function addCategoriesToList(list, pulls) {
     let firstCommon = list.querySelector(".Common");
     if (firstCommon) {
         let commonTitle = document.createElement("li");
