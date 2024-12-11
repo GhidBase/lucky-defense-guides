@@ -89,6 +89,10 @@
     padding-top: 12px;
 }
 
+.results-container h2.underline {
+    margin-bottom: 0px;
+}
+
 .results-container .Rare {
     color: blue;
 }
@@ -98,9 +102,17 @@
 }
 
 .results-container .Legendary {
-    color: yellow;
+    color: rgb(255, 255, 0);
 }
 
 .results-container .Mythic {
     color: #e98000;
+}
+
+.results-container .Diamonds {
+    color: #4e8597;
+}
+
+.results-container .MythicStones {
+    color: #e81313;
 }

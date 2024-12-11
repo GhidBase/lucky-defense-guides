@@ -218,6 +218,15 @@ function addItemToList(listChoice, text, type = null) {
     if (type) {
         listItem.classList.add(type);
     }
+
+    if (text.includes("Diamond")) {
+        listItem.classList.add("Diamonds");
+    }
+
+    if (text.includes("Mythic Stones")) {
+        listItem.classList.add("MythicStones");
+    }
+
     listItem.textContent = text;
     listChoice.appendChild(listItem);
 }
@@ -263,8 +272,6 @@ function sumMythicStonesValues(list) {
     if (totalStones > 0) {stoneless.push({
         name: "Mythic Stones",
         collected: totalStones,
-        type: "Mythic Stones",
-        textColor: "#e81313",
         type: "Resource",
         })
     }
@@ -290,8 +297,6 @@ function sumDiamondValues(list) {
     if (totalDiamond > 0) {diamondless.push({
         name: "Diamond",
         collected: totalDiamond,
-        type: "Diamond",
-        textColor: "#88adb9",
         type: "Resource",
         })
     }
