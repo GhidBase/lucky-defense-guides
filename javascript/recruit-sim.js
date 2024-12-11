@@ -74,39 +74,58 @@ function displayListOnScreen(list, pulls) {
     }
 
     let firstCommon = list.querySelector(".Common");
-    let commonTitle = document.createElement("li");
-    commonTitle.textContent = "Commons";
-    commonTitle.classList.add("Common");
-    commonTitle.classList.add("underline");
-    list.insertBefore(commonTitle, firstCommon);
+    if (firstCommon) {
+        let commonTitle = document.createElement("li");
+        commonTitle.textContent = "Commons";
+        commonTitle.classList.add("Common");
+        commonTitle.classList.add("underline");
+        list.insertBefore(commonTitle, firstCommon);
+    }
 
     let firstRare = list.querySelector(".Rare");
-    let rareTitle = document.createElement("li");
-    rareTitle.textContent = "Rares";
-    rareTitle.classList.add("Rare");
-    rareTitle.classList.add("underline");
-    list.insertBefore(rareTitle, firstRare);
+    if (firstRare) {
+        let rareTitle = document.createElement("li");
+        rareTitle.textContent = "Rares";
+        rareTitle.classList.add("Rare");
+        rareTitle.classList.add("underline");
+        list.insertBefore(rareTitle, firstRare);
+    }
     
     let firstEpic = list.querySelector(".Epic");
-    let epicTitle = document.createElement("li");
-    epicTitle.textContent = "Epics";
-    epicTitle.classList.add("Epic");
-    epicTitle.classList.add("underline");
-    list.insertBefore(epicTitle, firstEpic);
+    if (firstEpic) {
+        let epicTitle = document.createElement("li");
+        epicTitle.textContent = "Epics";
+        epicTitle.classList.add("Epic");
+        epicTitle.classList.add("underline");
+        list.insertBefore(epicTitle, firstEpic);
+    }
 
     let firstLegendary = list.querySelector(".Legendary");
-    let legendaryTitle = document.createElement("li");
-    legendaryTitle.textContent = "Legendaries";
-    legendaryTitle.classList.add("Legendary");
-    legendaryTitle.classList.add("underline");
-    list.insertBefore(legendaryTitle, firstLegendary);
+    if (firstEpic) {
+        let legendaryTitle = document.createElement("li");
+        legendaryTitle.textContent = "Legendaries";
+        legendaryTitle.classList.add("Legendary");
+        legendaryTitle.classList.add("underline");
+        list.insertBefore(legendaryTitle, firstLegendary);
+    }
 
     let firstMythic = list.querySelector(".Mythic");
-    let mythicTitle = document.createElement("li");
-    mythicTitle.textContent = "Mythics";
-    mythicTitle.classList.add("Mythic");
-    mythicTitle.classList.add("underline");
-    list.insertBefore(mythicTitle, firstMythic);
+    if (firstMythic) {
+        let mythicTitle = document.createElement("li");
+        mythicTitle.textContent = "Mythics";
+        mythicTitle.classList.add("Mythic");
+        mythicTitle.classList.add("underline");
+        list.insertBefore(mythicTitle, firstMythic);
+    }
+
+    let firstResource = list.querySelector(".Resource");
+    if (firstResource) {
+        let resourceTitle = document.createElement("li");
+        resourceTitle.textContent = "Resources";
+        resourceTitle.classList.add("Resource");
+        resourceTitle.classList.add("underline");
+        list.insertBefore(resourceTitle, firstResource);
+    }
 }
 
 function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
@@ -196,7 +215,7 @@ function addPullToList(pull, recruitPulls, pullIncrement) {
 
 function addItemToList(listChoice, text, type = null) {
     let listItem = document.createElement("li");
-    if (type == "Common" || type == "Rare" || type == "Epic" || type == "Legendary" || type == "Mythic") {
+    if (type) {
         listItem.classList.add(type);
     }
     listItem.textContent = text;
@@ -220,7 +239,7 @@ function sumGoldValues(list) {
         goldless.push({
             name: "Gold",
             collected: totalGold,
-            type: "Gold",
+            type: "Resource",
         })
     }
 
@@ -245,7 +264,8 @@ function sumMythicStonesValues(list) {
         name: "Mythic Stones",
         collected: totalStones,
         type: "Mythic Stones",
-        textColor: "#e81313"
+        textColor: "#e81313",
+        type: "Resource",
         })
     }
 
@@ -271,7 +291,8 @@ function sumDiamondValues(list) {
         name: "Diamond",
         collected: totalDiamond,
         type: "Diamond",
-        textColor: "#88adb9"
+        textColor: "#88adb9",
+        type: "Resource",
         })
     }
 
