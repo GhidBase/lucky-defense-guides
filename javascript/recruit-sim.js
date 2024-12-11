@@ -20,10 +20,10 @@ const guardians = {
 // NOTE: Colors for Diamond and Mythic Stones are in sumDiamondValues and sumMythicStoneValues
 const pullTypes = [
     { name: "Common", chance: 30.8642, acquireChance: 50, possibleGuardians: guardians.commons },
-    { name: "Rare", chance: 18.5185, acquireChance: 50, possibleGuardians: guardians.rares, textColor: "blue" },
-    { name: "Epic", chance: 12.3457, acquireChance: 50, possibleGuardians: guardians.epics, textColor: "purple" },
-    { name: "Legendary", chance: 9.2593, acquireChance: 50, possibleGuardians: guardians.legendaries, textColor: "yellow" },
-    { name: "Mythic", chance: 1.8519, acquireChance: 5, possibleGuardians: guardians.mythics,textColor: "#e98000" },
+    { name: "Rare", chance: 18.5185, acquireChance: 50, possibleGuardians: guardians.rares},
+    { name: "Epic", chance: 12.3457, acquireChance: 50, possibleGuardians: guardians.epics},
+    { name: "Legendary", chance: 9.2593, acquireChance: 50, possibleGuardians: guardians.legendaries },
+    { name: "Mythic", chance: 1.8519, acquireChance: 5, possibleGuardians: guardians.mythics },
     { name: "Gold +200", chance: 6.1728, acquireChance: 50 },
     { name: "Gold +400", chance: 3.0864, acquireChance: 40 },
     { name: "Gold +600", chance: 1.8519, acquireChance: 30 },
@@ -69,9 +69,44 @@ function displayListOnScreen(list, pulls) {
     list.replaceChildren();
     for(item of pulls) {
         // console.log(item)
-        let textColor = item.textColor ? item.textColor : null;
-        addItemToList(list, item.name + " " + item.collected, textColor);
+        let type = item.type ? item.type : null;
+        addItemToList(list, item.name + " " + item.collected, type);
     }
+
+    let firstCommon = list.querySelector(".Common");
+    let commonTitle = document.createElement("li");
+    commonTitle.textContent = "Commons";
+    commonTitle.classList.add("Common");
+    commonTitle.classList.add("underline");
+    list.insertBefore(commonTitle, firstCommon);
+
+    let firstRare = list.querySelector(".Rare");
+    let rareTitle = document.createElement("li");
+    rareTitle.textContent = "Rares";
+    rareTitle.classList.add("Rare");
+    rareTitle.classList.add("underline");
+    list.insertBefore(rareTitle, firstRare);
+    
+    let firstEpic = list.querySelector(".Epic");
+    let epicTitle = document.createElement("li");
+    epicTitle.textContent = "Epics";
+    epicTitle.classList.add("Epic");
+    epicTitle.classList.add("underline");
+    list.insertBefore(epicTitle, firstEpic);
+
+    let firstLegendary = list.querySelector(".Legendary");
+    let legendaryTitle = document.createElement("li");
+    legendaryTitle.textContent = "Legendaries";
+    legendaryTitle.classList.add("Legendary");
+    legendaryTitle.classList.add("underline");
+    list.insertBefore(legendaryTitle, firstLegendary);
+
+    let firstMythic = list.querySelector(".Mythic");
+    let mythicTitle = document.createElement("li");
+    mythicTitle.textContent = "Mythics";
+    mythicTitle.classList.add("Mythic");
+    mythicTitle.classList.add("underline");
+    list.insertBefore(mythicTitle, firstMythic);
 }
 
 function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
@@ -114,7 +149,6 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
         name: item.name,
         collected: item.collected,
         type: item.pullType,
-        textColor: item.textColor,
     }))
 }
 
@@ -131,14 +165,13 @@ function getRandomPull() {
             let guardian = pull.name;
             let acquisition = pull.acquireChance > randomChance2 ? true : false;
             let pullType = pull.name;
-            let textColor = pull.textColor;
 
             if (pull.possibleGuardians) {
                 randomChance3 = Math.trunc(Math.random() * pull.possibleGuardians.length);
                 guardian = pull.possibleGuardians[randomChance3];
             }
 
-            return {pullType: pullType, acquisition: acquisition, name: guardian, textColor: textColor}
+            return {pullType: pullType, acquisition: acquisition, name: guardian}
         }
 
     }
@@ -161,10 +194,10 @@ function addPullToList(pull, recruitPulls, pullIncrement) {
     }
 }
 
-function addItemToList(listChoice, text, optionalColor = null) {
+function addItemToList(listChoice, text, type = null) {
     let listItem = document.createElement("li");
-    if (optionalColor) {
-        listItem.style.color = optionalColor
+    if (type == "Common" || type == "Rare" || type == "Epic" || type == "Legendary" || type == "Mythic") {
+        listItem.classList.add(type);
     }
     listItem.textContent = text;
     listChoice.appendChild(listItem);
@@ -257,9 +290,15 @@ function sumResources(pulls) {
     GOALS
     - DONE - sum gold/diamonds/mythic stones
     - sum common/rare/epic/legendary/mythic pulls
-    - color coding
+    - DONE - color coding
     - show the number of double/triple pulls
     - pull until you get a mythic
+    - show how many game clears it would take to save that many scrolls
 
+    SUM COMMON/RARE/EPIC/LEGENDARY/MYTHIC
+    DONE - Store the type on each type of guardian as a class in the dom
+    Look up the first reference to that type
+    Insert the label in front of that
+    Find the color for characters in their original object not in the summing script
 */
 
