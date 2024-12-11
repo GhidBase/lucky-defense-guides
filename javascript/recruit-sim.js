@@ -70,26 +70,40 @@ function displayListOnScreen(list, pulls) {
     for(item of pulls) {
         // console.log(item)
         let type = item.type ? item.type : null;
-        addItemToList(list, item.name + " " + item.collected, type);
+        addItemToList(list, item.name + ": " + item.collected, type);
     }
 
     addCategoriesToList(list, pulls);
 }
 
 function addCategoriesToList(list, pulls) {
+
+    let countedCategories = pulls.reduce((resultObject, currentPull) => {
+        if (!resultObject[currentPull.type]) {
+            resultObject[currentPull.type] = {collected: currentPull.collected};
+        }
+        else {
+            resultObject[currentPull.type].collected += currentPull.collected;
+        }
+        return resultObject;
+    },{});
+    console.table(countedCategories);
+
+
     let firstCommon = list.querySelector(".Common");
     if (firstCommon) {
         let commonTitle = document.createElement("li");
-        commonTitle.textContent = "Commons";
+        commonTitle.textContent = "Commons" + ": " + countedCategories["Common"].collected;
         commonTitle.classList.add("Common");
         commonTitle.classList.add("underline");
         list.insertBefore(commonTitle, firstCommon);
     }
 
+
     let firstRare = list.querySelector(".Rare");
     if (firstRare) {
         let rareTitle = document.createElement("li");
-        rareTitle.textContent = "Rares";
+        rareTitle.textContent = "Rares" + ": " + countedCategories["Rare"].collected;;
         rareTitle.classList.add("Rare");
         rareTitle.classList.add("underline");
         list.insertBefore(rareTitle, firstRare);
@@ -98,7 +112,7 @@ function addCategoriesToList(list, pulls) {
     let firstEpic = list.querySelector(".Epic");
     if (firstEpic) {
         let epicTitle = document.createElement("li");
-        epicTitle.textContent = "Epics";
+        epicTitle.textContent = "Epics" + ": " + countedCategories["Epic"].collected;
         epicTitle.classList.add("Epic");
         epicTitle.classList.add("underline");
         list.insertBefore(epicTitle, firstEpic);
@@ -107,7 +121,7 @@ function addCategoriesToList(list, pulls) {
     let firstLegendary = list.querySelector(".Legendary");
     if (firstEpic) {
         let legendaryTitle = document.createElement("li");
-        legendaryTitle.textContent = "Legendaries";
+        legendaryTitle.textContent = "Legendaries" + ": " + countedCategories["Legendary"].collected;
         legendaryTitle.classList.add("Legendary");
         legendaryTitle.classList.add("underline");
         list.insertBefore(legendaryTitle, firstLegendary);
@@ -116,7 +130,7 @@ function addCategoriesToList(list, pulls) {
     let firstMythic = list.querySelector(".Mythic");
     if (firstMythic) {
         let mythicTitle = document.createElement("li");
-        mythicTitle.textContent = "Mythics";
+        mythicTitle.textContent = "Mythics" + ": " + countedCategories["Mythic"].collected;
         mythicTitle.classList.add("Mythic");
         mythicTitle.classList.add("underline");
         list.insertBefore(mythicTitle, firstMythic);
