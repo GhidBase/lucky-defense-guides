@@ -333,16 +333,10 @@ function sumResources(pulls) {
 /*
     GOALS
     - DONE - sum gold/diamonds/mythic stones
-    - sum common/rare/epic/legendary/mythic pulls
+    - DONE - sum common/rare/epic/legendary/mythic pulls
     - DONE - color coding
     - show the number of double/triple pulls
     - pull until you get a mythic
     - show how many game clears it would take to save that many scrolls
-
-    SUM COMMON/RARE/EPIC/LEGENDARY/MYTHIC
-    DONE - Store the type on each type of guardian as a class in the dom
-    Look up the first reference to that type
-    Insert the label in front of that
-    Find the color for characters in their original object not in the summing script
 */
 
