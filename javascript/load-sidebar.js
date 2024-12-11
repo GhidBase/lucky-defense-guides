@@ -4,7 +4,7 @@ fetch(htmlFilePath)
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        return response.text(); // Extract the HTML content as a string
+        return response.text();
     })
     .then(html => {
         document.querySelector(".side-bar").innerHTML = html;
