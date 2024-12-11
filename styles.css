@@ -179,4 +179,17 @@ h2 {
     display: block;
 }
 
+#discord-button a {
+    display: flex;
+    background-color: #5865F2;
+    color: white;
+    font-size: 1p0x;
+    padding: 4px 20px 4px 20px;
+    text-align: center;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    text-decoration: none;
+}
 
