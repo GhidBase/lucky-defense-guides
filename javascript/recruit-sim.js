@@ -152,7 +152,7 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
     let pull;
     let rerolls = 0;
     let reroll = false;
-    let acquiresToReroll = 6;
+    let acquiresToReroll = 5;
     let acquires = 0;
     let pullsPerBatch = 10
     let recruitPulls = {};
@@ -178,6 +178,7 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
                 // console.log(acquires + "/" + acquiresToReroll);
                 acquires = 0;
                 acquiresToReroll = 6;
+                pullsPerBatch = 10;
             }
         } while (reroll);
     }
