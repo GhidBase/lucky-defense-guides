@@ -3,6 +3,7 @@ let useScrollsButton = document.querySelector("#use-scrolls-button");
 useScrollsButton.addEventListener("click",calculatePulls);
 let singlePullList = document.querySelector("#singleList");
 let tenPullList = document.querySelector("#tenList");
+let totalRerolls = 0;
 
 
 const guardians = {
@@ -172,6 +173,7 @@ function simulateBatchOfRecruiting(numberOfPulls, pullIncrement = 1) {
                 acquires = 0;
                 acquiresToReroll += 1;
                 pullsPerBatch += 1;
+                totalRerolls += 1;
             }
             else {
                 reroll = false;
