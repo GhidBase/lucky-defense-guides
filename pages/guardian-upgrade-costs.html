@@ -29,6 +29,55 @@
         </div>
 
         <div class="main-body">
+            <h2 class="section-header">Upgrade Cost Calculator</h2>
+            <p>Please select the guardian, current level, and desired level and press the Calculate button. The calculator will tell you how many materials you need to upgrade the guardian. </p>
+            <div class="input-row">
+                <img id="guardian-preview" src="../pics/guardians/bandit.png" alt="Bandit">
+                <label for="selected-guardian">Guardian:</label>
+                <select id="selected-guardian" name="selected-guardian" >>
+                    <!--fill in the rest of the guardians with js-->
+                </select>
+                <br>
+                <label for="current-level">Current Level:</label>
+                <select id="current-level">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                </select>
+                <label for="desired-level">Desired Level:</label>
+                <select id="desired-level" value="10">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                </select>
+                <p id="output">The upgrade will cost <b>0 gold</b> and <b>0 duplicates</b>.</p>
+                <button id="calculate-cost">Calculate</button>
+            </div>
+
             <h2 class="section-header">Mythic Upgrade Costs </h2>
 
             <p>
@@ -142,6 +191,7 @@
     </div>
 
     <script src="../javascript/load-sidebar.js"></script>
+    <script src="../javascript/upgrade-calculator.js"></script>
 </body>
 
 </html>

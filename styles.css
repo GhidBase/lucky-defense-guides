@@ -197,3 +197,36 @@ h2 {
     height: 1.5em;
 }
 
+#guardian-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: #845744 10px solid;
+    background-color: #f0e3c3;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #794E3B;
+    color: white;
+    font-size: 30px;
+    padding: 4px 20px 4px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #845744;
+    transform: scale(1.1);
+}
+
+button:active {
+    background-color: #543223;
+    transform: scale(0.9);
+}
