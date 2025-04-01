@@ -1,195 +1,215 @@
-/*
-    Colors
-    Background reddish brown var(--red-brown)
-    Background reddish brown 2 var(--khaki-brown)
-    Intermediate BG lighter brown #f0e3c3
-*/
+/* ============================================================
+   Imports & Root Variables
+   ============================================================ */
+   @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap");
+   :root {
+     /* Theme Colors */
+     --red-brown: #794e3b;
+     --khaki-brown: #845744;
+     --accent: #f0e3c3;
+     --surface-background: #d1bc9f;
+     --outline-brown: #352b22;
+   
+     /* UI Colors */
+     --background: #2e1e17;
+     --surface: #d1bc9f;
+     --primary: var(--red-brown);
+     --secondary: var(--khaki-brown);
+     --text-color: #604f45;
+     --outline: var(--outline-brown);
+     --footer-color: #8c7b6b; /* currently unused */
+   
+     /* Typography */
+     font-family: "Fredoka";
+   }
+   
+   /* ============================================================
+      Base Styles
+      ============================================================ */
+   html,
+   body {
+     width: 100%;
+     margin: 0;
+     min-height: 100vh;
+     color: var(--text-color);
+     display: flex;
+     flex-direction: column;
+     background: repeating-linear-gradient(
+       to right,
+       var(--red-brown),
+       var(--red-brown) 50px,
+       var(--khaki-brown) 50px,
+       var(--khaki-brown) 100px
+     );
+   }
+   
+   /* ============================================================
+      Typography
+      ============================================================ */
+   .title {
+     font-size: 80px;
+     color: white;
+     text-shadow: 2px 2px 0 black, -2px 2px 0 black,
+                  2px -2px 0 black, -2px -2px 0 black;
+     padding: 8px 16px;
+     display: flex;
+     align-self: center;
+     margin-top: 40px;
+   }
+   
+   h2 {
+     text-decoration: underline;
+   }
+   
+   /* ============================================================
+      Layout Utilities
+      ============================================================ */
+   .flex-row {
+     display: flex;
+   }
+   
+   .middle {
+     align-self: center;
+   }
+   
+   .text-width {
+     max-width: 900px;
+     margin-right: 200px;
+   }
+   
+   .centered-text-block {
+     text-align: center;
+     display: block;
+   }
+   
+   /* ============================================================
+      Main Layout Sections
+      ============================================================ */
+   .main-body {
+     background-color: var(--surface-background);
+     border-top: 4px solid var(--outline-brown);
+     border-left: 4px solid var(--outline-brown);
+     padding: 8px 16px;
+     justify-items: center;
+   }
+   
+   .side-bar {
+     background-color: var(--surface-background);
+     border-top: 4px solid var(--outline-brown);
+     /* padding: 8px 16px; */
+     display: flex;
+     flex-direction: column;
+     box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.3);
+     max-width: 200px;
+     flex: 1;
+   }
 
-:root {
-  --red-brown: #794e3b;
-  --khaki-brown: #845744;
-  --text-color: #604f45;
-  --footer-color: #8c7b6b; /* currently unused */
-  --surface-background: #d1bc9f;
-  --outline-brown: #352b22;
-  font-family: "Fredoka";
-}
+   .side-bar :first-child {
+    margin: 0;
+    border-top: none;
+   }
+   
+   .side-bar-body-row {
+     display: grid;
+     grid-template-columns: auto 1fr;
+     margin-top: 40px;
+     align-items: stretch;
+   }
+   
+   /* ============================================================
+      Lists & Navigation
+      ============================================================ */
+   ul {
+     margin: 0;
+     justify-content: center;
+   }
+   
+   .side-bar a {
+     text-decoration: none;
+     color: white;
+   }
+   
+   /* ============================================================
+      Buttons
+      ============================================================ */
+   .side-bar a {
+    background-color: var(--text-color);
+    /* border-radius: 4px; */
+    margin: 1px 0px;
+    border-top: 2px solid var(--background);
+    border-bottom: 2px solid var(--background);
+    background-color: var(--primary);
+    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+   }
 
-html,
-body {
-  width: 100%;
-}
-
-body {
-  background: repeating-linear-gradient(
-    to right,
-    var(--red-brown),
-    /* Reddish Brown */ var(--red-brown) 50px,
-    /* Adjust width of each column */ var(--khaki-brown) 50px,
-    /* Second color starts here */ var(--khaki-brown) 100px
-      /* Second column width */
-  );
-  color: var(--text-color);
-
-  min-height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
-  font-size: 80px;
-  color: white;
-  text-shadow: 2px 2px 0 black, /* Bottom-right */ -2px 2px 0 black,
-    /* Bottom-left */ 2px -2px 0 black, /* Top-right */ -2px -2px 0 black; /* Top-left */
-}
-
-.main-body {
-  border-top: 4px solid var(--outline-brown);
-  border-left: 4px solid var(--outline-brown);
-  background-color: var(--surface-background);
-  padding: 8px 16px 8px 16px;
-  justify-items: center;
-}
-
-.side-bar {
-  background-color: var(--khaki-brown);
-  border-top: 4px solid var(--outline-brown);
-}
-
-ul {
-  margin: 0;
-}
-
-.title {
-  padding: 8px 16px 8px 16px;
-  display: flex;
-  align-self: center;
-  margin-top: 40px;
-}
-
-.text-width {
-  max-width: 900px;
-  margin-right: 200px;
-}
-
-.flex-row {
-  display: flex;
-}
-
-.side-bar-body-row {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  margin-top: 40px;
-  align-items: stretch;
-}
-
-.side-bar {
-  padding: 8px 16px 8px 16px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.3);
-  max-width: 180px;
-  flex: 1;
-}
-
-.side-bar > ul {
-  list-style: none;
-  padding: 0;
-}
-
-.side-bar > ul > li {
-  padding-bottom: 8px;
-}
-
-.view-counter {
-  display: flex;
-  margin-top: auto;
-
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-h2 {
-  text-decoration: underline;
-}
-
-/* GENERAL SETTINGS */
-
-.middle {
-  align-self: center;
-}
-
-.max-width-img {
-  width: 45%;
-  height: auto;
-  margin: auto;
-  display: block;
-}
-
-.max-width-img-23 {
-  width: 23%;
-  height: auto;
-  margin: auto;
-  display: block;
-}
-
-.centered-text-block {
-  text-align: center;
-  display: block;
-}
-
-#discord-button a {
-  display: flex;
-  background-color: #5865f2;
-  color: white;
-  font-size: 1p0x;
-  padding: 4px 20px 4px 20px;
-  text-align: center;
-  border-radius: 4px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  text-decoration: none;
-}
-
-.inline-img {
-  height: 1.5em;
-}
-
-#guardian-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 25px;
-  border: var(--khaki-brown) 10px solid;
-  background-color: #f0e3c3;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-button {
-  background-color: var(--red-brown);
-  color: white;
-  font-size: 30px;
-  padding: 4px 20px 4px 20px;
-  text-align: center;
-  border-radius: 10px;
-  margin-top: 30px;
-  text-decoration: none;
-  border: none;
-  transition: all 0.2s;
-}
-
-button:hover {
-  background-color: var(--khaki-brown);
-  transform: scale(1.1);
-}
-
-button:active {
-  background-color: #543223;
-  transform: scale(0.9);
-}
+   .side-bar .section-header {
+    margin: 0;
+    margin: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+   /* ============================================================
+      Images
+      ============================================================ */
+   .max-width-img {
+     width: 45%;
+     height: auto;
+     margin: auto;
+     display: block;
+   }
+   
+   .max-width-img-23 {
+     width: 23%;
+     height: auto;
+     margin: auto;
+     display: block;
+   }
+   
+   .inline-img {
+     height: 1.5em;
+   }
+   
+   /* ============================================================
+      Components
+      ============================================================ */
+   #discord-button {
+     display: flex;
+     background-color: #5865f2;
+     color: white;
+     font-size: 16px;
+     padding: 4px 20px;
+     text-align: center;
+     border-radius: 4px;
+     align-items: center;
+     justify-content: center;
+     margin-top: 30px;
+     text-decoration: none;
+   }
+   
+   #guardian-preview {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 25px;
+     border: var(--khaki-brown) 10px solid;
+     background-color: var(--accent);
+     margin: 30px 0;
+   }
+   
+   .view-counter {
+     display: flex;
+     margin-top: auto;
+     justify-content: center;
+     align-items: center;
+     gap: 8px;
+   }
+   
