@@ -1,215 +1,232 @@
 /* ============================================================
    Imports & Root Variables
    ============================================================ */
-   @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap");
 
-   :root {
-     /* Theme Colors */
-     --red-brown: #794e3b;
-     --khaki-brown: #845744;
-     --accent: #f0e3c3;
-     --surface-background: #d1bc9f;
-     --outline-brown: #352b22;
-   
-     /* UI Colors */
-     --background: #2e1e17;
-     --surface: #d1bc9f;
-     --primary: var(--red-brown);
-     --secondary: var(--khaki-brown);
-     --text-color: #604f45;
-     --outline: var(--outline-brown);
-     --footer-color: #8c7b6b; /* currently unused */
-   
-     /* Typography */
-     font-family: "Fredoka";
-   }
-   
-   /* ============================================================
+:root {
+  /* Theme Colors */
+  --red-brown: #794e3b;
+  --khaki-brown: #845744;
+  --accent: #f0e3c3;
+  --surface-background: #d1bc9f;
+  --outline-brown: #352b22;
+
+  /* UI Colors */
+  --background: #2e1e17;
+  --surface: #d1bc9f;
+  --primary: var(--red-brown);
+  --secondary: var(--khaki-brown);
+  --text-color: #604f45;
+  --outline: var(--outline-brown);
+  --footer-color: #8c7b6b; /* currently unused */
+
+  /* Typography */
+  font-family: "Fredoka";
+}
+
+/* ============================================================
       Base Styles
       ============================================================ */
-   html,
-   body {
-     width: 100%;
-     margin: 0;
-     min-height: 100vh;
-     color: var(--text-color);
-     display: flex;
-     flex-direction: column;
-     background: repeating-linear-gradient(
-       to right,
-       var(--red-brown),
-       var(--red-brown) 50px,
-       var(--khaki-brown) 50px,
-       var(--khaki-brown) 100px
-     );
-   }
-   
-   /* ============================================================
+html,
+body {
+  width: 100%;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  background: repeating-linear-gradient(
+    to right,
+    var(--red-brown),
+    var(--red-brown) 50px,
+    var(--khaki-brown) 50px,
+    var(--khaki-brown) 100px
+  );
+}
+
+/* ============================================================
       Typography
       ============================================================ */
-   .title {
-     font-size: 80px;
-     color: white;
-     text-shadow: 2px 2px 0 black, -2px 2px 0 black,
-                  2px -2px 0 black, -2px -2px 0 black;
-     padding: 8px 16px;
-     display: flex;
-     align-self: center;
-     margin-top: 40px;
-   }
-   
-   h2 {
-     text-decoration: underline;
-   }
-   
-   /* ============================================================
+.title {
+  font-size: 80px;
+  color: white;
+  text-shadow: 2px 2px 0 black, -2px 2px 0 black, 2px -2px 0 black,
+    -2px -2px 0 black;
+  /* padding: 8px 16px; */
+  display: flex;
+  align-self: center;
+  margin-top: 40px;
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+/* ============================================================
       Layout Utilities
       ============================================================ */
-   .flex-row {
-     display: flex;
-   }
-   
-   .middle {
-     align-self: center;
-   }
-   
-   .text-width {
-     max-width: 900px;
-     margin-right: 200px;
-   }
-   
-   .centered-text-block {
-     text-align: center;
-     display: block;
-   }
-   
-   /* ============================================================
+.flex-row {
+  display: flex;
+}
+
+.middle {
+  align-self: center;
+}
+
+.text-width {
+  max-width: 900px;
+  margin-right: 200px;
+}
+
+.centered-text-block {
+  text-align: center;
+  display: block;
+}
+
+/* ============================================================
       Main Layout Sections
       ============================================================ */
-   .main-body {
-     background-color: var(--surface-background);
-     border-top: 4px solid var(--outline-brown);
-     border-left: 4px solid var(--outline-brown);
-     padding: 8px 16px;
-     justify-items: center;
-   }
-   
-   .side-bar {
-     background-color: var(--surface-background);
-     border-top: 4px solid var(--outline-brown);
-     /* padding: 8px 16px; */
-     display: flex;
-     flex-direction: column;
-     box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.3);
-     max-width: 200px;
-     flex: 1;
-   }
+.main-body {
+  background-color: var(--surface-background);
+  border-top: 4px solid var(--outline-brown);
+  border-left: 2px solid var(--outline-brown);
+  padding: 8px 16px;
+  justify-items: center;
+}
 
-   .side-bar :first-child {
-    margin: 0;
-    border-top: none;
-   }
-   
-   .side-bar-body-row {
-     display: grid;
-     grid-template-columns: auto 1fr;
-     margin-top: 40px;
-     align-items: stretch;
-   }
-   
-   /* ============================================================
+.side-bar {
+  background-color: var(--surface-background);
+  border-top: 4px solid var(--outline-brown);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.3);
+  max-width: 220px;
+  flex: 1;
+}
+
+.side-bar :first-child {
+  margin: 0;
+  border-top: none;
+}
+
+.side-bar-body-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: stretch;
+}
+
+/* ============================================================
       Lists & Navigation
       ============================================================ */
-   ul {
-     margin: 0;
-     justify-content: center;
-   }
-   
-   .side-bar a {
-     text-decoration: none;
-     color: white;
-   }
-   
-   /* ============================================================
+ul {
+  margin: 0;
+  justify-content: center;
+}
+
+.side-bar a {
+  text-decoration: none;
+  color: white;
+  border-right: 2px solid var(--outline-brown);
+}
+
+/* ============================================================
       Buttons
       ============================================================ */
-   .side-bar a {
-    background-color: var(--text-color);
-    /* border-radius: 4px; */
-    margin: 1px 0px;
-    border-top: 2px solid var(--background);
-    border-bottom: 2px solid var(--background);
-    background-color: var(--primary);
-    text-align: center;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-   }
 
-   .side-bar .section-header {
-    margin: 0;
-    margin: 8px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   }
-   
-   /* ============================================================
+.side-bar * {
+  border-top: 1px solid var(--background);
+  border-bottom: 1px solid var(--outline-brown);
+}
+
+.side-bar h2 {
+  padding: 10px;
+  border-right: 2px solid var(--outline-brown);
+}
+
+.side-bar a {
+  background-color: var(--text-color);
+  background-color: var(--primary);
+  text-align: center;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+
+  will-change: transform;
+  transition: transform .5s;
+}
+
+.side-bar a:hover {
+  background-color: var(--khaki-brown);
+  transform: scale(1.1);
+}
+
+.side-bar .section-header {
+  margin: 0;
+  /* margin: 8px; */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
       Images
       ============================================================ */
-   .max-width-img {
-     width: 45%;
-     height: auto;
-     margin: auto;
-     display: block;
-   }
-   
-   .max-width-img-23 {
-     width: 23%;
-     height: auto;
-     margin: auto;
-     display: block;
-   }
-   
-   .inline-img {
-     height: 1.5em;
-   }
-   
-   /* ============================================================
+.max-width-img {
+  width: 45%;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+.max-width-img-23 {
+  width: 23%;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+.inline-img {
+  height: 1.5em;
+}
+
+/* ============================================================
       Components
       ============================================================ */
-   #discord-button {
-     display: flex;
-     background-color: #5865f2;
-     color: white;
-     font-size: 16px;
-     padding: 4px 20px;
-     text-align: center;
-     border-radius: 4px;
-     align-items: center;
-     justify-content: center;
-     margin-top: 30px;
-     text-decoration: none;
-   }
-   
-   #guardian-preview {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     border-radius: 25px;
-     border: var(--khaki-brown) 10px solid;
-     background-color: var(--accent);
-     margin: 30px 0;
-   }
-   
-   .view-counter {
-     display: flex;
-     margin-top: auto;
-     justify-content: center;
-     align-items: center;
-     gap: 8px;
-   }
-   
+#discord-button {
+  display: flex;
+  background-color: #5865f2;
+  /* border: 3px solid #434ecf; */
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  text-align: center;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  text-decoration: none;
+  margin: 10px;
+}
+
+#guardian-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  border: var(--khaki-brown) 10px solid;
+  background-color: var(--accent);
+  margin: 30px 0;
+}
+
+.view-counter {
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
