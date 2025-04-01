@@ -162,11 +162,15 @@ ul {
 .side-bar a:hover {
   background-color: var(--khaki-brown);
   transform: scale(1.1);
+  z-index: 1;
+}
+
+#discord-button:hover {
+  transform: scale(1.03);
 }
 
 .side-bar .section-header {
   margin: 0;
-  /* margin: 8px; */
   text-align: center;
   display: flex;
   align-items: center;
