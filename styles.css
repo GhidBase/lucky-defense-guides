@@ -156,7 +156,7 @@ ul {
   padding: 0 10px;
 
   will-change: transform;
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
 
 .side-bar a:hover {
@@ -233,4 +233,35 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 8px;
+}
+
+
+/* ============================================================
+      mobile modifications
+      ============================================================ */
+
+@media (max-width: 800px) {
+  .title {
+    font-size: 50px;
+  }
+  
+  body {
+    max-width: 100dvw;
+  }
+
+  .side-bar {
+    position: absolute;
+    left: calc(50dvw);
+    transform: translateX(-50%);
+    max-width: 600px;
+  }
+
+  .text-width {
+    margin-right: 0;
+  }
+
+  .side-bar,
+  .side-bar * {
+    border: 2px solid var(--outline-brown);
+  }
 }
