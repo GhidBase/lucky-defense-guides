@@ -350,3 +350,7 @@ ul {
     background-color: var(--red-brown);
   }
 }
+
+.unscrollable {
+  overflow-y: hidden;
+}
