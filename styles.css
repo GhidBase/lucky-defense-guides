@@ -294,7 +294,7 @@ ul {
   }
 
   .side-bar {
-    display: none;
+    opacity: 0;
     position: fixed;
     top: 0;
     left: calc(50dvw);
@@ -305,10 +305,15 @@ ul {
     max-height: 100dvh;
     z-index: 2;
     overflow-x: hidden;
+    pointer-events: none;
+    transform: translateY(0);
+    transition: opacity .25s, transform .5s;
   }
 
   .side-bar.visible {
-    display: block;
+    opacity: 1;
+    pointer-events: initial;
+    transform: translate(-50%);
   }
 
   .text-width {
