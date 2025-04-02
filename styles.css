@@ -8,6 +8,7 @@
   --red-brown: #794e3b;
   --khaki-brown: #845744;
   --accent: #f0e3c3;
+  --accent-transparent: #44403575;
   --surface-background: #d1bc9f;
   --outline-brown: #352b22;
 
@@ -217,6 +218,10 @@ ul {
   margin: 10px;
 }
 
+#discord-button img {
+  border: none;
+}
+
 #guardian-preview {
   display: flex;
   justify-content: center;
@@ -235,25 +240,75 @@ ul {
   gap: 8px;
 }
 
+.cover {
+  display: none;
+}
+
+.menu {
+  display: none;
+}
 
 /* ============================================================
       mobile modifications
       ============================================================ */
 
 @media (max-width: 800px) {
+  .menu {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 50dvw;
+    transform: translateX(-50%);
+    width: 50px;
+  }
+
+  .cover {
+    position: fixed;
+    display: none;
+    top: 0;
+    background-color: var(--accent-transparent);
+    z-index: 1;
+    width: 100dvw;
+    height: 100dvh;
+  }
+
+  .cover.visible {
+    display: block;
+  }
+
   .title {
     font-size: 50px;
   }
-  
+
   body {
-    max-width: 100dvw;
+    max-width: 100%;
+  }
+
+  .main-body {
+    margin: 0;
+    border-left: none;
+    border-right: none;
+    padding: 0 40px;
+    box-sizing: border-box;
+    padding-bottom: 100px;
   }
 
   .side-bar {
-    position: absolute;
+    display: none;
+    position: fixed;
+    top: 0;
     left: calc(50dvw);
     transform: translateX(-50%);
-    max-width: 600px;
+    max-width: 100dvw;
+    width: 80dvw;
+    overflow-y: auto;
+    max-height: 100dvh;
+    z-index: 2;
+    overflow-x: hidden;
+  }
+
+  .side-bar.visible {
+    display: block;
   }
 
   .text-width {
@@ -261,7 +316,31 @@ ul {
   }
 
   .side-bar,
-  .side-bar * {
+  .side-bar a {
     border: 2px solid var(--outline-brown);
+    min-height: 50px;
+  }
+
+  iframe {
+    max-width: 70dvw;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--surface-background); /* or any color */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--khaki-brown);
+    border-radius: 6px;
+    border: 3px solid var(--surface-background); /* for padding effect */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--red-brown);
   }
 }
