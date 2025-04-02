@@ -59,6 +59,7 @@ body {
   margin-top: 40px;
   height: 100px;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 h2 {
@@ -300,7 +301,7 @@ ul {
     left: calc(50dvw);
     transform: translateX(-50%);
     max-width: 100dvw;
-    width: 80dvw;
+    width: 70dvw;
     overflow-y: auto;
     max-height: 100dvh;
     z-index: 2;
