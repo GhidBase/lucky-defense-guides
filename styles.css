@@ -245,21 +245,31 @@ ul {
   display: none;
 }
 
-.menu {
+.menu,
+.footer {
   display: none;
 }
 
 /* ============================================================
       mobile modifications
-      ============================================================ */
+   ============================================================ */
 
 @media (max-width: 1000px) {
-  .menu {
-    display: block;
+
+  .footer {
+    background-color: var(--red-brown);
+    display: flex;
     position: fixed;
     bottom: 0;
     left: 50dvw;
+    width: 101dvw;
     transform: translateX(-50%);
+    justify-content: center;
+    border-top: 2px solid var(--outline-brown);
+  }
+
+  .menu {
+    display: block;
     width: 50px;
   }
 
@@ -354,3 +364,4 @@ ul {
 .unscrollable {
   overflow-y: hidden;
 }
+
