@@ -314,10 +314,12 @@ a {
     margin-top: auto;
     background-color: var(--red-brown);
     display: flex;
+    position: fixed;
     bottom: 0;
     left: 50dvw;
-    width: 100%;
+    width: 100dvw;
     justify-content: center;
+    transform: translateX(-50%);
     border-top: 2px solid var(--outline-brown);
   }
 
