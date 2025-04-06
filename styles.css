@@ -53,7 +53,7 @@ body {
   color: white;
   text-shadow: 2px 2px 0 black, -2px 2px 0 black, 2px -2px 0 black,
     -2px -2px 0 black;
-  /* padding: 8px 16px; */
+  padding: 0 50px;
   display: flex;
   align-self: center;
   margin-top: 40px;
@@ -114,9 +114,11 @@ h2 {
 }
 
 .side-bar-body-row {
+  flex: 1;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: stretch;
+  
 }
 
 /* ============================================================
@@ -309,6 +311,7 @@ a {
 @media (max-width: 1000px) {
 
   .footer {
+    margin-top: auto;
     background-color: var(--red-brown);
     display: flex;
     bottom: 0;
