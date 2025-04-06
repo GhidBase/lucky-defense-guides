@@ -245,10 +245,59 @@ ul {
   display: none;
 }
 
-.menu,
-.footer {
+.menu {
   display: none;
 }
+
+.footer {
+  background-color: var(--red-brown);
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  border-top: 2px solid var(--outline-brown);
+}
+
+.footer p {
+  color: white;
+}
+
+.main-body>a:hover,
+.main-body>a:focus {
+  color: var(--hover-blue, #0056b3);
+  text-decoration: underline;
+}
+
+a {
+  color: var(--accent-blue, #0050a7);
+  position: relative;
+  text-decoration: none;
+}
+
+.footer>p>a {
+  color: var(--accent-blue, #5facff);
+}
+
+.main-body a::after,
+.footer a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease-out;
+}
+
+.main-body a:hover::after,
+.footer a:hover::after {
+  transform: scaleX(1);
+}
+
+
 
 /* ============================================================
       mobile modifications
@@ -259,13 +308,15 @@ ul {
   .footer {
     background-color: var(--red-brown);
     display: flex;
-    position: fixed;
     bottom: 0;
     left: 50dvw;
-    width: 101dvw;
-    transform: translateX(-50%);
+    width: 100%;
     justify-content: center;
     border-top: 2px solid var(--outline-brown);
+  }
+
+  .footer>p {
+    display: none;
   }
 
   .menu {
@@ -332,7 +383,7 @@ ul {
   }
 
   .side-bar,
-  .side-bar a {
+  .side-bar>a {
     border: 2px solid var(--outline-brown);
     min-height: 50px;
   }
@@ -364,4 +415,6 @@ ul {
 .unscrollable {
   overflow-y: hidden;
 }
+
+
 
