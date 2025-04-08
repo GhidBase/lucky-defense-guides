@@ -118,7 +118,6 @@ h2 {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: stretch;
-  
 }
 
 /* ============================================================
@@ -129,7 +128,7 @@ ul {
   justify-content: center;
 }
 
-.side-bar>a {
+.side-bar > a {
   text-decoration: none;
   color: white;
   border-right: 2px solid var(--outline-brown);
@@ -149,8 +148,7 @@ ul {
   border-right: 2px solid var(--outline-brown);
 }
 
-.side-bar>a {
-  background-color: var(--text-color);
+.side-bar > a {
   background-color: var(--primary);
   text-align: center;
   height: 50px;
@@ -158,12 +156,11 @@ ul {
   justify-content: center;
   align-items: center;
   padding: 0 10px;
-
   will-change: transform;
   transition: transform 0.5s;
 }
 
-.side-bar>a:hover {
+.side-bar > a:hover {
   background-color: var(--khaki-brown);
   transform: scale(1.1);
   z-index: 1;
@@ -181,6 +178,20 @@ ul {
   justify-content: center;
 }
 
+.tab-button {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  will-change: transform;
+  transition: transform 0.5s;
+  border: 2px solid var(--outline-brown);
+}
+
 /* ============================================================
       Images
       ============================================================ */
@@ -194,6 +205,14 @@ ul {
 .max-width-img-23 {
   width: 23%;
   height: auto;
+  margin: auto;
+  display: block;
+}
+
+.img-height {
+  max-height: 250px;
+  width: auto;
+  max-width: 40%;
   margin: auto;
   display: block;
 }
@@ -264,8 +283,8 @@ ul {
   color: white;
 }
 
-.main-body>a:hover,
-.main-body>a:focus {
+.main-body > a:hover,
+.main-body > a:focus {
   color: var(--hover-blue, #0056b3);
   text-decoration: underline;
 }
@@ -276,7 +295,7 @@ a {
   text-decoration: none;
 }
 
-.footer>p>a {
+.footer > p > a {
   color: var(--accent-blue, #5facff);
 }
 
@@ -302,14 +321,11 @@ a {
   display: none;
 }
 
-
-
 /* ============================================================
       mobile modifications
    ============================================================ */
 
 @media (max-width: 1000px) {
-
   .footer {
     margin-top: auto;
     background-color: var(--red-brown);
@@ -323,7 +339,7 @@ a {
     border-top: 2px solid var(--outline-brown);
   }
 
-  .footer>p {
+  .footer > p {
     display: none;
   }
 
@@ -377,7 +393,7 @@ a {
     overflow-x: hidden;
     pointer-events: none;
     transform: translateY(0);
-    transition: opacity .25s, transform .5s;
+    transition: opacity 0.25s, transform 0.5s;
   }
 
   .side-bar.visible {
@@ -391,7 +407,7 @@ a {
   }
 
   .side-bar,
-  .side-bar>a {
+  .side-bar > a {
     border: 2px solid var(--outline-brown);
     min-height: 50px;
   }
@@ -428,6 +444,3 @@ a {
 .unscrollable {
   overflow-y: hidden;
 }
-
-
-
