@@ -19,7 +19,8 @@
   --secondary: var(--khaki-brown);
   --text-color: #604f45;
   --outline: var(--outline-brown);
-  --footer-color: #8c7b6b; /* currently unused */
+  --footer-color: #8c7b6b;
+  --accent-text: #3a2a1a;
 
   /* Typography */
   font-family: "Fredoka";
@@ -178,19 +179,67 @@ ul {
   justify-content: center;
 }
 
-.tab-button {
-  background-color: var(--primary);
-  color: white;
-  text-align: center;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
-  will-change: transform;
-  transition: transform 0.5s;
-  border: 2px solid var(--outline-brown);
+.tab {
+  border: 2px solid black;
+  border-radius: 0.25em;
+  padding: 4px 8px;
+  background-color: var(--accent);
+  color: var(--accent-text);
 }
+
+.tab * {
+  color: var(--accent-text);
+}
+
+.tab h2 {
+  text-decoration: none;
+  margin: 0;
+}
+
+.tab p {
+  padding: 0 20px;
+}
+
+.tab ol {
+  padding: 0 64px
+}
+
+.tab-header img {
+  height: 2em;
+  margin-left: auto;
+  transform: rotate(.5turn);
+}
+
+.tab-header {
+  display: flex;
+  align-items: center;
+}
+
+.tab-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 2s ease-in-out;
+}
+
+.tab-body.visible {
+  max-height: 1200px;
+}
+
+.center-imgs {
+  text-align: center;
+}
+
+.center-imgs img {
+  height: 75px;
+}
+
+.tab-body .img-height-100 {
+  height: 250px;
+}
+
+
+
+
 
 /* ============================================================
       Images
@@ -216,6 +265,7 @@ ul {
   margin: auto;
   display: block;
 }
+
 
 .inline-img {
   height: 1.5em;
