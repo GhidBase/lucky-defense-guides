@@ -1,0 +1,27 @@
+.img-15-width {
+    width: 20%;
+    height: auto;
+}
+
+.img-40-width {
+    width: 40%;
+    height: auto;
+}
+
+.img-40-mobile-20-desktop {
+    width: 20%;
+    height: auto;
+}
+
+@media (max-width: 1000px) {
+    .img-40-mobile-20-desktop {
+        width: 40%;
+        height: auto;
+    }
+}
+
+
+.center-container {
+    display: flex;
+    justify-content: center;
+}

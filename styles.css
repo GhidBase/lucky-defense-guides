@@ -218,11 +218,7 @@ ul {
 .tab-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 2s ease-in-out;
-}
-
-.tab-body.visible {
-  max-height: 1200px;
+  transition: max-height .5s;
 }
 
 .center-imgs {
