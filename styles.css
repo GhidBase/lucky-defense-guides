@@ -80,7 +80,6 @@ h2 {
 
 .text-width {
   max-width: 900px;
-  margin-right: 200px;
 }
 
 .centered-text-block {
@@ -97,6 +96,7 @@ h2 {
   border-left: 2px solid var(--outline-brown);
   padding: 8px 16px;
   justify-items: center;
+  padding-right: 200px;
 }
 
 .side-bar {
@@ -218,7 +218,7 @@ ul {
 .tab-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .5s;
+  transition: max-height .25s;
 }
 
 .center-imgs {
@@ -448,9 +448,6 @@ a {
     transform: translate(-50%);
   }
 
-  .text-width {
-    margin-right: 0;
-  }
 
   .side-bar,
   .side-bar > a {

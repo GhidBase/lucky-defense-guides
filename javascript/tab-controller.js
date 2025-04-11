@@ -1,5 +1,3 @@
-
-
 const tabList = document.querySelectorAll(".tab");
 tabList.forEach((tab) => {
   const button = tab.querySelector(".tab-header");
@@ -10,16 +8,23 @@ tabList.forEach((tab) => {
     } else {
       tabBody.style.maxHeight = tabBody.scrollHeight + "px";
       closeOtherTabs(tab);
+      tabBody.addEventListener(
+        "transitionend",
+        () => {
+          tab.scrollIntoView({ behavior: "smooth", block: "start" });
+        },
+        { once: true }
+      );
     }
   });
 });
 
 function closeOtherTabs(openTab) {
-    tabList.forEach((tab) => {
-        if(openTab != tab) {
-            console.log(tab.style.maxHeight);
-            tabBody = tab.querySelector(".tab-body")
-            tabBody.style.maxHeight = null;
-        }
-    })
+  tabList.forEach((tab) => {
+    if (openTab != tab) {
+      console.log(tab.style.maxHeight);
+      tabBody = tab.querySelector(".tab-body");
+      tabBody.style.maxHeight = null;
+    }
+  });
 }
