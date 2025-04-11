@@ -79,6 +79,7 @@ h2 {
 }
 
 .text-width {
+  margin: auto;
   max-width: 900px;
 }
 
@@ -191,9 +192,13 @@ ul {
   color: var(--accent-text);
 }
 
-.tab h2 {
+.tab>.tab-header>h2 {
   text-decoration: none;
   margin: 0;
+}
+
+.tab>.tab-body h3 {
+  padding: 0 10px;
 }
 
 .tab p {
