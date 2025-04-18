@@ -33,6 +33,19 @@ table td {
   line-height: 1.5;
 }
 
+.img-cell {
+  text-align: center;
+}
+
+.img-cell>img {
+  width: 70%;
+  height: auto;
+}
+
+table ul {
+  padding-left: 20px;
+}
+
 /* Responsive adjustments for mobile */
 @media (max-width: 1000px) {
   table {
@@ -43,5 +56,25 @@ table td {
   table td {
     padding: 8px;
     font-size: 14px;
+  }
+
+  .img-cell>img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  table ul {
+    padding-left: 0px;
+    list-style-type: none;
+  }
+
+  table ul li {
+    margin-bottom: 8px; /* Adjust spacing as needed */
+  }
+  
+  /* Ensure the last item doesn't add extra space at the bottom */
+  table ul li:last-child {
+    margin-bottom: 0;
   }
 }
