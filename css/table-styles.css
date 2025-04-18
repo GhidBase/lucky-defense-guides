@@ -1,18 +1,47 @@
+/* Table Styles */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
+  background-color: var(--surface-background);
+  font-family: "Fredoka", sans-serif;
+  color: var(--text-color);
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.1);
 }
+
 table th,
 table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border: 1px solid var(--outline-brown);
+  padding: 12px;
   text-align: left;
+  vertical-align: top;
 }
+
 table th {
-  background-color: #007bff;
+  background-color: var(--red-brown);
   color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
+
 table tr {
-  background-color: #f2f2f236;
+  background-color: var(--surface-background);
+}
+
+table td {
+  line-height: 1.5;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 1000px) {
+  table {
+    margin: 10px 0;
+  }
+
+  table th,
+  table td {
+    padding: 8px;
+    font-size: 14px;
+  }
 }
