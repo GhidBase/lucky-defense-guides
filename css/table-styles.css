@@ -77,4 +77,8 @@ table ul {
   table ul li:last-child {
     margin-bottom: 0;
   }
+
+  .main-body {
+    padding: 0px;
+  }
 }

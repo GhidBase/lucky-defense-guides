@@ -61,6 +61,7 @@ body {
   min-height: 100px;
   margin-bottom: 40px;
   text-align: center;
+  word-break: break-word;
 }
 
 h2 {
@@ -81,6 +82,7 @@ h2 {
 .text-width {
   margin: auto;
   max-width: 900px;
+  padding: 0 20px;
 }
 
 .centered-text-block {
@@ -425,7 +427,7 @@ a {
     margin: 0;
     border-left: none;
     border-right: none;
-    padding: 0 40px;
+    padding: 0 20px;
     box-sizing: border-box;
     padding-bottom: 100px;
   }
