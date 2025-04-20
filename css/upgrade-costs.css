@@ -1,7 +1,19 @@
 .rarity-tables {
-    width: 100%;
+  width: 100%;
 }
 
-.rarity-table>h2 {
-    padding: 0 20px;
+.rarity-table > h2 {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .rarity-table > h2 {
+    padding: 30px 20px 10px;
+  }
 }

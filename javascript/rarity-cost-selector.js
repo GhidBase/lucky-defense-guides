@@ -1,6 +1,12 @@
-const rarityTables = document.querySelector(".rarity-tables");
+const rarityTables = document.querySelectorAll(".rarity-table");
 const raritySelector = document.getElementById("rarity-selector");
 
-raritySelector.addEventListener("change", () => {
-    console.log("hello")
-})
+raritySelector.addEventListener("change", (event) => {
+  rarityTables.forEach((element) => {
+    if (event.target.value == element.id) {
+      element.classList.remove("hide");
+    } else {
+        element.classList.add("hide");
+    }
+  });
+});

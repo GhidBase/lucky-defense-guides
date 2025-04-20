@@ -46,6 +46,12 @@ table ul {
   padding-left: 20px;
 }
 
+table {
+  margin: auto;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
 /* Responsive adjustments for mobile */
 @media (max-width: 1000px) {
   table {
@@ -80,5 +86,6 @@ table ul {
 
   .main-body {
     padding: 0px;
+    padding-bottom: 100px;
   }
 }
