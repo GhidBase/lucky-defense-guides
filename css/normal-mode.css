@@ -9,7 +9,12 @@
 }
 
 .img-40-mobile-20-desktop {
-    width: 20%;
+    width: 15%;
+    height: auto;
+}
+
+.img-80 {
+    width: 30%;
     height: auto;
 }
 
@@ -17,6 +22,10 @@
     .img-40-mobile-20-desktop {
         width: 40%;
         height: auto;
+    }
+
+    .img-80 {
+        width: 80%;
     }
 }
 
