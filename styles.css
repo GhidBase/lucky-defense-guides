@@ -504,8 +504,16 @@ a {
     border-left: none;
     border-right: none;
   }
+
+  .max-width-mobile-only {
+    width: 100%;
+  }
 }
 
 .unscrollable {
   overflow-y: hidden;
+}
+
+.center-text {
+  text-align: center;
 }
