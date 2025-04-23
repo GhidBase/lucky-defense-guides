@@ -112,7 +112,7 @@ h2 {
   flex: 1;
 }
 
-.side-bar :first-child {
+.side-bar:first-child {
   margin: 0;
   border-top: none;
 }
@@ -142,7 +142,7 @@ ul {
       Buttons
       ============================================================ */
 
-.side-bar * {
+.side-bar>* {
   border-top: 1px solid var(--background);
   border-bottom: 1px solid var(--outline-brown);
 }
@@ -371,6 +371,55 @@ a {
   display: none;
 }
 
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Donation link style */
+.nav-footer .donate-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #ffdd00;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+
+
+
 @media (min-width: 1000px) {
   .text-width-desktop-only {
     margin: auto;
@@ -512,6 +561,10 @@ a {
 
 .unscrollable {
   overflow-y: hidden;
+}
+
+.no-borders {
+  border: none;
 }
 
 .center-text {
