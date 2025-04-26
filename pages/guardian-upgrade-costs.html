@@ -39,13 +39,48 @@
           <form action="">
             <label for="rarity-selector">Rarity:</label>
             <select name="rarity-selector" id="rarity-selector">
-              <option value="mythic-table">Mythic</option>
-              <option value="legendary-table">Legendary</option>
-              <option value="epic-table">Epic</option>
-              <option value="rare-table">Rare</option>
-              <option value="common-table">Common</option>
+              <option value="mythic">Mythic</option>
+              <option value="legendary">Legendary</option>
+              <option value="epic">Epic</option>
+              <option value="rare">Rare</option>
+              <option value="common">Common</option>
+            </select>
+            <label for="from-level">From:</label>
+            <select name="from-level" id="from-level">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+            </select>
+            <label for="to-level">To:</label>
+            <select name="to-level" id="to-level">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
             </select>
           </form>
+          <p id="output"></p>
         </div>
 
         <div class="rarity-tables">
@@ -530,9 +565,10 @@
         <button class="openModalBtn">☕ Support the Developer</button>
       </p>
     </div>
-    
+
     <script src="../javascript/load-sidebar.js?v=1.1"></script>
     <script src="../javascript/open-navigation.js"></script>
+    <script src="../javascript/upgrade-calculator.js"></script>
     <script src="../javascript/rarity-cost-selector.js"></script>
   </body>
 </html>
