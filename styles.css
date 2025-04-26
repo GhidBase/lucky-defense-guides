@@ -438,6 +438,7 @@ a {
     display: grid;
     grid-template-columns: auto;
   }
+  
   .footer {
     margin-top: auto;
     background-color: var(--red-brown);
