@@ -1,5 +1,3 @@
-const guardians = {};
-
 const upgradeCosts = {
   mythic: {
     1: {
@@ -313,21 +311,7 @@ const upgradeCosts = {
   },
 };
 
-function populateGuardians() {
-  const guardianSelect = document.getElementById("selected-guardian");
-  for (let rarity in guardians) {
-    const optgroup = document.createElement("optgroup");
-    optgroup.label = rarity.charAt(0).toUpperCase() + rarity.slice(1);
-    guardianSelect.appendChild(optgroup);
-    for (let i = 0; i < guardians[rarity].length; i++) {
-      const option = document.createElement("option");
-      option.value = guardians[rarity][i];
-      option.innerText = guardians[rarity][i];
-      option.setAttribute("data-rarity", rarity);
-      guardianSelect.appendChild(option);
-    }
-  }
-}
+
 
 function calculateUpgradeCosts() {
   const currentLevel = document.getElementById("from-level").value;
@@ -377,4 +361,3 @@ document
   .getElementById("to-level")
   .addEventListener("change", calculateUpgradeCosts);
 
-document.addEventListener("DOMContentLoaded", populateGuardians);
