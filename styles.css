@@ -433,6 +433,11 @@ a {
    ============================================================ */
 
 @media (max-width: 1000px) {
+
+  .side-bar-body-row {
+    display: grid;
+    grid-template-columns: auto;
+  }
   .footer {
     margin-top: auto;
     background-color: var(--red-brown);
