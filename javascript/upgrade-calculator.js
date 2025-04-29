@@ -396,4 +396,4 @@ document
   .addEventListener("change", calculateUpgradeCosts);
 
 changeAvailableToNumbers();
-// calculateUpgradeCosts();
+calculateUpgradeCosts();
