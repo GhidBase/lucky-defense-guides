@@ -311,8 +311,6 @@ const upgradeCosts = {
   },
 };
 
-
-
 function calculateUpgradeCosts() {
   const currentLevel = document.getElementById("from-level").value;
   const targetLevel = document.getElementById("to-level").value;
@@ -324,9 +322,9 @@ function calculateUpgradeCosts() {
   let totalStones = 0;
 
   if (Number(currentLevel) >= Number(targetLevel)) {
-    alert("Desired level must be greater than current level");
+    // alert("Desired level must be greater than current level");
     let errortext = `Desired level ${targetLevel} must be greater than current level ${currentLevel}`;
-    console.log(errortext);
+    // console.log(errortext);
     return;
   }
 
@@ -353,6 +351,38 @@ function calculateUpgradeCosts() {
   }
 }
 
+function changeAvailableToNumbers() {
+  let from = +document.getElementById("from-level").value;
+  const select = document.getElementById("to-level");
+  const startingFrom = +select.value;
+  from++;
+
+  if (select.value < from) {
+    select.value = from;
+  }
+  select.innerHTML = "";
+  const options = [];
+
+  for (i = from; i < 16; i++) {
+    options.push(i);
+  }
+
+  options.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    select.appendChild(option);
+  });
+
+  if (select.value < startingFrom) {
+    select.value = startingFrom;
+  }
+}
+
+document
+  .getElementById("from-level")
+  .addEventListener("change", changeAvailableToNumbers);
+
 document
   .getElementById("from-level")
   .addEventListener("change", calculateUpgradeCosts);
@@ -361,3 +391,9 @@ document
   .getElementById("to-level")
   .addEventListener("change", calculateUpgradeCosts);
 
+document
+  .getElementById("rarity-selector")
+  .addEventListener("change", calculateUpgradeCosts);
+
+changeAvailableToNumbers();
+// calculateUpgradeCosts();
