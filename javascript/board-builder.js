@@ -11,12 +11,30 @@ class Board {
     this.gridArray = [];
 
     for (let i = 0; i < 18; i++) {
-      const gridCell = document.createElement("div");
-    //   gridCell.classList.add("grid-overlay");
-      gridCell.classList.add("board-cell");
-      gridCell.id = "grid-cell-" + i;
-      this.gridOverlay.append(gridCell);
+      const gridElement = document.createElement("div");
+      gridElement.classList.add("board-cell");
+      gridElement.id = "grid-cell-" + i;
+      this.gridOverlay.append(gridElement);
+      const gridObject = new Cell(gridElement, i);
+      this.gridArray.push(gridObject);
     }
+    console.log(this.gridArray)
+  }
+}
+
+class Cell {
+  constructor(element, cellNumber) {
+    this.guardian;
+    this.guardianCount = 1;
+    this.element = element;
+    this.cellNumber = cellNumber;
+    this.setupEventListeners();
+  }
+
+  setupEventListeners() {
+    this.element.addEventListener("click", () => {
+        console.log(this.cellNumber)
+    })
   }
 }
 
