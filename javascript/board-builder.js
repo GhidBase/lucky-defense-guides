@@ -19,7 +19,7 @@ class Board {
       const gridObject = new Cell(gridElement, i);
       this.gridArray.push(gridObject);
     }
-    console.log(this.gridArray)
+    console.log(this.gridArray);
   }
 }
 
@@ -34,8 +34,8 @@ class Cell {
 
   setupEventListeners() {
     this.element.addEventListener("click", () => {
-        console.log(this.cellNumber)
-    })
+      console.log(this.cellNumber);
+    });
   }
 }
 
@@ -45,28 +45,71 @@ class GuardianSelector {
     this.raritySelector = document.getElementById("rarity-selector");
     this.typeSelector = document.getElementById("type-selector");
     this.guardianSelector = document.getElementById("guardian-selector");
-    this.selectGuardianButton = document.getElementById("select-guardian-button");
+    this.selectGuardianButton = document.getElementById(
+      "select-guardian-button"
+    );
     this.setupEventListeners();
+
+    this.guardians = {
+      common: ["Bandit", "Thrower", "Archer", "Water Elemental", "Barbarian"],
+      rare: ["Sandman", "Demon Soldier", "Shock Robot", "Paladin", "Ranger"],
+      epic: [
+        "Hunter",
+        "Eagle General",
+        "Electro Robot",
+        "Tree",
+        "Wolf Warrior",
+      ],
+      legendary: ["Storm Giant", "Tiger Master", "War Machine", "Sheriff"],
+      mythic: {
+        waveClear: [
+          "Lazy Taoist",
+          "Rocket Chu",
+          "Master Kun",
+          "Bat Man",
+          "Iron Meow",
+          "Dragon",
+          "Tar",
+          "Frog Prince",
+          "Bomba",
+          "Blob",
+          "Ninja",
+        ],
+        bossKillers: ["Lancelot", "Vayne", "Watt", "Zap"],
+        support: [
+          "Graviton",
+          "Indy",
+          "Kitty Mage",
+          "Coldy",
+          "Pulse Generator",
+          "Orc Shaman",
+          "Monopoly Man",
+          "Mama",
+        ],
+      },
+    };
   }
 
   setupEventListeners() {
     this.selectGuardianButton.addEventListener("click", () => {
       console.log("sup");
-    })
+    });
 
     this.raritySelector.addEventListener("change", () => {
       this.adjustTypeVisibility();
-    })
+    });
   }
 
   adjustTypeVisibility() {
-    console.log(this.raritySelector.value)
-    if(this.raritySelector.value == "mythic") {
+    console.log(this.raritySelector.value);
+    if (this.raritySelector.value == "mythic") {
       this.typeSelector.parentElement.classList.remove("hidden");
     } else {
       this.typeSelector.parentElement.classList.add("hidden");
     }
   }
+
+  adjustGuardianOptions() {}
 }
 
 const board = new Board();
