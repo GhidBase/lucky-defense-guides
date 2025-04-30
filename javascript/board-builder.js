@@ -48,6 +48,7 @@ class GuardianSelector {
     this.selectGuardianButton = document.getElementById(
       "select-guardian-button"
     );
+    this.guardianImg = document.getElementById("guardian-img");
     this.setupEventListeners();
 
     this.guardians = {
@@ -88,6 +89,9 @@ class GuardianSelector {
         ],
       },
     };
+
+    this.adjustTypeVisibility();
+    this.adjustGuardianOptions();
   }
 
   setupEventListeners() {
@@ -99,6 +103,10 @@ class GuardianSelector {
       this.adjustTypeVisibility();
       this.adjustGuardianOptions();
     });
+
+    this.guardianSelector.addEventListener("change", () => {
+      this.changeGuardianImage(this.guardianSelector.value)
+    })
   }
 
   adjustTypeVisibility() {
@@ -128,9 +136,16 @@ class GuardianSelector {
         this.guardianSelector.appendChild(option);
       });
     }
+
+
+    this.changeGuardianImage(this.guardianSelector.value);
+  }
+
+  changeGuardianImage(newImg) {
+    console.log(newImg)
+    this.guardianImg.src = `../pics/unit/mythics/${newImg}.png`;
   }
 }
 
 const board = new Board();
 const selectorModal = new GuardianSelector();
-selectorModal.adjustTypeVisibility();
