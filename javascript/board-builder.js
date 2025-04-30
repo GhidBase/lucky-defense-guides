@@ -91,6 +91,9 @@ class GuardianSelector {
   }
 
   setupEventListeners() {
+    this.typeSelector.addEventListener("change", () => {
+      this.adjustGuardianOptions();
+    })
 
     this.raritySelector.addEventListener("change", () => {
       this.adjustTypeVisibility();
@@ -108,27 +111,24 @@ class GuardianSelector {
 
   adjustGuardianOptions() {
     const rarity = this.raritySelector.value;
+    const type = this.typeSelector.value;
     if (rarity != "mythic") {
-      // set guardianSelect.innerHtml = "";
       this.guardianSelector.innerHTML = "";
-      // create the elements
       this.guardians[rarity].forEach((element) => {
-        console.log(element);
+        const option = document.createElement("option");
+        option.value = element;
+        option.textContent = element;
+        this.guardianSelector.appendChild(option);
+      });
+    } else if (rarity == "mythic") {this.guardianSelector.innerHTML = "";
+      this.guardians[rarity][type].forEach((element) => {
+        const option = document.createElement("option");
+        option.value = element;
+        option.textContent = element;
+        this.guardianSelector.appendChild(option);
       });
     }
   }
-  /* 
-    When a Rarity is selected, if it's not mythic, set the
-    options in the guardian selector to the array for that rarity
-
-    If it is mythic, base those options off of whichever type of
-    mythic is selected in the type selector
-
-    createElement option
-    option.value
-    option.textContent
-    appendChild
-  */
 }
 
 const board = new Board();
