@@ -29,7 +29,12 @@
       <div class="side-bar"></div>
       <div class="main-body">
         <div class="board-container" id="board-container">
-          <img src="../pics/boards/Normal.png" alt="" class="board-frame" id="board-img"/>
+          <img
+            src="../pics/boards/Normal.png"
+            alt=""
+            class="board-frame"
+            id="board-img"
+          />
           <div class="grid-overlay" id="grid-overlay">
             <div class="board-cell"></div>
             <div class="board-cell"></div>
@@ -54,6 +59,44 @@
       </div>
     </div>
     <div class="cover"></div>
+
+    <div id="guardian-selector-modal">
+      <h1>Select a Unit</h1>
+      <div class="user-input">
+        <label for="rarity-selector">Rarity: </label>
+        <select name="rarity-selector" id="rarity-selector">
+          <option value="mythic">Mythic</option>
+          <option value="legendary">Legendary</option>
+          <option value="epic">Epic</option>
+          <option value="rare">Rare</option>
+          <option value="common">Common</option>
+        </select>
+      </div>
+
+      <div class="user-input hidden">
+        <label for="type-selector">Type: </label>
+        <select name="type-selector" id="type-selector">
+          <option value="wave-clear">Wave Clearers</option>
+          <option value="boss-killers">Boss Killers</option>
+          <option value="support">Support</option>
+        </select>
+      </div>
+
+      <div class="user-input">
+        <label for="guardian-selector">Guardian: </label>
+        <select name="guardian-selector" id="guardian-selector">
+          <option value="Rocket Chu">Rocket Chu</option>
+          <option value="Verdee">Verdee</option>
+          <option value="Vayne">Vayne</option>
+          <option value="Lazy Taoist">Lazy Taoist</option>
+          <option value="Coldy">Coldy</option>
+        </select>
+      </div>
+
+      <img src="../pics/unit/mythics/Rocket_Chu.png" alt="" />
+
+      <button id="select-guardian-button">Select</button>
+    </div>
 
     <div id="donationModal" class="modal">
       <div class="modal-content">

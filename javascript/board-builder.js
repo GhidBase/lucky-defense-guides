@@ -4,6 +4,7 @@ class Board {
     this.boardImg = this.boardContainer.querySelector("#board-img");
     this.gridOverlay = this.boardContainer.querySelector("#grid-overlay");
     this.gridArray = [];
+    this.initializeGrid();
   }
 
   initializeGrid() {
@@ -38,5 +39,36 @@ class Cell {
   }
 }
 
+class GuardianSelector {
+  constructor() {
+    this.modal = document.getElementById("guardian-selector-modal");
+    this.raritySelector = document.getElementById("rarity-selector");
+    this.typeSelector = document.getElementById("type-selector");
+    this.guardianSelector = document.getElementById("guardian-selector");
+    this.selectGuardianButton = document.getElementById("select-guardian-button");
+    this.setupEventListeners();
+  }
+
+  setupEventListeners() {
+    this.selectGuardianButton.addEventListener("click", () => {
+      console.log("sup");
+    })
+
+    this.raritySelector.addEventListener("change", () => {
+      this.adjustTypeVisibility();
+    })
+  }
+
+  adjustTypeVisibility() {
+    console.log(this.raritySelector.value)
+    if(this.raritySelector.value == "mythic") {
+      this.typeSelector.parentElement.classList.remove("hidden");
+    } else {
+      this.typeSelector.parentElement.classList.add("hidden");
+    }
+  }
+}
+
 const board = new Board();
-board.initializeGrid();
+const selectorModal = new GuardianSelector();
+selectorModal.adjustTypeVisibility();

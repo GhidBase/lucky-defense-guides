@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+
+
+/* ACTUAL BOARD PARTS */
+
 .board-container {
   margin-top: auto;
   position: relative;
@@ -31,4 +35,35 @@ img.board-frame {
 
 .board-cell {
   background-color: rgba(255, 255, 255, 0.363);
+}
+
+
+/* Selector Modal */
+
+#guardian-selector-modal {
+  position: absolute;
+  top: 50dvh;
+  left: 50dvw;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--red-brown);
+  color: white;
+  border: 2px solid var(--outline-brown);
+  border-radius: 8px;
+  width: calc(100% - 40px);
+  height: 450px;
+}
+
+#guardian-selector-modal>h1 {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
 }
