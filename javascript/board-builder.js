@@ -97,7 +97,7 @@ class GuardianSelector {
   setupEventListeners() {
     this.typeSelector.addEventListener("change", () => {
       this.adjustGuardianOptions();
-    })
+    });
 
     this.raritySelector.addEventListener("change", () => {
       this.adjustTypeVisibility();
@@ -105,8 +105,8 @@ class GuardianSelector {
     });
 
     this.guardianSelector.addEventListener("change", () => {
-      this.changeGuardianImage(this.guardianSelector.value)
-    })
+      this.changeGuardianImage(this.guardianSelector.value);
+    });
   }
 
   adjustTypeVisibility() {
@@ -128,7 +128,8 @@ class GuardianSelector {
         option.textContent = element;
         this.guardianSelector.appendChild(option);
       });
-    } else if (rarity == "mythic") {this.guardianSelector.innerHTML = "";
+    } else if (rarity == "mythic") {
+      this.guardianSelector.innerHTML = "";
       this.guardians[rarity][type].forEach((element) => {
         const option = document.createElement("option");
         option.value = element;
@@ -137,13 +138,13 @@ class GuardianSelector {
       });
     }
 
-
     this.changeGuardianImage(this.guardianSelector.value);
   }
 
   changeGuardianImage(newImg) {
-    console.log(newImg)
-    this.guardianImg.src = `../pics/unit/mythics/${newImg}.png`;
+    console.log(newImg);
+    const firstHalf = this.raritySelector.value == "mythic" ? "mythics/" : "";
+    this.guardianImg.src = `../pics/unit/${firstHalf}${newImg}.png`;
   }
 }
 
