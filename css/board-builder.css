@@ -1,14 +1,14 @@
-.main-body {
+.text-width {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-
 
 
 /* ACTUAL BOARD PARTS */
 
 .board-container {
-  margin-top: auto;
+  /* margin-top: auto; */
   position: relative;
   display: inline-block;
 }
@@ -41,10 +41,7 @@ img.board-frame {
 /* Selector Modal */
 
 #guardian-selector-modal {
-  position: absolute;
-  top: 50dvh;
-  left: 50dvw;
-  transform: translate(-50%, -50%);
+  
   box-sizing: border-box;
 
 
@@ -57,7 +54,9 @@ img.board-frame {
   border: 2px solid var(--outline-brown);
   border-radius: 8px;
   width: calc(100% - 40px);
-  height: 450px;
+  gap: 20px;
+  padding: 20px;
+  margin: 20px;
 }
 
 #guardian-selector-modal>h1 {
@@ -67,3 +66,5 @@ img.board-frame {
 .hidden {
   display: none;
 }
+
+
