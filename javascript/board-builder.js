@@ -4,6 +4,7 @@ class Board {
     this.boardImg = this.boardContainer.querySelector("#board-img");
     this.gridOverlay = this.boardContainer.querySelector("#grid-overlay");
     this.gridArray = [];
+    this.guardianSelector = new GuardianSelector();
     this.initializeGrid();
   }
 
@@ -16,26 +17,43 @@ class Board {
       gridElement.classList.add("board-cell");
       gridElement.id = "grid-cell-" + i;
       this.gridOverlay.append(gridElement);
-      const gridObject = new Cell(gridElement, i);
+      const gridObject = new Cell(gridElement, i, this.guardianSelector);
       this.gridArray.push(gridObject);
     }
-    console.log(this.gridArray);
   }
 }
 
 class Cell {
-  constructor(element, cellNumber) {
+  constructor(element, cellNumber, guardianSelector) {
     this.guardian;
     this.guardianCount = 1;
     this.element = element;
     this.cellNumber = cellNumber;
     this.setupEventListeners();
+    this.guardianSelector = guardianSelector;
+    this.imgElement = document.createElement("img");
+    this.element.appendChild(this.imgElement);
+    this.imgSrc;
   }
 
   setupEventListeners() {
     this.element.addEventListener("click", () => {
-      console.log(this.cellNumber);
+      this.setImage();
     });
+  }
+
+  setImage() {
+    const selectedImgSrc = this.guardianSelector.getSelectedGuardian()
+    console.log(selectedImgSrc)
+    console.log(this.imgSrc)
+    if (selectedImgSrc != this.imgSrc) {
+      this.imgSrc = selectedImgSrc;
+      this.imgElement.src = selectedImgSrc;
+    } else {
+      this.imgElement.src = "";
+      this.imgSrc = "";
+    }
+    
   }
 }
 
@@ -142,11 +160,15 @@ class GuardianSelector {
   }
 
   changeGuardianImage(newImg) {
-    console.log(newImg);
     const firstHalf = this.raritySelector.value == "mythic" ? "mythics/" : "";
     this.guardianImg.src = `../pics/unit/${firstHalf}${newImg}.png`;
+  }
+
+  getSelectedGuardian() {
+    const firstHalf = this.raritySelector.value == "mythic" ? "mythics/" : "";
+    return `../pics/unit/${firstHalf}${this.guardianSelector.value}.png`;
   }
 }
 
 const board = new Board();
-const selectorModal = new GuardianSelector();
+// const selectorModal = new GuardianSelector();

@@ -34,7 +34,21 @@ img.board-frame {
 }
 
 .board-cell {
-  background-color: rgba(255, 255, 255, 0.363);
+  /* background-color: rgba(255, 255, 255, 0.363); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 2px solid rgba(82, 82, 82, 0.068);
+  overflow: hidden; /* Add this to clip overflowing images */
+  /* padding: 2px; */
+  /* I can use padding to make images fit differently */
+}
+
+.board-cell>img{
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
 }
 
 
@@ -43,8 +57,6 @@ img.board-frame {
 #guardian-selector-modal {
   
   box-sizing: border-box;
-
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
