@@ -44,8 +44,6 @@ class Cell {
 
   setImage() {
     const selectedImgSrc = this.guardianSelector.getSelectedGuardianImg();
-    console.log(selectedImgSrc);
-    console.log(this.imgSrc);
     if (selectedImgSrc != this.imgSrc) {
       this.imgSrc = selectedImgSrc;
       this.imgElement.src = selectedImgSrc;
@@ -67,12 +65,7 @@ class GuardianSelector {
     this.raritySelector = document.getElementById("rarity-selector");
     this.typeSelector = document.getElementById("type-selector");
     this.guardianSelector = document.getElementById("guardian-selector");
-    this.selectGuardianButton = document.getElementById(
-      "select-guardian-button"
-    );
     this.guardianImg = document.getElementById("guardian-img");
-    this.setupEventListeners();
-
     this.guardians = {
       common: ["Bandit", "Thrower", "Archer", "Water Elemental", "Barbarian"],
       rare: ["Sandman", "Demon Soldier", "Shock Robot", "Paladin", "Ranger"],
@@ -111,9 +104,13 @@ class GuardianSelector {
         ],
       },
     };
+    this.setupEventListeners();
 
     this.adjustTypeVisibility();
     this.adjustGuardianOptions();
+
+    this.selectedGuardian = this.getGuardianDropDownValue();
+    this.changeGuardianImage(this.getSelectedGuardianImg());
   }
 
   setupEventListeners() {
@@ -127,6 +124,7 @@ class GuardianSelector {
     });
 
     this.guardianSelector.addEventListener("change", () => {
+      this.selectedGuardian = this.getGuardianDropDownValue();
       this.changeGuardianImage(this.getSelectedGuardianImg());
     });
   }
@@ -164,11 +162,15 @@ class GuardianSelector {
   }
 
   changeGuardianImage(newImg) {
-    this.guardianImg.src = newImg
+    this.guardianImg.src = newImg;
+  }
+
+  getGuardianDropDownValue() {
+    return this.guardianSelector.value;
   }
 
   getSelectedGuardian() {
-    return this.guardianSelector.value;
+    return this.selectedGuardian;
   }
 
   getSelectedGuardianImg() {
