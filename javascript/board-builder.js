@@ -53,6 +53,11 @@ class Cell {
       this.imgElement.src = "";
       this.imgSrc = "";
     }
+
+    // Force repaint
+    this.element.style.display = "none";
+    this.element.offsetHeight; // Trigger reflow
+    this.element.style.display = "";
     
   }
 }
