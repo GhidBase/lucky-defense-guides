@@ -104,13 +104,13 @@ class GuardianSelector {
         ],
       },
     };
-    this.setupEventListeners();
 
     this.adjustTypeVisibility();
     this.adjustGuardianOptions();
-
     this.selectedGuardian = this.getGuardianDropDownValue();
     this.changeGuardianImage(this.getSelectedGuardianImg());
+    
+    this.setupEventListeners();
   }
 
   setupEventListeners() {
