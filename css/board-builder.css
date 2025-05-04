@@ -4,7 +4,6 @@
   align-items: center;
 }
 
-
 /* ACTUAL BOARD PARTS */
 
 .board-container {
@@ -45,38 +44,55 @@ img.board-frame {
   /* I can use padding to make images fit differently */
 }
 
-.board-cell>img{
+.board-cell > img {
   max-width: 80%;
   max-height: 80%;
   object-fit: contain;
 }
 
-
 /* Selector Modal */
 
 #guardian-selector-modal {
-  
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  background-color: var(--red-brown);
-  color: white;
-  border: 2px solid var(--outline-brown);
+
   border-radius: 8px;
-  width: calc(100% - 40px);
+  width: 100%;
   gap: 20px;
   padding: 20px;
   margin: 20px;
-}
 
-#guardian-selector-modal>h1 {
-  margin: 0;
+  background-color: var(--red-brown);
+  color: white;
+  border: 2px solid var(--outline-brown);
 }
 
 .hidden {
   display: none;
 }
 
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
 
+.inputs > h1 {
+  margin: 0;
+}
+
+.guardian-list {
+  display: flex;
+  height: 10dvh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.guardian-list>img {
+  height: 50px;
+}
