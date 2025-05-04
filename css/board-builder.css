@@ -104,9 +104,15 @@ img.board-frame {
 }
 
 .guardian-list > button {
-  display: flex;
+  flex: 0 0 auto;
   height: 100%;
   border-radius: 0.5em;
   padding: 8px;
   background-color: var(--surface-background);
+  width: 10dvh;
+  box-sizing: border-box;
+}
+
+.guardian-list img {
+  height: 100%;
 }

@@ -64,7 +64,6 @@ class GuardianSelector {
     this.modal = document.getElementById("guardian-selector-modal");
     this.raritySelector = document.getElementById("rarity-selector");
     this.typeSelector = document.getElementById("type-selector");
-    this.guardianSelector = document.getElementById("guardian-selector");
     this.guardianImg = document.getElementById("guardian-img");
     this.guardianList = document.querySelector(".guardian-list");
 
@@ -109,9 +108,10 @@ class GuardianSelector {
 
     this.adjustTypeVisibility();
     this.adjustGuardianOptions();
-    this.selectedGuardian = this.getGuardianDropDownValue();
+    this.selectedGuardian = "Lazy Taoist";
+    this.selectedGuardianRarity = "mythic"
     this.changeGuardianImage(this.getSelectedGuardianImg());
-    
+
     this.setupEventListeners();
   }
 
@@ -123,11 +123,6 @@ class GuardianSelector {
     this.raritySelector.addEventListener("change", () => {
       this.adjustTypeVisibility();
       this.adjustGuardianOptions();
-    });
-
-    this.guardianSelector.addEventListener("change", () => {
-      this.selectedGuardian = this.getGuardianDropDownValue();
-      this.changeGuardianImage(this.getSelectedGuardianImg());
     });
   }
 
@@ -142,48 +137,28 @@ class GuardianSelector {
   adjustGuardianOptions() {
     const rarity = this.raritySelector.value;
     const type = this.typeSelector.value;
+    this.guardianList.innerHTML = "";
+
+    const addGuardianToList = (element) => {
+      const firstHalf = rarity == "mythic" ? "mythics/" : "";
+      const button = document.createElement("button");
+      const img = document.createElement("img");
+      img.src = `../pics/unit/${firstHalf}${element}.png`;
+      button.appendChild(img);
+      this.guardianList.appendChild(button);
+      button.addEventListener("click", () => {
+        this.selectedGuardian = element;
+        this.selectedGuardianRarity = rarity;
+      });
+    }
+
     if (rarity != "mythic") {
-      this.guardianSelector.innerHTML = "";
-      this.guardianList.innerHTML = "";
-
       this.guardians[rarity].forEach((element) => {
-        const option = document.createElement("option");
-        option.value = element;
-        option.textContent = element;
-        this.guardianSelector.appendChild(option);
-
-        // Creates the new list
-        console.log(element)
-        const button = document.createElement("button");
-        const img = document.createElement("img");
-        img.src = `../pics/unit/${element}.png`;
-        button.appendChild(img);
-        this.guardianList.appendChild(button);
-        button.addEventListener("click", () => {
-          this.selectedGuardian = element;
-        })
+        addGuardianToList(element)
       });
     } else if (rarity == "mythic") {
-      this.guardianSelector.innerHTML = "";
-      console.log(this.guardianList)
-      this.guardianList.innerHTML = "";
       this.guardians[rarity][type].forEach((element) => {
-        console.log(element)
-        // Fills the old list with options
-        const option = document.createElement("option");
-        option.value = element;
-        option.textContent = element;
-        this.guardianSelector.appendChild(option);
-
-        // Creates the new list
-        const button = document.createElement("button");
-        const img = document.createElement("img");
-        img.src = `../pics/unit/mythics/${element}.png`;
-        button.appendChild(img);
-        this.guardianList.appendChild(button);
-        button.addEventListener("click", () => {
-          this.selectedGuardian = element;
-        })
+        addGuardianToList(element)
       });
     }
 
@@ -194,16 +169,13 @@ class GuardianSelector {
     this.guardianImg.src = newImg;
   }
 
-  getGuardianDropDownValue() {
-    return this.guardianSelector.value;
-  }
-
   getSelectedGuardian() {
     return this.selectedGuardian;
   }
 
   getSelectedGuardianImg() {
-    const firstHalf = this.raritySelector.value == "mythic" ? "mythics/" : "";
+    console.log(this.selectedGuardianRarity)
+    const firstHalf = this.selectedGuardianRarity == "mythic" ? "mythics/" : "";
     const currentGuardian = this.getSelectedGuardian();
     return `../pics/unit/${firstHalf}${currentGuardian}.png`;
   }
