@@ -43,9 +43,9 @@ class Cell {
   }
 
   setImage() {
-    const selectedImgSrc = this.guardianSelector.getSelectedGuardian()
-    console.log(selectedImgSrc)
-    console.log(this.imgSrc)
+    const selectedImgSrc = this.guardianSelector.getSelectedGuardianImg();
+    console.log(selectedImgSrc);
+    console.log(this.imgSrc);
     if (selectedImgSrc != this.imgSrc) {
       this.imgSrc = selectedImgSrc;
       this.imgElement.src = selectedImgSrc;
@@ -58,7 +58,6 @@ class Cell {
     this.element.style.display = "none";
     this.element.offsetHeight; // Trigger reflow
     this.element.style.display = "";
-    
   }
 }
 
@@ -170,10 +169,14 @@ class GuardianSelector {
   }
 
   getSelectedGuardian() {
+    return this.guardianSelector.value;
+  }
+
+  getSelectedGuardianImg() {
     const firstHalf = this.raritySelector.value == "mythic" ? "mythics/" : "";
-    return `../pics/unit/${firstHalf}${this.guardianSelector.value}.png`;
+    const currentGuardian = this.getSelectedGuardian();
+    return `../pics/unit/${firstHalf}${currentGuardian}.png`;
   }
 }
 
 const board = new Board();
-// const selectorModal = new GuardianSelector();
