@@ -127,7 +127,7 @@ class GuardianSelector {
     });
 
     this.guardianSelector.addEventListener("change", () => {
-      this.changeGuardianImage(this.guardianSelector.value);
+      this.changeGuardianImage(this.getSelectedGuardianImg());
     });
   }
 
@@ -160,12 +160,11 @@ class GuardianSelector {
       });
     }
 
-    this.changeGuardianImage(this.guardianSelector.value);
+    this.changeGuardianImage(this.getSelectedGuardianImg());
   }
 
   changeGuardianImage(newImg) {
-    const firstHalf = this.raritySelector.value == "mythic" ? "mythics/" : "";
-    this.guardianImg.src = `../pics/unit/${firstHalf}${newImg}.png`;
+    this.guardianImg.src = newImg
   }
 
   getSelectedGuardian() {
