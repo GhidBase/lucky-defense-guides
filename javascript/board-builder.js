@@ -66,6 +66,8 @@ class GuardianSelector {
     this.typeSelector = document.getElementById("type-selector");
     this.guardianSelector = document.getElementById("guardian-selector");
     this.guardianImg = document.getElementById("guardian-img");
+    this.guardianList = document.querySelector(".guardian-list");
+
     this.guardians = {
       common: ["Bandit", "Thrower", "Archer", "Water Elemental", "Barbarian"],
       rare: ["Sandman", "Demon Soldier", "Shock Robot", "Paladin", "Ranger"],
@@ -142,19 +144,46 @@ class GuardianSelector {
     const type = this.typeSelector.value;
     if (rarity != "mythic") {
       this.guardianSelector.innerHTML = "";
+      this.guardianList.innerHTML = "";
+
       this.guardians[rarity].forEach((element) => {
         const option = document.createElement("option");
         option.value = element;
         option.textContent = element;
         this.guardianSelector.appendChild(option);
+
+        // Creates the new list
+        console.log(element)
+        const button = document.createElement("button");
+        const img = document.createElement("img");
+        img.src = `../pics/unit/${element}.png`;
+        button.appendChild(img);
+        this.guardianList.appendChild(button);
+        button.addEventListener("click", () => {
+          this.selectedGuardian = element;
+        })
       });
     } else if (rarity == "mythic") {
       this.guardianSelector.innerHTML = "";
+      console.log(this.guardianList)
+      this.guardianList.innerHTML = "";
       this.guardians[rarity][type].forEach((element) => {
+        console.log(element)
+        // Fills the old list with options
         const option = document.createElement("option");
         option.value = element;
         option.textContent = element;
         this.guardianSelector.appendChild(option);
+
+        // Creates the new list
+        const button = document.createElement("button");
+        const img = document.createElement("img");
+        img.src = `../pics/unit/mythics/${element}.png`;
+        button.appendChild(img);
+        this.guardianList.appendChild(button);
+        button.addEventListener("click", () => {
+          this.selectedGuardian = element;
+        })
       });
     }
 
