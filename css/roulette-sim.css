@@ -1,0 +1,23 @@
+#roulette-form {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#roulette-form>* {
+    width: 100%;
+}
+
+.bottom-margin {
+    margin-bottom: 8px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.center>* {
+    text-align: center;
+}
