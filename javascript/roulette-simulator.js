@@ -134,6 +134,7 @@ function runSim(
         sellOrMergeLowRarity == "sell"
             ? " (selling low rarities)"
             : " (merging low rarities)";
+
     console.log("____________________________________________________");
     console.log(
         `${stones} stones ${rarity} roulette simulation${extraMessage}:`
@@ -184,6 +185,122 @@ function runSim(
     }
 
     console.log("\n\n\n");
+
+    //#endregion
+
+    //#region render results
+
+    const resultsElement = document.querySelector(".results");
+    resultsElement.innerHTML = "";
+
+    addElementToResults("h3", "Sim Settings");
+    addElementToResults("p", `Starting stones: ${stones}`);
+    addElementToResults(
+        "p",
+        `Rarity: ${rarity.charAt(0).toUpperCase() + rarity.slice(1)}`
+    );
+    addElementToResults(
+        "p",
+        `Gambler's Wrist summons: ${
+            sellOrMergeLowRarity.charAt(0).toUpperCase() +
+            sellOrMergeLowRarity.slice(1)
+        }`
+    );
+    addElementToResults("br");
+
+    addElementToResults("h3", "Main Results");
+    addElementToResults(
+        "p",
+        `${
+            rarity.charAt(0).toUpperCase() + rarity.slice(1)
+        } count: ${totalGuardians}`
+    );
+    if (epicCount) {
+        addElementToResults(
+            "p",
+            `Epic count: ${epicCount} (merged ${mergedRares} rares)`
+        );
+    }
+    if (legendaryCount) {
+        addElementToResults(
+            "p",
+            `Legendary count: ${legendaryCount} (merged ${mergedEpics} epics)`
+        );
+    }
+    addElementToResults("br");
+
+    addElementToResults("h3", "Average Costs");
+    addElementToResults(
+        "p",
+        `Average cost per ${rarity}: ${averageCostPerGuardian} stones (${stones} stones/${totalGuardians} epics)`
+    );
+    if (epicCount) {
+        addElementToResults(
+            "p",
+            `Average cost per epic: ${costPerEpic} (${stones} stones / ${epicCount} epic)`
+        );
+    }
+    if (legendaryCount) {
+        addElementToResults(
+            "p",
+            `Average cost per legendary ${costPerLegendary} (${stones} stones / ${legendaryCount} legendary)`
+        );
+    }
+    addElementToResults("br");
+
+    addElementToResults("h3", `Gamblers Wrist (${sellOrMergeLowRarity})`);
+    addElementToResults(
+        "p",
+        `Has 15% chance to gain lower tier guardian when roulette summon fails.`,
+        true
+    );
+    if (reportType == "normal") {
+        if (sellOrMergeLowRarity == "sell") {
+            addElementToResults(
+                "p",
+                `Stones from lower rarities sold: ${lowerTierSold}`
+            );
+            addElementToResults("h3", `Receipt (sell)`);
+            addElementToResults(
+                "p",
+                `Receipt gains +1 luck stone by 4.5% when selling a guardian.`,
+                true
+            );
+            addElementToResults(
+                "p",
+                `Stones from receipt: ${extraStonesFromReceipt}`
+            );
+        } else {
+            addElementToResults(
+                "p",
+                `Lower rarity guardians gained: ${lowerTier}`
+            );
+            addElementToResults(
+                "p",
+                `Lower rarity merges: ${Math.trunc(lowerTier / 3)}`
+            );
+            addElementToResults(
+                "p",
+                `Total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from gamblers wrist merging`
+            );
+        }
+        addElementToResults("br");
+
+        addElementToResults("h3", "Skull Stone");
+        addElementToResults(
+            "p",
+            `Has a 15% chance to refund the cost when roulette summon fails.`,
+            true
+        );
+        addElementToResults("p", `Refunds from skull stone: ${refunds}`);
+    }
+
+    function addElementToResults(type, textContent, bold) {
+        const newElement = document.createElement(type);
+        newElement.innerHTML = bold ? `<b>${textContent}</b>` : textContent;
+        resultsElement.appendChild(newElement);
+    }
+
     //#endregion
 }
 
@@ -258,7 +375,7 @@ function displayResults(newGuardian, refund, lowerTier, rarity, sellOrMerge) {
 // runSim(100000, "rare");
 // runSim(100000, "epic", "simple", "sell");
 // runSim(stones, rarity, sell or merge, extra info at bottom)
-runSim(10000, "epic", "normal", "sell", false);
+runSim(100, "epic", "normal", "merge", false);
 
 // runSim(100000, "legendary", "simple", "sell");
 // runSim(100000, "legendary", "simple");

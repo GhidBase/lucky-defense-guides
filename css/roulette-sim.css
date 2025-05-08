@@ -1,11 +1,12 @@
 #roulette-form {
-    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    width: 350px;
 }
 
-#roulette-form>* {
+#roulette-form > * {
     width: 100%;
 }
 
@@ -18,22 +19,30 @@
     justify-content: center;
 }
 
-.center>* {
+.center > * {
     text-align: center;
 }
 
 .results {
     margin: 0 auto;
-    width: 250px;
     display: flex;
     flex-direction: column;
     margin-top: 40px;
 }
 
-.results>h3 {
+.results > h3 {
     margin: 4px;
 }
 
-.results>p {
+.results > p {
     margin: 2px;
+}
+
+@media (max-width: 1000px) {
+    #roulette-form {
+        width: 250px;
+    }
+    .results {
+        width: 250px;
+    }
 }
