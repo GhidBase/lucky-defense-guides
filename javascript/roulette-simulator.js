@@ -172,13 +172,13 @@ function runSim(
         if (sellOrMergeLowRarity == "sell") {
             console.log(`stones from lower rarities sold: ${lowerTierSold}`);
             console.log(`stones from receipt: ${extraStonesFromReceipt}`);
-            console.log(
-                `total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from skull stone`
-            );
         } else {
             console.log(`lower rarity guardian count: ${lowerTier}`);
             console.log(`lower rarity merges: ${Math.trunc(lowerTier / 3)}`);
             console.log(`total ${rarity} pulls: ${guardians}`);
+            console.log(
+                `total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from gamblers wrist`
+            );
         }
         console.log(`refunds: ${refunds}`);
     }
@@ -258,7 +258,7 @@ function displayResults(newGuardian, refund, lowerTier, rarity, sellOrMerge) {
 // runSim(100000, "rare");
 // runSim(100000, "epic", "simple", "sell");
 // runSim(stones, rarity, sell or merge, extra info at bottom)
-runSim(100, "epic", "normal", "merge", false);
+runSim(10000, "epic", "normal", "sell", false);
 
 // runSim(100000, "legendary", "simple", "sell");
 // runSim(100000, "legendary", "simple");
