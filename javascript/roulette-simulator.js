@@ -37,7 +37,6 @@ function runSim(
     sellOrMergeLowRarity,
     showEachroll
 ) {
-
     //#region main script
     let guardians = 0;
     let lowerTier = 0;
@@ -68,16 +67,28 @@ function runSim(
             lowerTier++;
             let extraStoneFromSell;
             if (sellOrMergeLowRarity == "sell") {
-                i++;
-                lowerTierSold++;
+                switch (rarity) {
+                    case "epic":
+                        i++;
+                        lowerTierSold++;
+                        break;
+
+                    case "legendary":
+                        i++;
+                        lowerTierSold++;
+                        i++;
+                        lowerTierSold++;
+                        break;
+                }
+
                 extraStoneFromSell = fourAndHalfPercentRoll();
                 if (extraStoneFromSell) {
                     i++;
                     extraStonesFromReceipt++;
                 }
-            if (extraStoneFromSell && showEachroll) {
-                console.log(`Got extra stone from receipt`)
-            }
+                if (extraStoneFromSell && showEachroll) {
+                    console.log(`Got extra stone from receipt`);
+                }
             }
         }
         if (results.newGuardian) {
@@ -87,7 +98,7 @@ function runSim(
     if (sellOrMergeLowRarity == "sell") {
         lowerTier = 0;
     }
-    
+
     let costPerLegendary;
     let legendaryCount;
     let costPerEpic;
@@ -115,7 +126,6 @@ function runSim(
         legendaryCount = Math.trunc(epicCount / 3);
         costPerLegendary = Math.trunc((stones / legendaryCount) * 10) / 10;
     }
-
 
     //#endregion
 
@@ -248,7 +258,7 @@ function displayResults(newGuardian, refund, lowerTier, rarity, sellOrMerge) {
 // runSim(100000, "rare");
 // runSim(100000, "epic", "simple", "sell");
 // runSim(stones, rarity, sell or merge, extra info at bottom)
-runSim(100, "epic", "simple", "sell", false);
+runSim(100, "legendary", "simple", "sell", true);
 
 // runSim(100000, "legendary", "simple", "sell");
 // runSim(100000, "legendary", "simple");
