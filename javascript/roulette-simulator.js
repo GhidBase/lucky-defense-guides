@@ -37,6 +37,10 @@ function runSim(
     sellOrMergeLowRarity,
     showEachroll
 ) {
+    console.clear();
+    const resultsElement = document.querySelector(".results");
+    resultsElement.innerHTML = "";
+
     //#region main script
     let guardians = 0;
     let lowerTier = 0;
@@ -48,13 +52,14 @@ function runSim(
         let results = rouletteSpin(rarity);
         if (showEachroll) {
             console.log(`luck stones left: ${i}`);
-            displayResults(
+            let result = displayResults(
                 results.newGuardian,
                 results.refund,
                 results.lowerTier,
                 rarity,
                 sellOrMergeLowRarity
             );
+            addElementToResults("p", result);
         }
         if (results.refund) {
             i++;
@@ -136,63 +141,60 @@ function runSim(
 
     //#region display results
 
-    // console.log("____________________________________________________");
-    // console.log(
-    //     `${stones} stones ${rarity} roulette simulation${extraMessage}:`
-    // );
-    // console.log("____________________________________________________");
+    console.log("____________________________________________________");
+    console.log(
+        `${stones} stones ${rarity} roulette simulation${extraMessage}:`
+    );
+    console.log("____________________________________________________");
 
-    // console.log(`${rarity} count: ${totalGuardians}`);
+    console.log(`${rarity} count: ${totalGuardians}`);
 
-    // if (epicCount) {
-    //     console.log(`epic count: ${epicCount} (merged ${mergedRares} rares)`);
-    // }
-    // if (legendaryCount) {
-    //     console.log(
-    //         `legendary count: ${legendaryCount} (merged ${mergedEpics} epics)`
-    //     );
-    // }
+    if (epicCount) {
+        console.log(`epic count: ${epicCount} (merged ${mergedRares} rares)`);
+    }
+    if (legendaryCount) {
+        console.log(
+            `legendary count: ${legendaryCount} (merged ${mergedEpics} epics)`
+        );
+    }
 
-    // console.log("");
-    // console.log(`stones used: ${stones}`);
-    // console.log(
-    //     `average cost per ${rarity}: ${averageCostPerGuardian} stones (${stones} stones / ${totalGuardians} ${rarity})`
-    // );
-    // if (epicCount) {
-    //     console.log(
-    //         `average cost per epic: ${costPerEpic} (${stones} stones / ${epicCount} epic)`
-    //     );
-    // }
-    // if (legendaryCount) {
-    //     console.log(
-    //         `average cost per legendary ${costPerLegendary} (${stones} stones / ${legendaryCount} legendary)`
-    //     );
-    // }
+    console.log("");
+    console.log(`stones used: ${stones}`);
+    console.log(
+        `average cost per ${rarity}: ${averageCostPerGuardian} stones (${stones} stones / ${totalGuardians} ${rarity})`
+    );
+    if (epicCount) {
+        console.log(
+            `average cost per epic: ${costPerEpic} (${stones} stones / ${epicCount} epic)`
+        );
+    }
+    if (legendaryCount) {
+        console.log(
+            `average cost per legendary ${costPerLegendary} (${stones} stones / ${legendaryCount} legendary)`
+        );
+    }
 
-    // if (artifactDetails) {
-    //     console.log("\n");
-    //     if (sellOrMergeLowRarity == "sell") {
-    //         console.log(`stones from lower rarities sold: ${lowerTierSold}`);
-    //         console.log(`stones from receipt: ${extraStonesFromReceipt}`);
-    //     } else {
-    //         console.log(`lower rarity guardian count: ${lowerTier}`);
-    //         console.log(`lower rarity merges: ${Math.trunc(lowerTier / 3)}`);
-    //         console.log(`total ${rarity} pulls: ${guardians}`);
-    //         console.log(
-    //             `total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from gamblers wrist`
-    //         );
-    //     }
-    //     console.log(`refunds: ${refunds}`);
-    // }
+    if (artifactDetails) {
+        console.log("\n");
+        if (sellOrMergeLowRarity == "sell") {
+            console.log(`stones from lower rarities sold: ${lowerTierSold}`);
+            console.log(`stones from receipt: ${extraStonesFromReceipt}`);
+        } else {
+            console.log(`lower rarity guardian count: ${lowerTier}`);
+            console.log(`lower rarity merges: ${Math.trunc(lowerTier / 3)}`);
+            console.log(`total ${rarity} pulls: ${guardians}`);
+            console.log(
+                `total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from gamblers wrist`
+            );
+        }
+        console.log(`refunds: ${refunds}`);
+    }
 
-    // console.log("\n\n\n");
+    console.log("\n\n\n");
 
     //#endregion
 
     //#region render results
-
-    const resultsElement = document.querySelector(".results");
-    resultsElement.innerHTML = "";
 
     addElementToResults("h3", "Sim Settings");
     addElementToResults("p", `Starting stones: ${stones}`);
@@ -353,34 +355,30 @@ function fourAndHalfPercentRoll() {
 }
 
 function displayResults(newGuardian, refund, lowerTier, rarity, sellOrMerge) {
+    let result = "";
     if (newGuardian) {
-        console.log(`Got an ${rarity} guardian`);
+        const gotGuardian = `Got an ${rarity} guardian`;
+        console.log(gotGuardian);
+        result += `${gotGuardian}\n`;
     } else {
-        console.log(`Failed spin`);
+        const failedSpin = `Failed spin`;
+        console.log(failedSpin);
+        result += `failedSpin\n`;
         if (refund) {
-            console.log(`Refunded roll`);
+            const refundedRoll = "Refunded roll";
+            console.log(refundedRoll);
+            result += `${refundedRoll}\n`;
         }
         if (lowerTier) {
-            console.log(
-                `Got a lower rarity guardian${
-                    sellOrMerge == "sell" ? " (sold)" : ""
-                }`
-            );
+            const gotLowerTierGuardian = `Got a lower rarity guardian${
+                sellOrMerge == "sell" ? " (sold)" : ""
+            }`;
+            console.log(gotLowerTierGuardian);
+            result += `\n${gotLowerTierGuardian}\n`;
         }
     }
+    return result;
 }
-
-// runSim(100, "rare", "short");
-
-// runSim(100, "epic", "short");
-
-// runSim(100000, "rare");
-// runSim(100000, "epic", true, "sell");
-// runSim(stones, rarity, sell or merge, extra info at bottom)
-// runSim(100, "epic", "normal", "merge", false);
-
-// runSim(100000, "legendary", "simple", "sell");
-// runSim(100000, "legendary", "simple");
 
 const runSimButton = document.getElementById("sim-button");
 const simSettingsForm = document.getElementById("roulette-form");
@@ -391,7 +389,6 @@ simSettingsForm.addEventListener("submit", (event) => {
         simSettingsForm.rarity.value,
         simSettingsForm["artifact-details"].checked,
         simSettingsForm["sell-or-merge"].value,
-        false
+        simSettingsForm["show-every-roll"].checked
     );
-    console.log(simSettingsForm["artifact-details"].checked);
 });
