@@ -258,7 +258,7 @@ function displayResults(newGuardian, refund, lowerTier, rarity, sellOrMerge) {
 // runSim(100000, "rare");
 // runSim(100000, "epic", "simple", "sell");
 // runSim(stones, rarity, sell or merge, extra info at bottom)
-runSim(100, "legendary", "simple", "sell", true);
+runSim(100, "epic", "normal", "sell", false);
 
 // runSim(100000, "legendary", "simple", "sell");
 // runSim(100000, "legendary", "simple");

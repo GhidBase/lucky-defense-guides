@@ -98,11 +98,15 @@
                                 id="luck-stones"
                                 name="luck-stones"
                                 class="bottom-margin"
-                                min=1
-                                max=1000000
+                                min="1"
+                                max="1000000"
                             />
                             <label for="rarity">Rarity:</label>
-                            <select name="rarity" id="rarity" class="bottom-margin">
+                            <select
+                                name="rarity"
+                                id="rarity"
+                                class="bottom-margin"
+                            >
                                 <option value="rare">Rare</option>
                                 <option value="epic">Epic</option>
                                 <option value="legendary">Legendary</option>
@@ -121,6 +125,27 @@
                             /></label>
                             <button>Run Sim</button>
                         </form>
+                    </div>
+
+                    <div class="results">
+                        <h3>Sim Settings</h3>
+                        <p>Starting stones: 100</p>
+                        <p>Rarity: Epic</p>
+                        <br>
+                        <h3>Main Results</h3>
+                        <p>Epic count: 46</p>
+                        <p>Legendary count: 15 (merged 45 epics)</p>
+                        <br>
+                        <h3>Average Costs</h3>
+                        <p>Starting stones: 100</p>
+                        <p>Average cost per epic: 2.3 stones (100 stones/46 epics)</p>
+                        <p>Average cost per legendary: 7 (100 stones/15 legendaries)</p>
+                        <br>
+                        <h3>Artifact Details</h3>
+                        <p>Stones from lower rarities sold: 8</p>
+                        <p>Stones from receipt: 2</p>
+                        <p>Total epic pulls: 43 + 0 from skull stone</p>
+                        <p>Refunds: 11</p>
                     </div>
 
                     <!-- End of the main-body -->

@@ -21,3 +21,19 @@
 .center>* {
     text-align: center;
 }
+
+.results {
+    margin: 0 auto;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.results>h3 {
+    margin: 4px;
+}
+
+.results>p {
+    margin: 2px;
+}
