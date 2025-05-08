@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async=""
+            src="https://www.googletagmanager.com/gtag/js?id=G-X8KBQ5CE84"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-X8KBQ5CE84");
+        </script>
+        <title>Roulette Simulator</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link href="../styles.css?v=3.5" rel="stylesheet" />
+        <link href="../css/recruit-sim.css?v=3.13.2" rel="stylesheet" />
+        <link
+            rel="icon"
+            href="../pics/Icons/LDG_Shield_White_192x192.png"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <div class="title">Roulette Simulator</div>
+        <div class="side-bar-body-row">
+            <div class="side-bar"></div>
+            <div class="main-body no-side-padding-mobile">
+                <div class="text-width">
+                    <h2>Should you do Epic Roulette or Legendary Roulette?</h2>
+                    <p>
+                        This Roulette Simulator was built with finding the best
+                        use for your luck stones. If you only want to get the
+                        most legendaries with as few luck stones as possible,
+                        what is the most cost effective way to spend luck
+                        stones?
+                    </p>
+                    <p>Your options are:</p>
+                    <ul>
+                        <li>Rare Roulette Spin (60%)</li>
+                        <li>Epic Roulette Spin (35%)</li>
+                        <li>Legendary Roulette Spin (14.2%)</li>
+                    </ul>
+                    <p>(these assume artifact level 6 for simplicity)</p>
+                    <h2>Artifacts that affect your spins:</h2>
+                    <p>
+                        There are a couple artifacts that change the
+                        effectiveness of each type of roulette spin.
+                    </p>
+                    <ul>
+                        <li>
+                            Skull Stone - Has a 15% chance to refund the cost
+                            when roulette summon fails
+                        </li>
+                        <li>
+                            Gamblers Wrist - Has 15% chance to gain lower tier
+                            guardian when roulette summon fails
+                        </li>
+                        <li>
+                            Horn - Increases epic summon chance by 7.5% in the
+                            roulette summon
+                        </li>
+                        <li>
+                            Golden Dice - Increases legendary summon chance by
+                            4.2% in the roulette summon
+                        </li>
+                        <li>
+                            Receipt - Gains +1 luck stone by 4.5% when selling a
+                            guardian
+                        </li>
+                    </ul>
+
+                    <h2>Roulette Spin Strategies</h2>
+                    <p>
+                        There isn't much strategy at play with roulette spins
+                        other than using the most efficient one. There is one
+                        thing worth considering though: What do you do when you
+                        get a lower rarity guardian from a failed spin, with the
+                        Gambler's Wrist artifact? Do you save them to merge
+                        later? Or do you sell them? You would also need to
+                        consider that when you sell a guardian, you have a 4.5%
+                        chance to gain an extra luck stone on top of the luck
+                        stone(s) you normally get from selling.
+                    </p>
+
+                    <h2>
+                        NOTE TO SELF: LEGENDARY GAMBLER WRIST PROCS GIVE 1 STONE
+                        INSTEAD OF 2, FIX THIS
+                    </h2>
+
+                    <!-- End of the main-body -->
+                </div>
+            </div>
+            <!-- End of the sidebar/body row div -->
+        </div>
+        <div class="cover"></div>
+
+        <div id="donationModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Support the Developer</h2>
+                <p>
+                    I work on this site in my spare time. If it helped you,
+                    consider supporting me!
+                </p>
+                <a
+                    href="https://www.buymeacoffee.com/GhidWard"
+                    target="_blank"
+                    class="donate-btn"
+                    >Buy Me a Coffee</a
+                >
+            </div>
+        </div>
+
+        <div class="footer">
+            <img alt="" class="menu" src="../pics/Icons/menu.svg" />
+            <p style="font-size: 0.8em">
+                © 2025 LuckyDefenseGuides.com. This site is not affiliated with
+                or endorsed by the creators of Lucky Defense. |
+                <a href="/pages/privacy-policy.html">Privacy Policy</a> |
+                <button class="openModalBtn">☕ Support the Developer</button>
+            </p>
+        </div>
+        <script src="../javascript/recruit-sim.js?v1.4"></script>
+        <script src="../javascript/load-sidebar.js?v=1.1"></script>
+        <script src="../javascript/open-navigation.js"></script>
+    </body>
+</html>
