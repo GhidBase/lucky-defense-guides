@@ -132,11 +132,7 @@ ul {
   justify-content: center;
 }
 
-.side-bar > a {
-  text-decoration: none;
-  color: white;
-  border-right: 2px solid var(--outline-brown);
-}
+
 
 /* ============================================================
       Buttons
@@ -153,6 +149,9 @@ ul {
 }
 
 .side-bar > a {
+  text-decoration: none;
+  color: white;
+  border-right: 2px solid var(--outline-brown);
   background-color: var(--primary);
   text-align: center;
   height: 50px;

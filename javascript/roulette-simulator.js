@@ -30,6 +30,53 @@
     Get +1 stone on sell: 4.5%
 */
 
+
+
+
+const runSimButton = document.getElementById("sim-button");
+const simSettingsForm = document.getElementById("roulette-form");
+simSettingsForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    runSim(
+        simSettingsForm["luck-stones"].value,
+        simSettingsForm.rarity.value,
+        simSettingsForm["artifact-details"].checked,
+        simSettingsForm["sell-or-merge"].value,
+        simSettingsForm["show-every-roll"].checked
+    );
+});
+
+const expandDetailsButton = document.getElementById("expand-details-button");
+const detailsPanel = document.getElementById("details-panel");
+expandDetailsButton.addEventListener("click", () => {
+    detailsPanel.classList.toggle("hidden");
+});
+
+const rouletteLogButton = document.getElementById("roulette-log-button");
+const rouletteLog = document.getElementById("roulette-log");
+rouletteLogButton.addEventListener("click", () => {
+    if (rouletteLog.innerHTML != "") {
+        rouletteLog.classList.toggle("hidden");
+    }
+});
+
+const showSummaryButton = document.getElementById("simulation-summary-button");
+const summaryPanel = document.getElementById("summary-panel");
+showSummaryButton.addEventListener("click", () => {
+    summaryPanel.classList.toggle("hidden");
+});
+
+
+
+
+
+
+
+
+
+
+
+
 function runSim(
     stones,
     rarity,
@@ -38,7 +85,7 @@ function runSim(
     showEachroll
 ) {
     console.clear();
-    const resultsElement = document.querySelector(".results");
+    const resultsElement = document.getElementById("summary-panel");
     resultsElement.innerHTML = "";
 
     //#region main script
@@ -362,6 +409,9 @@ function runSim(
     }
 
     //#endregion
+
+summaryPanel.classList.remove("hidden");
+
 }
 
 function rouletteSpin(rarity) {
@@ -410,27 +460,3 @@ function fourAndHalfPercentRoll() {
     return generatedChance < neededChance;
 }
 
-const runSimButton = document.getElementById("sim-button");
-const simSettingsForm = document.getElementById("roulette-form");
-simSettingsForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    runSim(
-        simSettingsForm["luck-stones"].value,
-        simSettingsForm.rarity.value,
-        simSettingsForm["artifact-details"].checked,
-        simSettingsForm["sell-or-merge"].value,
-        simSettingsForm["show-every-roll"].checked
-    );
-});
-
-const expandDetailsButton = document.getElementById("expand-details-button");
-const detailsPanel = document.getElementById("details-panel");
-expandDetailsButton.addEventListener("click", () => {
-    detailsPanel.classList.toggle("hidden");
-});
-
-const rouletteLogButton = document.getElementById("roulette-log-button");
-const rouletteLog = document.getElementById("roulette-log");
-rouletteLogButton.addEventListener("click", () => {
-    rouletteLog.classList.toggle("hidden");
-});
