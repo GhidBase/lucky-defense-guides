@@ -55,7 +55,8 @@
     display: none;
 }
 
-#expand-details-button {
+#expand-details-button,
+#roulette-log-button {
     justify-content: center;
     display: flex;
     align-items: center;

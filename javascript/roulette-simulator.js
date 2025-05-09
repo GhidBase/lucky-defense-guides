@@ -54,17 +54,16 @@ function runSim(
     let pullLog = [];
     for (let i = stones; i > 0; rarity == "legendary" ? (i -= 2) : i--) {
         let results = rouletteSpin(rarity);
-        if (showEachroll) {
-            console.log(`luck stones left: ${i}`);
-            pullLog.push(`luck stones left: ${i}`);
-            let result = displayResults(
-                results.newGuardian,
-                results.refund,
-                results.lowerTier,
-                rarity,
-                sellOrMergeLowRarity
-            );
-        }
+        console.log(`luck stones left: ${i}`);
+        pullLog.push(`luck stones left: ${i}`);
+        let result = displayResults(
+            results.newGuardian,
+            results.refund,
+            results.lowerTier,
+            rarity,
+            sellOrMergeLowRarity
+        );
+
         if (results.refund) {
             i++;
             refunds++;
@@ -107,18 +106,7 @@ function runSim(
     }
     const rouletteLogContainer = document.getElementById("roulette-log");
     rouletteLogContainer.innerHTML = "";
-    if (pullLog.length == 0) {
-        rouletteLogContainer.classList.add("hidden");
-    } else {
-        rouletteLogContainer.classList.remove("hidden");
-    }
 
-    if (pullLog.length !== 0) {
-        const rouletteLogHeader = document.createElement("h3");
-        rouletteLogHeader.textContent = "Roulette Roll Log";
-        rouletteLogContainer.appendChild(rouletteLogHeader);
-        // addElementToResults("h3", "Roulette Roll Log:");
-    }
     pullLog.forEach((element) => {
         const newP = document.createElement("p");
         if (element.includes("luck stones left")) {
@@ -157,7 +145,9 @@ function runSim(
             }
             if (lowerTier) {
                 const gotLowerTierGuardian = `Got a lower rarity guardian from Gambler's Wrist${
-                    sellOrMerge == "sell" ? " (sold)" : " (saving it for merging)"
+                    sellOrMerge == "sell"
+                        ? " (sold)"
+                        : " (saving it for merging)"
                 }`;
                 console.log(gotLowerTierGuardian);
                 pullLog.push(gotLowerTierGuardian);
@@ -433,9 +423,14 @@ simSettingsForm.addEventListener("submit", (event) => {
     );
 });
 
-
 const expandDetailsButton = document.getElementById("expand-details-button");
 const detailsPanel = document.getElementById("details-panel");
 expandDetailsButton.addEventListener("click", () => {
     detailsPanel.classList.toggle("hidden");
-})
+});
+
+const rouletteLogButton = document.getElementById("roulette-log-button");
+const rouletteLog = document.getElementById("roulette-log");
+rouletteLogButton.addEventListener("click", () => {
+    rouletteLog.classList.toggle("hidden");
+});
