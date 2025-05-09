@@ -105,11 +105,25 @@ function runSim(
             guardians++;
         }
     }
+    const rouletteLogContainer = document.getElementById("roulette-log");
+    rouletteLogContainer.innerHTML = "";
+    if (pullLog.length == 0) {
+        rouletteLogContainer.classList.add("hidden");
+    } else {
+        rouletteLogContainer.classList.remove("hidden")
+    }
+
     if (pullLog.length !== 0) {
-        addElementToResults("h3", "Roulette Roll Log:");
+        const rouletteLogHeader = document.createElement("h3");
+        rouletteLogHeader.textContent = "Roulette Roll Log";
+        rouletteLogContainer.appendChild(rouletteLogHeader);
+        // addElementToResults("h3", "Roulette Roll Log:");
     }
     pullLog.forEach((element) => {
-        addElementToResults("p", element);
+        const newP = document.createElement("p");
+        newP.textContent = element;
+        rouletteLogContainer.appendChild(newP)
+        // addElementToResults("p", element);
     });
     if (pullLog.length !== 0) {
         addElementToResults("br");

@@ -38,6 +38,17 @@
     margin: 2px;
 }
 
+#roulette-log {
+    height: 300px;
+    overflow-y: auto;
+    border: 3px solid black;
+    margin: 8px 0;
+}
+
+.hidden {
+    display: none;
+}
+
 @media (max-width: 1000px) {
     #roulette-form {
         width: 250px;
