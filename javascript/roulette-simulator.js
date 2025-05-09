@@ -48,10 +48,15 @@ function runSim(
     let refunds = 0;
     let extraStonesFromReceipt = 0;
 
+    // Build an array of results from this for loop
+    //
+    // START HERE
+    let pullLog = [];
     for (let i = stones; i > 0; rarity == "legendary" ? (i -= 2) : i--) {
         let results = rouletteSpin(rarity);
         if (showEachroll) {
             console.log(`luck stones left: ${i}`);
+            pullLog.push(`luck stones left: ${i}`);
             let result = displayResults(
                 results.newGuardian,
                 results.refund,
@@ -59,7 +64,6 @@ function runSim(
                 rarity,
                 sellOrMergeLowRarity
             );
-            addElementToResults("p", result);
         }
         if (results.refund) {
             i++;
@@ -93,6 +97,7 @@ function runSim(
                 }
                 if (extraStoneFromSell && showEachroll) {
                     console.log(`Got extra stone from receipt`);
+                    pullLog.push(`Got extra stone from receipt`);
                 }
             }
         }
@@ -100,6 +105,49 @@ function runSim(
             guardians++;
         }
     }
+    if (pullLog.length !== 0) {
+        addElementToResults("h3", "Roulette Roll Log:");
+    }
+    pullLog.forEach((element) => {
+        addElementToResults("p", element);
+    });
+    if (pullLog.length !== 0) {
+        addElementToResults("br");
+    }
+    console.log(pullLog);
+
+    function displayResults(
+        newGuardian,
+        refund,
+        lowerTier,
+        rarity,
+        sellOrMerge
+    ) {
+        let result = "";
+        if (newGuardian) {
+            const gotGuardian = `Got an ${rarity} guardian`;
+            console.log(gotGuardian);
+            pullLog.push(gotGuardian);
+        } else {
+            const failedSpin = `Failed spin`;
+            console.log(failedSpin);
+            pullLog.push(failedSpin);
+            if (refund) {
+                const refundedRoll = "Refunded roll";
+                console.log(refundedRoll);
+                pullLog.push(refundedRoll);
+            }
+            if (lowerTier) {
+                const gotLowerTierGuardian = `Got a lower rarity guardian${
+                    sellOrMerge == "sell" ? " (sold)" : ""
+                }`;
+                console.log(gotLowerTierGuardian);
+                pullLog.push(gotLowerTierGuardian);
+            }
+        }
+    }
+
+    // END HERE
     if (sellOrMergeLowRarity == "sell") {
         lowerTier = 0;
     }
@@ -352,32 +400,6 @@ function fourAndHalfPercentRoll() {
     let neededChance = 0.045;
 
     return generatedChance < neededChance;
-}
-
-function displayResults(newGuardian, refund, lowerTier, rarity, sellOrMerge) {
-    let result = "";
-    if (newGuardian) {
-        const gotGuardian = `Got an ${rarity} guardian`;
-        console.log(gotGuardian);
-        result += `${gotGuardian}\n`;
-    } else {
-        const failedSpin = `Failed spin`;
-        console.log(failedSpin);
-        result += `failedSpin\n`;
-        if (refund) {
-            const refundedRoll = "Refunded roll";
-            console.log(refundedRoll);
-            result += `${refundedRoll}\n`;
-        }
-        if (lowerTier) {
-            const gotLowerTierGuardian = `Got a lower rarity guardian${
-                sellOrMerge == "sell" ? " (sold)" : ""
-            }`;
-            console.log(gotLowerTierGuardian);
-            result += `\n${gotLowerTierGuardian}\n`;
-        }
-    }
-    return result;
 }
 
 const runSimButton = document.getElementById("sim-button");
