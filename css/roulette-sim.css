@@ -45,6 +45,10 @@
     margin: 8px 0;
 }
 
+#roulette-log>p {
+    margin: 0;
+}
+
 .hidden {
     display: none;
 }

@@ -110,7 +110,7 @@ function runSim(
     if (pullLog.length == 0) {
         rouletteLogContainer.classList.add("hidden");
     } else {
-        rouletteLogContainer.classList.remove("hidden")
+        rouletteLogContainer.classList.remove("hidden");
     }
 
     if (pullLog.length !== 0) {
@@ -121,8 +121,12 @@ function runSim(
     }
     pullLog.forEach((element) => {
         const newP = document.createElement("p");
-        newP.textContent = element;
-        rouletteLogContainer.appendChild(newP)
+        if (element.includes("luck stones left")) {
+            newP.innerHTML = `<b>${element}<b>`;
+        } else {
+            newP.innerHTML = element;
+        }
+        rouletteLogContainer.appendChild(newP);
         // addElementToResults("p", element);
     });
     if (pullLog.length !== 0) {
