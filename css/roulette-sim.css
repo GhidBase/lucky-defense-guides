@@ -41,8 +41,10 @@
 #roulette-log {
     height: 300px;
     overflow-y: auto;
-    border: 3px solid black;
+    border: 3px solid var(--text-color);
     margin: 8px 0;
+    padding: 8px;
+    border-radius: .5em;
 }
 
 #roulette-log>p {
@@ -51,6 +53,15 @@
 
 .hidden {
     display: none;
+}
+
+#expand-details-button {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border: 3px solid var(--outline-brown);
+    border-radius: .5em;
+    margin-top: 8px;
 }
 
 @media (max-width: 1000px) {

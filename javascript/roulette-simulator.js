@@ -124,7 +124,7 @@ function runSim(
         if (element.includes("luck stones left")) {
             newP.innerHTML = `<b>${element}<b>`;
         } else {
-            newP.innerHTML = element;
+            newP.innerHTML = ` - ${element}`;
         }
         rouletteLogContainer.appendChild(newP);
         // addElementToResults("p", element);
@@ -156,8 +156,8 @@ function runSim(
                 pullLog.push(refundedRoll);
             }
             if (lowerTier) {
-                const gotLowerTierGuardian = `Got a lower rarity guardian${
-                    sellOrMerge == "sell" ? " (sold)" : ""
+                const gotLowerTierGuardian = `Got a lower rarity guardian from Gambler's Wrist${
+                    sellOrMerge == "sell" ? " (sold)" : " (saving it for merging)"
                 }`;
                 console.log(gotLowerTierGuardian);
                 pullLog.push(gotLowerTierGuardian);
@@ -432,3 +432,10 @@ simSettingsForm.addEventListener("submit", (event) => {
         simSettingsForm["show-every-roll"].checked
     );
 });
+
+
+const expandDetailsButton = document.getElementById("expand-details-button");
+const detailsPanel = document.getElementById("details-panel");
+expandDetailsButton.addEventListener("click", () => {
+    detailsPanel.classList.toggle("hidden");
+})
