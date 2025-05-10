@@ -33,6 +33,71 @@
             <div class="side-bar"></div>
             <div class="main-body no-side-padding-mobile">
                 <div class="text-width">
+                    <h2 class="center-text" id="roulette-sim-title">Roulette Sim</h2>
+                    <div class="center">
+                        <form action="" id="roulette-form" class="main-panel">
+                            <label for="luck-stones">Luck Stones:</label>
+                            <input
+                                type="number"
+                                id="luck-stones"
+                                name="luck-stones"
+                                class="bottom-margin"
+                                min="1"
+                                max="10000000"
+                                value="100"
+                                required
+                            />
+                            <label for="rarity">Rarity:</label>
+                            <select
+                                name="rarity"
+                                id="rarity"
+                                class="bottom-margin"
+                            >
+                                <option value="rare">Rare</option>
+                                <option value="epic">Epic</option>
+                                <option value="legendary">Legendary</option>
+                            </select>
+                            <label for="sell-or-merge"
+                                >Gambler's Wrist - Sell or Merge:</label
+                            >
+                            <select
+                                name="sell-or-merge"
+                                id="sell-or-merge"
+                                class="bottom-margin"
+                            >
+                                <option value="sell">Sell</option>
+                                <option value="merge">Merge</option>
+                            </select>
+                            <label for="artifact-details" class="bottom-margin"
+                                >Artifact Details:<input
+                                    type="checkbox"
+                                    id="artifact-details"
+                                    name="artifact-details"
+                            /></label>
+                            <button id="sim-button">Run Sim</button>
+                        </form>
+                    </div>
+
+                    <div id="simulation-summary-button" class="toggle-button">
+                        <h3>Simulation Summary</h3>
+                        <img
+                            src="../pics/Icons/chevron-up.svg"
+                            alt=""
+                            class="inline-img"
+                        />
+                    </div>
+                    <div id="summary-panel" class="hidden toggle-panel"></div>
+
+                    <div id="roulette-log-button" class="toggle-button">
+                        <h3>Roulette Roll Log</h3>
+                        <img
+                            src="../pics/Icons/chevron-up.svg"
+                            alt=""
+                            class="inline-img"
+                        />
+                    </div>
+                    <div id="roulette-log" class="hidden toggle-panel"></div>
+
                     <div id="expand-details-button" class="toggle-button">
                         <p>How does this simulator work?</p>
                         <img
@@ -104,79 +169,6 @@
                             roulette spins.
                         </p>
                     </div>
-
-                    <h2 class="center-text">Roulette Sim</h2>
-                    <div class="center">
-                        <form action="" id="roulette-form">
-                            <label for="luck-stones">Luck Stones:</label>
-                            <input
-                                type="number"
-                                id="luck-stones"
-                                name="luck-stones"
-                                class="bottom-margin"
-                                min="1"
-                                max="10000000"
-                                value="100"
-                                required
-                            />
-
-                            <label for="rarity">Rarity:</label>
-                            <select
-                                name="rarity"
-                                id="rarity"
-                                class="bottom-margin"
-                            >
-                                <option value="rare">Rare</option>
-                                <option value="epic">Epic</option>
-                                <option value="legendary">Legendary</option>
-                            </select>
-
-                            <label for="sell-or-merge"
-                                >Gambler's Wrist - Sell or Merge:</label
-                            >
-                            <select
-                                name="sell-or-merge"
-                                id="sell-or-merge"
-                                class="bottom-margin"
-                            >
-                                <option value="sell">Sell</option>
-                                <option value="merge">Merge</option>
-                            </select>
-                            <label for="artifact-details" class="bottom-margin"
-                                >Artifact Details:<input
-                                    type="checkbox"
-                                    id="artifact-details"
-                                    name="artifact-details"
-                            /></label>
-                            <label for="show-every-roll" class="bottom-margin"
-                                >Show Every Roll:<input
-                                    type="checkbox"
-                                    id="show-every-roll"
-                                    name="show-every-roll"
-                            /></label>
-                            <button id="sim-button">Run Sim</button>
-                        </form>
-                    </div>
-
-                    <div id="roulette-log-button" class="toggle-button">
-                        <h3>Roulette Roll Log</h3>
-                        <img
-                            src="../pics/Icons/chevron-up.svg"
-                            alt=""
-                            class="inline-img"
-                        />
-                    </div>
-                    <div id="roulette-log" class="hidden toggle-panel"></div>
-
-                    <div id="simulation-summary-button" class="toggle-button">
-                        <h3>Simulation Summary</h3>
-                        <img
-                            src="../pics/Icons/chevron-up.svg"
-                            alt=""
-                            class="inline-img"
-                        />
-                    </div>
-                    <div id="summary-panel" class="hidden toggle-panel"></div>
 
                     <!-- End of the main-body -->
                 </div>

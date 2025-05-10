@@ -38,8 +38,7 @@ simSettingsForm.addEventListener("submit", (event) => {
         simSettingsForm["luck-stones"].value,
         simSettingsForm.rarity.value,
         simSettingsForm["artifact-details"].checked,
-        simSettingsForm["sell-or-merge"].value,
-        simSettingsForm["show-every-roll"].checked
+        simSettingsForm["sell-or-merge"].value
     );
 });
 
