@@ -45,24 +45,24 @@ simSettingsForm.addEventListener("submit", (event) => {
 const expandDetailsButton = document.getElementById("expand-details-button");
 const detailsPanel = document.getElementById("details-panel");
 expandDetailsButton.addEventListener("click", () => {
-    detailsPanel.classList.toggle("hidden");
-    expandDetailsButton.classList.toggle("expanded-button")
+    // detailsPanel.classList.toggle("collapsed");
+    // expandDetailsButton.classList.toggle("expanded-button")
 });
 
 const rouletteLogButton = document.getElementById("roulette-log-button");
 const rouletteLog = document.getElementById("roulette-log");
 rouletteLogButton.addEventListener("click", () => {
     if (rouletteLog.innerHTML != "") {
-        rouletteLog.classList.toggle("hidden");
-        rouletteLogButton.classList.toggle("expanded-button");
+        // rouletteLog.classList.toggle("collapsed");
+        // rouletteLogButton.classList.toggle("expanded-button");
     }
 });
 
 const showSummaryButton = document.getElementById("simulation-summary-button");
 const summaryPanel = document.getElementById("summary-panel");
 showSummaryButton.addEventListener("click", () => {
-    summaryPanel.classList.toggle("hidden");
-    showSummaryButton.classList.toggle("expanded-button");
+    // summaryPanel.classList.toggle("collapsed");
+    // showSummaryButton.classList.toggle("expanded-button");
 });
 
 function runSim(
