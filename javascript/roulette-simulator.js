@@ -398,8 +398,10 @@ function runSim(
 
     //#endregion
 
-    summaryPanel.classList.remove("hidden");
-    showSummaryButton.classList.add("expanded-button")
+    // summaryPanel.classList.remove("hidden");
+    // showSummaryButton.classList.add("expanded-button")
+    showSummaryButton.classList.remove('hidden')
+    rouletteLogButton.classList.remove(`hidden`)
 }
 
 function rouletteSpin(rarity) {

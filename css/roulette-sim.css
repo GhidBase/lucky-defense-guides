@@ -34,7 +34,8 @@
 }
 
 .toggle-button {
-    justify-content: center;
+    padding: 0 18px;
+    justify-content: space-between;
     display: flex;
     align-items: center;
     border: 3px solid var(--outline-brown);
@@ -42,6 +43,9 @@
     margin-top: 8px;
     background-color: var(--primary);
     color: white;
+}
+
+.toggle-button-arrow {
 }
 
 #roulette-sim-title {
