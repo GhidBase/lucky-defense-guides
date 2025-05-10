@@ -47,6 +47,7 @@ const expandDetailsButton = document.getElementById("expand-details-button");
 const detailsPanel = document.getElementById("details-panel");
 expandDetailsButton.addEventListener("click", () => {
     detailsPanel.classList.toggle("hidden");
+    expandDetailsButton.classList.toggle("expanded-button")
 });
 
 const rouletteLogButton = document.getElementById("roulette-log-button");

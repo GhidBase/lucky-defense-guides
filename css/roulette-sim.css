@@ -28,19 +28,7 @@
     overflow-y: auto;
 }
 
-#summary-panel {
-    min-height: 0;
-    overflow-y: auto;
-    border: 3px solid var(--text-color);
-    border-top: none;
-    padding: 8px;
-    border-radius: 0 0 0.5em 0.5em;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    /* margin-top: -.5em;
-    z-index: -1; */
-}
+
 
 #summary-panel > h3 {
     margin: 4px;
@@ -75,6 +63,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    background-color: var(--accent);
 }
 
 @media (max-width: 1000px) {
