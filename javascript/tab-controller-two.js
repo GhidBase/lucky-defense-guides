@@ -11,8 +11,10 @@ tabList.forEach((tab) => {
             tabBody.addEventListener(
                 "transitionend",
                 () => {
-                    tabBody.classList.toggle("collapsed");
-                    button.classList.toggle("expanded-button");
+                    if (!tabBody.style.maxHeight) {
+                      tabBody.classList.add("collapsed");
+                      button.classList.remove("expanded-button");
+                    }
                 },
                 { once: true }
             );
@@ -25,8 +27,8 @@ tabList.forEach((tab) => {
             } else {
                 tabBody.style.maxHeight = tabBody.scrollHeight + "px";
             }
-            tabBody.classList.toggle("collapsed");
-            button.classList.toggle("expanded-button");
+            tabBody.classList.remove("collapsed");
+            button.classList.add("expanded-button");
         }
     });
 });
