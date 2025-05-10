@@ -30,9 +30,6 @@
     Get +1 stone on sell: 4.5%
 */
 
-
-
-
 const runSimButton = document.getElementById("sim-button");
 const simSettingsForm = document.getElementById("roulette-form");
 simSettingsForm.addEventListener("submit", (event) => {
@@ -57,6 +54,7 @@ const rouletteLog = document.getElementById("roulette-log");
 rouletteLogButton.addEventListener("click", () => {
     if (rouletteLog.innerHTML != "") {
         rouletteLog.classList.toggle("hidden");
+        rouletteLogButton.classList.toggle("expanded-button");
     }
 });
 
@@ -64,18 +62,8 @@ const showSummaryButton = document.getElementById("simulation-summary-button");
 const summaryPanel = document.getElementById("summary-panel");
 showSummaryButton.addEventListener("click", () => {
     summaryPanel.classList.toggle("hidden");
+    showSummaryButton.classList.toggle("expanded-button");
 });
-
-
-
-
-
-
-
-
-
-
-
 
 function runSim(
     stones,
@@ -410,8 +398,8 @@ function runSim(
 
     //#endregion
 
-summaryPanel.classList.remove("hidden");
-
+    summaryPanel.classList.remove("hidden");
+    showSummaryButton.classList.add("expanded-button")
 }
 
 function rouletteSpin(rarity) {
@@ -459,4 +447,3 @@ function fourAndHalfPercentRoll() {
 
     return generatedChance < neededChance;
 }
-

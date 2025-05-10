@@ -23,15 +23,9 @@
     text-align: center;
 }
 
-
-
 #roulette-log {
     height: 300px;
     overflow-y: auto;
-    border: 3px solid var(--text-color);
-    margin: 8px 0;
-    padding: 8px;
-    border-radius: 0.5em;
 }
 
 #summary-panel {
@@ -56,17 +50,11 @@
     margin: 2px;
 }
 
-/* CHANGE SUMMARY PANEL TO HAVE HEIGHT TO FIT CONTENT */
-
 #roulette-log > p {
     margin: 0;
 }
 
-
-
-#expand-details-button,
-#roulette-log-button,
-#simulation-summary-button {
+.toggle-button {
     justify-content: center;
     display: flex;
     align-items: center;
@@ -75,6 +63,18 @@
     margin-top: 8px;
     background-color: var(--primary);
     color: white;
+}
+
+.toggle-panel {
+    min-height: 0;
+    overflow-y: auto;
+    border: 3px solid var(--text-color);
+    border-top: none;
+    padding: 8px;
+    border-radius: 0 0 0.5em 0.5em;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 1000px) {
@@ -88,6 +88,10 @@
 
 .hidden {
     display: none;
+}
+
+.expanded-button {
+    border-radius: 0.5em 0.5em 0 0;
 }
 
 #summary-panel.hidden {
