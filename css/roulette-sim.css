@@ -73,7 +73,6 @@
     padding-bottom: 0;
 
     transition: max-height .5s;
-    overflow: hidden;
 }
 
 .collapsed {
