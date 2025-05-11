@@ -11,7 +11,7 @@ tabList.forEach((tab) => {
                 "transitionend",
                 () => {
                     if (!tabBody.style.maxHeight) {
-                      tabBody.classList.add("unscrollable");
+                        tabBody.classList.add("unscrollable");
                         tabBody.classList.add("collapsed");
                         button.classList.remove("expanded-button");
                     }
@@ -26,6 +26,8 @@ tabList.forEach((tab) => {
             });
             if (tabBody.id == "roulette-log") {
                 tabBody.style.maxHeight = "300px";
+            } else if (tabBody.id == "details-panel") {
+                tabBody.style.maxHeight = "50dvh";
             } else {
                 tabBody.style.maxHeight = tabBody.scrollHeight + "px";
             }
