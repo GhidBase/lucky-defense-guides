@@ -19,6 +19,8 @@
     overflow-y: auto;
 }
 
+
+
 #summary-panel > h3,
 #artifact-details-panel > h3 {
     margin: 4px;
@@ -104,6 +106,9 @@
     }
     .results {
         width: 250px;
+    }
+    #details-panel {
+        height: 50dvh;
     }
 }
 
