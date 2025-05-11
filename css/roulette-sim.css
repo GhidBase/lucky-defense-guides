@@ -100,6 +100,11 @@
     margin: 12px;
 }
 
+#details-panel.expand-details {
+    max-height: none;
+    height: none;
+}
+
 @media (max-width: 1000px) {
     #roulette-form {
         width: 250px;
@@ -107,10 +112,13 @@
     .results {
         width: 250px;
     }
-    #details-panel {
+    #details-panel.expand-details {
+        max-height: 50dvh;
         height: 50dvh;
     }
 }
+
+
 
 .hidden {
     display: none;

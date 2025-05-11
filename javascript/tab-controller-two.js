@@ -4,7 +4,13 @@ tabList.forEach((tab) => {
     const tabBody = tab.querySelector(".toggle-panel");
     button.addEventListener("click", () => {
         // If the panel is already expanded
-        if (tabBody.style.maxHeight) {
+        if (
+            tabBody.style.maxHeight ||
+            tabBody.classList.contains("expand-details")
+        ) {
+            if (tabBody.id == "details-panel") {
+                tabBody.classList.remove("expand-details");
+            }
             tabBody.style.maxHeight = null;
             tabBody.classList.add("unscrollable");
             tabBody.addEventListener(
@@ -27,7 +33,14 @@ tabList.forEach((tab) => {
             if (tabBody.id == "roulette-log") {
                 tabBody.style.maxHeight = "300px";
             } else if (tabBody.id == "details-panel") {
-                tabBody.style.maxHeight = "50dvh";
+                const isSmallScreen = window.matchMedia(
+                    "(max-width: 1000px)"
+                ).matches;
+                if (isSmallScreen) {
+                    tabBody.classList.add("expand-details");
+                } else {
+                    tabBody.style.maxHeight = tabBody.scrollHeight + "px";
+                }
             } else {
                 tabBody.style.maxHeight = tabBody.scrollHeight + "px";
             }
