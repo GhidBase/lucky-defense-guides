@@ -33,7 +33,9 @@
             <div class="side-bar"></div>
             <div class="main-body no-side-padding-mobile">
                 <div class="text-width">
-                    <h2 class="center-text" id="roulette-sim-title">Roulette Sim</h2>
+                    <h2 class="center-text" id="roulette-sim-title">
+                        Roulette Sim
+                    </h2>
                     <div id="entry-form-container" class="center">
                         <form action="" id="roulette-form" class="main-panel">
                             <label for="luck-stones">Luck Stones:</label>
@@ -68,13 +70,19 @@
                                 <option value="sell">Sell</option>
                                 <option value="merge">Merge</option>
                             </select>
-                            <br>
+                            <br />
                             <button id="sim-button">Run Sim</button>
                         </form>
                     </div>
 
-                    <div id="simulation-summary-container" class="toggle-section">
-                        <div id="simulation-summary-button" class="toggle-button hidden">
+                    <div
+                        id="simulation-summary-container"
+                        class="toggle-section"
+                    >
+                        <div
+                            id="simulation-summary-button"
+                            class="toggle-button hidden"
+                        >
                             <p>Simulation Summary</p>
                             <img
                                 src="../pics/Icons/chevron-up-white.svg"
@@ -82,11 +90,17 @@
                                 class="inline-img toggle-button-arrow"
                             />
                         </div>
-                        <div id="summary-panel" class="collapsed toggle-panel"></div>
+                        <div
+                            id="summary-panel"
+                            class="unscrollable collapsed toggle-panel"
+                        ></div>
                     </div>
 
                     <div id="roulette-log-container" class="toggle-section">
-                        <div id="roulette-log-button" class="toggle-button hidden">
+                        <div
+                            id="roulette-log-button"
+                            class="toggle-button hidden"
+                        >
                             <p>Roulette Roll Log</p>
                             <img
                                 src="../pics/Icons/chevron-up-white.svg"
@@ -94,11 +108,17 @@
                                 class="inline-img toggle-button-arrow"
                             />
                         </div>
-                        <div id="roulette-log" class="collapsed toggle-panel"></div>
+                        <div
+                            id="roulette-log"
+                            class="unscrollable collapsed toggle-panel"
+                        ></div>
                     </div>
-                    
+
                     <div id="artifact-details-container" class="toggle-section">
-                        <div id="artifact-details-button" class="hidden toggle-button">
+                        <div
+                            id="artifact-details-button"
+                            class="hidden toggle-button"
+                        >
                             <p>Artifact Details</p>
                             <img
                                 src="../pics/Icons/chevron-up-white.svg"
@@ -106,7 +126,10 @@
                                 class="inline-img toggle-button-arrow"
                             />
                         </div>
-                        <div id="artifact-details-panel" class="collapsed toggle-panel"></div>
+                        <div
+                            id="artifact-details-panel"
+                            class="unscrollable collapsed toggle-panel"
+                        ></div>
                     </div>
 
                     <div id="explanation-container" class="toggle-section">
@@ -120,11 +143,10 @@
                         </div>
                         <div class="toggle-panel collapsed" id="details-panel">
                             <p>
-                                This Roulette Simulator was built with finding the
-                                best use for your luck stones. If you only want to
-                                get the most legendaries with as few luck stones as
-                                possible, what is the most cost effective way to
-                                spend luck stones?
+                                This Roulette Simulator was built to help find
+                                the best use for your luck stones. Specifically
+                                to figure out what method is the cheapest way to
+                                get legendary guardians.
                             </p>
                             <p>Your options are:</p>
                             <ul>
@@ -132,8 +154,11 @@
                                 <li>Epic Roulette Spin (35%)</li>
                                 <li>Legendary Roulette Spin (14.2%)</li>
                             </ul>
-                            <p>(these assume artifact level 6 for simplicity)</p>
-                            <h2>Artifacts that affect your spins:</h2>
+                            <p>
+                                (for simplicity, this simulation is done based
+                                on level 6 artifacts)
+                            </p>
+                            <h2>Artifacts that affect your spins</h2>
                             <p>
                                 There are a couple artifacts that change the
                                 effectiveness of each type of roulette spin.
@@ -144,16 +169,17 @@
                                     cost when roulette summon fails
                                 </li>
                                 <li>
-                                    Gamblers Wrist - Has 15% chance to gain lower
-                                    tier guardian when roulette summon fails
+                                    Gamblers Wrist - Has 15% chance to gain
+                                    lower tier guardian when roulette summon
+                                    fails
                                 </li>
                                 <li>
-                                    Horn - Increases epic summon chance by 7.5% in
-                                    the roulette summon
+                                    Horn - Increases epic summon chance by 7.5%
+                                    in the roulette summon
                                 </li>
                                 <li>
-                                    Golden Dice - Increases legendary summon chance
-                                    by 4.2% in the roulette summon
+                                    Golden Dice - Increases legendary summon
+                                    chance by 4.2% in the roulette summon
                                 </li>
                                 <li>
                                     Receipt - Gains +1 luck stone by 4.5% when
@@ -162,24 +188,84 @@
                             </ul>
                             <h2>Roulette Spin Strategies</h2>
                             <p>
-                                There isn't much strategy at play with roulette
-                                spins other than using the most efficient one. There
-                                is one thing worth considering though: What do you
-                                do when you get a lower rarity guardian from a
-                                failed spin, with the Gambler's Wrist artifact? Do
-                                you save them to merge later? Or do you sell them?
-                                You would also need to consider that when you sell a
-                                guardian, you have a 4.5% chance to gain an extra
-                                luck stone from the Receipt artifact, on top of the
-                                luck stone(s) you normally get from selling. It's
-                                also worth considering that when your board starts
-                                to run out of space, you won't be able to save units
-                                for merging anymore, and regardless of the strategy
-                                that's technically most efficient, you will have to
-                                switch to selling your Gambler's Wrist guardians so
-                                you can have space and stones to keep doing your
-                                roulette spins.
+                                There's a bit of strategy to figuring out which
+                                roulette to use. Epic roulette seems to be the
+                                most efficient way to get legendaries. Run the
+                                simulation on epic mode and on legendary mode
+                                and you can compare the numbers.
                             </p>
+                            <h3>Selling or Merging</h3>
+                            <p>
+                                Note that when you fail your gambles, you have a
+                                15% chance to get a lower tier guardian because
+                                of the Gambler's Wrist artifact. This means when
+                                rolling legendary, you can get an epic, and when
+                                rolling epic, you can get a rare. So you have to
+                                decide what to do with them: do you sell your
+                                Gambler's Wrist guardians, or do you save them
+                                to merge later? The simulator lets you choose
+                                either approach. Choose sell mode, and every
+                                guardian from Gambler's Wrist will be sold for
+                                luck stones. Epics will be sold for 2 stones,
+                                rares will be sold for 1 stone. This does
+                                simulate the Receipt artifact, but it's not
+                                super impactful. Regardless, it'll track every
+                                time the artifact procs, showing each proc in
+                                both the Roulette Roll Log, and the Artifact
+                                Details panel. If you choose merge, at the end
+                                of the simulation it'll merge all the lower
+                                tiers so they become the tier you were rolling
+                                for.
+                            </p>
+                            <h3>Legendary Per Stone</h3>
+                            <p>
+                                Regardless of if you roll Rare, Epic, or
+                                Legendary roulette, at the end of all your
+                                rolls, the simulator will merge everything that
+                                can be merged into the higher tiers. We will
+                                divide the starting stone count by the number of
+                                guardians of each tier to figure out how many
+                                stones it cost to get each guardian. So this way
+                                you can run the Rare, Epic, or Legendary
+                                simulator, and it will tell you the average cost
+                                of a Legendary using each of those methods, even
+                                allowing you to see how using the sell or merge
+                                strategy affects these numbers.
+                            </p>
+                            <h2>When to use Legendary Roulette</h2>
+                            <p>
+                                Based on what was said in this, you might assume
+                                that legendary roulette is useless. Despite
+                                these numbers, there are still two use cases for
+                                it:
+                            </p>
+                            <ul>
+                                <li>Getting Legendaries as fast as possible</li>
+                                <li>
+                                    Getting Legendaries when you don't have
+                                    space for epics
+                                </li>
+                            </ul>
+                            <p>
+                                Particularly in hell mode, towards the end of
+                                the game you're likely to start running out of
+                                space on the board. You won't have space to have
+                                5 types of epics anymore. You probably won't
+                                even have space for 3 types of epics. At that
+                                point, it's not realistic to do epic gamble. At
+                                this point, it would likely be better to just
+                                Legendary Roulette. Each Legendary will cost
+                                about 1.5x more than doing Epic Roulette this
+                                way, but it's much more realistic in that
+                                situation than Epic Roulette.
+                            </p>
+                            <p>
+                                Have fun messing with the simulator, I had a ton
+                                of fun building it. I hope the information here
+                                helps! -GhidWard
+                            </p>
+
+                            <br />
                         </div>
                     </div>
 
@@ -218,7 +304,7 @@
         </div>
         <script src="../javascript/load-sidebar.js?v=1.1"></script>
         <script src="../javascript/open-navigation.js"></script>
-        <script src="../javascript/roulette-simulator.js?v=1.1"></script>
-        <script src="../javascript/tab-controller-two.js?v=1.1"></script>
+        <script src="../javascript/roulette-simulator.js?v=1.2"></script>
+        <script src="../javascript/tab-controller-two.js?v=1.2"></script>
     </body>
 </html>

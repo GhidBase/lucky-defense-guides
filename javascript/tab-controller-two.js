@@ -6,22 +6,24 @@ tabList.forEach((tab) => {
         // If the panel is already expanded
         if (tabBody.style.maxHeight) {
             tabBody.style.maxHeight = null;
-            tabBody.style.paddingTop = 0;
-            tabBody.style.paddingBottom = 0;
+            tabBody.classList.add("unscrollable");
             tabBody.addEventListener(
                 "transitionend",
                 () => {
                     if (!tabBody.style.maxHeight) {
-                      tabBody.classList.add("collapsed");
-                      button.classList.remove("expanded-button");
+                      tabBody.classList.add("unscrollable");
+                        tabBody.classList.add("collapsed");
+                        button.classList.remove("expanded-button");
                     }
                 },
                 { once: true }
             );
         } else {
             // If the panel is collapsed
-            tabBody.style.paddingTop = null;
-            tabBody.style.paddingBottom = null;
+            tabBody.classList.add("unscrollable");
+            tabBody.addEventListener("transitionend", () => {
+                tabBody.classList.remove("unscrollable");
+            });
             if (tabBody.id == "roulette-log") {
                 tabBody.style.maxHeight = "300px";
             } else {

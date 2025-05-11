@@ -118,3 +118,7 @@
 #summary-panel.hidden {
     display: none;
 }
+
+.unscrollable {
+    overflow: hidden;
+}
