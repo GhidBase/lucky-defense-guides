@@ -37,41 +37,25 @@ simSettingsForm.addEventListener("submit", (event) => {
     runSim(
         simSettingsForm["luck-stones"].value,
         simSettingsForm.rarity.value,
-        simSettingsForm["artifact-details"].checked,
         simSettingsForm["sell-or-merge"].value
     );
 });
 
 const expandDetailsButton = document.getElementById("expand-details-button");
 const detailsPanel = document.getElementById("details-panel");
-expandDetailsButton.addEventListener("click", () => {
-    // detailsPanel.classList.toggle("collapsed");
-    // expandDetailsButton.classList.toggle("expanded-button")
-});
 
 const rouletteLogButton = document.getElementById("roulette-log-button");
 const rouletteLog = document.getElementById("roulette-log");
-rouletteLogButton.addEventListener("click", () => {
-    if (rouletteLog.innerHTML != "") {
-        // rouletteLog.classList.toggle("collapsed");
-        // rouletteLogButton.classList.toggle("expanded-button");
-    }
-});
 
 const showSummaryButton = document.getElementById("simulation-summary-button");
 const summaryPanel = document.getElementById("summary-panel");
-showSummaryButton.addEventListener("click", () => {
-    // summaryPanel.classList.toggle("collapsed");
-    // showSummaryButton.classList.toggle("expanded-button");
-});
 
-function runSim(
-    stones,
-    rarity,
-    artifactDetails = true,
-    sellOrMergeLowRarity,
-    showEachroll
-) {
+const showArtifactDetailsButton = document.getElementById(
+    "artifact-details-button"
+);
+const artifactDetailsPanel = document.getElementById("artifact-details-panel");
+
+function runSim(stones, rarity, sellOrMergeLowRarity, showEachroll) {
     console.clear();
     const resultsElement = document.getElementById("summary-panel");
     resultsElement.innerHTML = "";
@@ -265,21 +249,19 @@ function runSim(
         );
     }
 
-    if (artifactDetails) {
-        console.log("\n");
-        if (sellOrMergeLowRarity == "sell") {
-            console.log(`stones from lower rarities sold: ${lowerTierSold}`);
-            console.log(`stones from receipt: ${extraStonesFromReceipt}`);
-        } else {
-            console.log(`lower rarity guardian count: ${lowerTier}`);
-            console.log(`lower rarity merges: ${Math.trunc(lowerTier / 3)}`);
-            console.log(`total ${rarity} pulls: ${guardians}`);
-            console.log(
-                `total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from gamblers wrist`
-            );
-        }
-        console.log(`refunds: ${refunds}`);
+    console.log("\n");
+    if (sellOrMergeLowRarity == "sell") {
+        console.log(`stones from lower rarities sold: ${lowerTierSold}`);
+        console.log(`stones from receipt: ${extraStonesFromReceipt}`);
+    } else {
+        console.log(`lower rarity guardian count: ${lowerTier}`);
+        console.log(`lower rarity merges: ${Math.trunc(lowerTier / 3)}`);
+        console.log(`total ${rarity} pulls: ${guardians}`);
+        console.log(
+            `total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from gamblers wrist`
+        );
     }
+    console.log(`refunds: ${refunds}`);
 
     console.log("\n\n\n");
 
@@ -342,53 +324,81 @@ function runSim(
     }
     addElementToResults("br");
 
-    if (artifactDetails) {
-        addElementToResults("h3", `Gamblers Wrist (${sellOrMergeLowRarity})`);
-        addElementToResults(
-            "p",
-            `Has 15% chance to gain lower tier guardian when roulette summon fails.`,
-            true
-        );
+    //#region Artifact Details Start
 
-        if (sellOrMergeLowRarity == "sell") {
-            addElementToResults(
-                "p",
-                `Stones from lower rarities sold: ${lowerTierSold}`
-            );
-            addElementToResults("h3", `Receipt (sell)`);
-            addElementToResults(
-                "p",
-                `Receipt gains +1 luck stone by 4.5% when selling a guardian.`,
-                true
-            );
-            addElementToResults(
-                "p",
-                `Stones from receipt: ${extraStonesFromReceipt}`
-            );
-        } else {
-            addElementToResults(
-                "p",
-                `Lower rarity guardians gained: ${lowerTier}`
-            );
-            addElementToResults(
-                "p",
-                `Lower rarity merges: ${Math.trunc(lowerTier / 3)}`
-            );
-            addElementToResults(
-                "p",
-                `Total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from gamblers wrist merging`
-            );
-        }
-        addElementToResults("br");
+    addElementToPanel("br", null, false, artifactDetailsPanel);
+    addElementToPanel(
+        "h3",
+        `Gamblers Wrist (${sellOrMergeLowRarity})`,
+        false,
+        artifactDetailsPanel
+    );
+    addElementToPanel(
+        "p",
+        `Has 15% chance to gain lower tier guardian when roulette summon fails.`,
+        true,
+        artifactDetailsPanel
+    );
 
-        addElementToResults("h3", "Skull Stone");
-        addElementToResults(
+    if (sellOrMergeLowRarity == "sell") {
+        addElementToPanel(
             "p",
-            `Has a 15% chance to refund the cost when roulette summon fails.`,
-            true
+            `Stones from lower rarities sold: ${lowerTierSold}`,
+            false,
+            artifactDetailsPanel
         );
-        addElementToResults("p", `Refunds from skull stone: ${refunds}`);
+        addElementToPanel("h3", `Receipt (sell)`, false, artifactDetailsPanel);
+        addElementToPanel(
+            "p",
+            `Receipt gains +1 luck stone by 4.5% when selling a guardian.`,
+            true,
+            artifactDetailsPanel
+        );
+        addElementToPanel(
+            "p",
+            `Stones from receipt: ${extraStonesFromReceipt}`,
+            false,
+            artifactDetailsPanel
+        );
+    } else {
+        addElementToPanel(
+            "p",
+            `Lower rarity guardians gained: ${lowerTier}`,
+            false,
+            artifactDetailsPanel
+        );
+        addElementToPanel(
+            "p",
+            `Lower rarity merges: ${Math.trunc(lowerTier / 3)}`,
+            false,
+            artifactDetailsPanel
+        );
+        addElementToPanel(
+            "p",
+            `Total ${rarity} pulls: ${guardians} + ${lowerTierConverted} from gamblers wrist merging`,
+            false,
+            artifactDetailsPanel
+        );
     }
+    addElementToPanel("br", null, false, artifactDetailsPanel);
+
+    addElementToPanel("h3", "Skull Stone", false, artifactDetailsPanel);
+    addElementToPanel(
+        "p",
+        `Has a 15% chance to refund the cost when roulette summon fails.`,
+        true,
+        artifactDetailsPanel
+    );
+    addElementToPanel(
+        "p",
+        `Refunds from skull stone: ${refunds}`,
+        false,
+        artifactDetailsPanel
+    );
+
+    addElementToPanel("br", null, false, artifactDetailsPanel);
+
+    //#endregion
 
     function addElementToResults(type, textContent, bold) {
         const newElement = document.createElement(type);
@@ -396,12 +406,19 @@ function runSim(
         resultsElement.appendChild(newElement);
     }
 
+    function addElementToPanel(type, textContent, bold, panel) {
+        const newElement = document.createElement(type);
+        newElement.innerHTML = bold ? `<b>${textContent}</b>` : textContent;
+        panel.appendChild(newElement);
+    }
+
     //#endregion
 
     // summaryPanel.classList.remove("hidden");
     // showSummaryButton.classList.add("expanded-button")
-    showSummaryButton.classList.remove('hidden')
-    rouletteLogButton.classList.remove(`hidden`)
+    showSummaryButton.classList.remove("hidden");
+    rouletteLogButton.classList.remove(`hidden`);
+    showArtifactDetailsButton.classList.remove(`hidden`);
 }
 
 function rouletteSpin(rarity) {

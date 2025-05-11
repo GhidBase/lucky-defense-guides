@@ -19,11 +19,13 @@
     overflow-y: auto;
 }
 
-#summary-panel > h3 {
+#summary-panel > h3,
+#artifact-details-panel > h3 {
     margin: 4px;
 }
 
-#summary-panel > p {
+#summary-panel > p,
+#artifact-details-panel > p {
     margin: 2px;
 }
 
@@ -72,7 +74,7 @@
     padding-top: 0;
     padding-bottom: 0;
 
-    transition: max-height .5s;
+    transition: max-height 0.5s;
 }
 
 .collapsed {

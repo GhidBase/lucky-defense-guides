@@ -34,7 +34,7 @@
             <div class="main-body no-side-padding-mobile">
                 <div class="text-width">
                     <h2 class="center-text" id="roulette-sim-title">Roulette Sim</h2>
-                    <div class="center">
+                    <div id="entry-form-container" class="center">
                         <form action="" id="roulette-form" class="main-panel">
                             <label for="luck-stones">Luck Stones:</label>
                             <input
@@ -43,7 +43,7 @@
                                 name="luck-stones"
                                 class="bottom-margin"
                                 min="1"
-                                max="10000000"
+                                max="10000"
                                 value="100"
                                 required
                             />
@@ -68,17 +68,12 @@
                                 <option value="sell">Sell</option>
                                 <option value="merge">Merge</option>
                             </select>
-                            <label for="artifact-details" class="bottom-margin"
-                                >Artifact Details:<input
-                                    type="checkbox"
-                                    id="artifact-details"
-                                    name="artifact-details"
-                            /></label>
+                            <br>
                             <button id="sim-button">Run Sim</button>
                         </form>
                     </div>
 
-                    <div class="toggle-section">
+                    <div id="simulation-summary-container" class="toggle-section">
                         <div id="simulation-summary-button" class="toggle-button hidden">
                             <p>Simulation Summary</p>
                             <img
@@ -90,7 +85,7 @@
                         <div id="summary-panel" class="collapsed toggle-panel"></div>
                     </div>
 
-                    <div class="toggle-section">
+                    <div id="roulette-log-container" class="toggle-section">
                         <div id="roulette-log-button" class="toggle-button hidden">
                             <p>Roulette Roll Log</p>
                             <img
@@ -101,8 +96,20 @@
                         </div>
                         <div id="roulette-log" class="collapsed toggle-panel"></div>
                     </div>
+                    
+                    <div id="artifact-details-container" class="toggle-section">
+                        <div id="artifact-details-button" class="hidden toggle-button">
+                            <p>Artifact Details</p>
+                            <img
+                                src="../pics/Icons/chevron-up-white.svg"
+                                alt=""
+                                class="inline-img toggle-button-arrow"
+                            />
+                        </div>
+                        <div id="artifact-details-panel" class="collapsed toggle-panel"></div>
+                    </div>
 
-                    <div class="toggle-section">
+                    <div id="explanation-container" class="toggle-section">
                         <div id="expand-details-button" class="toggle-button">
                             <p>How does this simulator work?</p>
                             <img
