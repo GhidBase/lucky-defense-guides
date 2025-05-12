@@ -3,11 +3,13 @@ class Board {
         this.boardContainer = document.getElementById("board-container");
         this.boardImg = this.boardContainer.querySelector("#board-img");
         this.gridOverlay = this.boardContainer.querySelector("#grid-overlay");
-        this.difficultySelector = document.getElementById("difficulty-selector");
-        this.difficultySelector.addEventListener("change",(element)=> {
-          console.log(element)
-          this.changeBoard(element.target.value)
-        })
+        this.difficultySelector = document.getElementById(
+            "difficulty-selector"
+        );
+        this.difficultySelector.addEventListener("change", (element) => {
+            console.log(element);
+            this.changeBoard(element.target.value);
+        });
         this.gridArray = [];
         this.guardianSelector = new GuardianSelector();
         this.initializeGrid();
@@ -231,14 +233,14 @@ class GuardianSelector {
 document.getElementById("saveBoardImageBtn").addEventListener("click", () => {
     const board = document.getElementById("board-container"); // change this ID if needed
 
-    html2canvas(board).then((canvas) => {
+    html2canvas(board, {
+        backgroundColor: null, // ← preserves transparency
+    }).then((canvas) => {
         const link = document.createElement("a");
         link.download = "my_board.png";
         link.href = canvas.toDataURL("image/png");
         link.click();
     });
 });
-
-
 
 const board = new Board();
