@@ -3,6 +3,11 @@ class Board {
         this.boardContainer = document.getElementById("board-container");
         this.boardImg = this.boardContainer.querySelector("#board-img");
         this.gridOverlay = this.boardContainer.querySelector("#grid-overlay");
+        this.difficultySelector = document.getElementById("difficulty-selector");
+        this.difficultySelector.addEventListener("change",(element)=> {
+          console.log(element)
+          this.changeBoard(element.target.value)
+        })
         this.gridArray = [];
         this.guardianSelector = new GuardianSelector();
         this.initializeGrid();
@@ -20,6 +25,11 @@ class Board {
             const gridObject = new Cell(gridElement, i, this.guardianSelector);
             this.gridArray.push(gridObject);
         }
+    }
+
+    changeBoard(difficulty) {
+        console.log(this.boardImg.src);
+        this.boardImg.src = `../pics/boards/${difficulty}.png`;
     }
 }
 
@@ -200,7 +210,6 @@ class GuardianSelector {
     }
 
     getSelectedGuardianImg() {
-        console.log(this.selectedGuardianRarity);
         const firstHalf =
             this.selectedGuardianRarity == "mythic" ? "mythics/" : "";
         const currentGuardian = this.getSelectedGuardian();
@@ -209,18 +218,11 @@ class GuardianSelector {
 
     highlightSelectedGuardian() {
         const childNodes = this.guardianList.childNodes;
-        childNodes.forEach((node) => {
-            // console.log(node);
-            // console.log(node.querySelector("img"));
-        });
-        console.log(this.selectedGuardian);
-        console.log(this.guardianListArray);
         this.guardianListArray.forEach((element) => {
-            console.log(element.guardian);
             if (element.guardian == this.selectedGuardian) {
-              element.classList.add("selected");
+                element.classList.add("selected");
             } else {
-              element.classList.remove("selected");
+                element.classList.remove("selected");
             }
         });
     }
