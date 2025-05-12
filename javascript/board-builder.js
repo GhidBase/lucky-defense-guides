@@ -228,4 +228,17 @@ class GuardianSelector {
     }
 }
 
+document.getElementById("saveBoardImageBtn").addEventListener("click", () => {
+    const board = document.getElementById("board-container"); // change this ID if needed
+
+    html2canvas(board).then((canvas) => {
+        const link = document.createElement("a");
+        link.download = "my_board.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    });
+});
+
+
+
 const board = new Board();
