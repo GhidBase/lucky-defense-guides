@@ -1,186 +1,229 @@
 class Board {
-  constructor() {
-    this.boardContainer = document.getElementById("board-container");
-    this.boardImg = this.boardContainer.querySelector("#board-img");
-    this.gridOverlay = this.boardContainer.querySelector("#grid-overlay");
-    this.gridArray = [];
-    this.guardianSelector = new GuardianSelector();
-    this.initializeGrid();
-  }
-
-  initializeGrid() {
-    this.gridOverlay.innerText = "";
-    this.gridArray = [];
-
-    for (let i = 0; i < 18; i++) {
-      const gridElement = document.createElement("div");
-      gridElement.classList.add("board-cell");
-      gridElement.id = "grid-cell-" + i;
-      this.gridOverlay.append(gridElement);
-      const gridObject = new Cell(gridElement, i, this.guardianSelector);
-      this.gridArray.push(gridObject);
+    constructor() {
+        this.boardContainer = document.getElementById("board-container");
+        this.boardImg = this.boardContainer.querySelector("#board-img");
+        this.gridOverlay = this.boardContainer.querySelector("#grid-overlay");
+        this.gridArray = [];
+        this.guardianSelector = new GuardianSelector();
+        this.initializeGrid();
     }
-  }
+
+    initializeGrid() {
+        this.gridOverlay.innerText = "";
+        this.gridArray = [];
+
+        for (let i = 0; i < 18; i++) {
+            const gridElement = document.createElement("div");
+            gridElement.classList.add("board-cell");
+            gridElement.id = "grid-cell-" + i;
+            this.gridOverlay.append(gridElement);
+            const gridObject = new Cell(gridElement, i, this.guardianSelector);
+            this.gridArray.push(gridObject);
+        }
+    }
 }
 
 class Cell {
-  constructor(element, cellNumber, guardianSelector) {
-    this.guardian;
-    this.guardianCount = 1;
-    this.element = element;
-    this.cellNumber = cellNumber;
-    this.setupEventListeners();
-    this.guardianSelector = guardianSelector;
-    this.imgElement = document.createElement("img");
-    this.element.appendChild(this.imgElement);
-    this.imgSrc;
-  }
-
-  setupEventListeners() {
-    this.element.addEventListener("click", () => {
-      this.setImage();
-    });
-  }
-
-  setImage() {
-    const selectedImgSrc = this.guardianSelector.getSelectedGuardianImg();
-    if (selectedImgSrc != this.imgSrc) {
-      this.imgSrc = selectedImgSrc;
-      this.imgElement.src = selectedImgSrc;
-    } else {
-      this.imgElement.src = "";
-      this.imgSrc = "";
+    constructor(element, cellNumber, guardianSelector) {
+        this.guardian;
+        this.guardianCount = 1;
+        this.element = element;
+        this.cellNumber = cellNumber;
+        this.setupEventListeners();
+        this.guardianSelector = guardianSelector;
+        this.imgElement = document.createElement("img");
+        this.element.appendChild(this.imgElement);
+        this.imgSrc;
     }
 
-    // Force repaint
-    this.element.style.display = "none";
-    this.element.offsetHeight; // Trigger reflow
-    this.element.style.display = "";
-  }
+    setupEventListeners() {
+        this.element.addEventListener("click", () => {
+            this.setImage();
+        });
+    }
+
+    setImage() {
+        const selectedImgSrc = this.guardianSelector.getSelectedGuardianImg();
+        if (selectedImgSrc != this.imgSrc) {
+            this.imgSrc = selectedImgSrc;
+            this.imgElement.src = selectedImgSrc;
+        } else {
+            this.imgElement.src = "";
+            this.imgSrc = "";
+        }
+
+        // Force repaint
+        this.element.style.display = "none";
+        this.element.offsetHeight; // Trigger reflow
+        this.element.style.display = "";
+    }
 }
 
 class GuardianSelector {
-  constructor() {
-    this.modal = document.getElementById("guardian-selector-modal");
-    this.raritySelector = document.getElementById("rarity-selector");
-    this.typeSelector = document.getElementById("type-selector");
-    this.guardianImg = document.getElementById("guardian-img");
-    this.guardianList = document.querySelector(".guardian-list");
+    constructor() {
+        this.modal = document.getElementById("guardian-selector-modal");
+        this.raritySelector = document.getElementById("rarity-selector");
+        this.typeSelector = document.getElementById("type-selector");
+        this.guardianImg = document.getElementById("guardian-img");
+        this.guardianList = document.querySelector(".guardian-list");
 
-    this.guardians = {
-      common: ["Bandit", "Thrower", "Archer", "Water Elemental", "Barbarian"],
-      rare: ["Sandman", "Demon Soldier", "Shock Robot", "Paladin", "Ranger"],
-      epic: [
-        "Hunter",
-        "Eagle General",
-        "Electro Robot",
-        "Tree",
-        "Wolf Warrior",
-      ],
-      legendary: ["Storm Giant", "Tiger Master", "War Machine", "Sheriff"],
-      mythic: {
-        waveClear: [
-          "Lazy Taoist",
-          "Rocket Chu",
-          "Master Kun",
-          "Bat Man",
-          "Verdee",
-          "Iron Meow",
-          "Dragon",
-          "Tar",
-          "Frog Prince",
-          "Bomba",
-          "Blob",
-          "Ninja",
-        ],
-        bossKillers: ["Lancelot", "Vayne", "Watt", "Zap"],
-        support: [
-          "Monopoly Man",
-          "Indy",
-          "Kitty Mage",
-          "Coldy",
-          "Graviton",
-          "Pulse Generator",
-          "Orc Shaman",
-          "Mama",
-          "Penguin Musician",
-        ],
-      },
-    };
+        this.guardianListArray = [];
+        this.guardians = {
+            common: [
+                "Bandit",
+                "Thrower",
+                "Archer",
+                "Water Elemental",
+                "Barbarian",
+            ],
+            rare: [
+                "Sandman",
+                "Demon Soldier",
+                "Shock Robot",
+                "Paladin",
+                "Ranger",
+            ],
+            epic: [
+                "Hunter",
+                "Eagle General",
+                "Electro Robot",
+                "Tree",
+                "Wolf Warrior",
+            ],
+            legendary: [
+                "Storm Giant",
+                "Tiger Master",
+                "War Machine",
+                "Sheriff",
+            ],
+            mythic: {
+                waveClear: [
+                    "Lazy Taoist",
+                    "Rocket Chu",
+                    "Master Kun",
+                    "Bat Man",
+                    "Verdee",
+                    "Iron Meow",
+                    "Dragon",
+                    "Tar",
+                    "Frog Prince",
+                    "Bomba",
+                    "Blob",
+                    "Ninja",
+                ],
+                bossKillers: ["Lancelot", "Vayne", "Watt", "Zap"],
+                support: [
+                    "Monopoly Man",
+                    "Indy",
+                    "Kitty Mage",
+                    "Coldy",
+                    "Graviton",
+                    "Pulse Generator",
+                    "Orc Shaman",
+                    "Mama",
+                    "Penguin Musician",
+                ],
+            },
+        };
 
-    this.adjustTypeVisibility();
-    this.adjustGuardianOptions();
-    this.selectedGuardian = "Lazy Taoist";
-    this.selectedGuardianRarity = "mythic"
-    this.changeGuardianImage(this.getSelectedGuardianImg());
+        this.adjustTypeVisibility();
+        this.adjustGuardianOptions();
+        this.selectedGuardian = "Lazy Taoist";
+        this.selectedGuardianRarity = "mythic";
+        this.changeGuardianImage(this.getSelectedGuardianImg());
 
-    this.setupEventListeners();
-  }
-
-  setupEventListeners() {
-    this.typeSelector.addEventListener("change", () => {
-      this.adjustGuardianOptions();
-    });
-
-    this.raritySelector.addEventListener("change", () => {
-      this.adjustTypeVisibility();
-      this.adjustGuardianOptions();
-    });
-  }
-
-  adjustTypeVisibility() {
-    if (this.raritySelector.value == "mythic") {
-      this.typeSelector.parentElement.classList.remove("hidden");
-    } else {
-      this.typeSelector.parentElement.classList.add("hidden");
-    }
-  }
-
-  adjustGuardianOptions() {
-    const rarity = this.raritySelector.value;
-    const type = this.typeSelector.value;
-    this.guardianList.innerHTML = "";
-
-    const addGuardianToList = (element) => {
-      const firstHalf = rarity == "mythic" ? "mythics/" : "";
-      const button = document.createElement("button");
-      const img = document.createElement("img");
-      img.src = `../pics/unit/${firstHalf}${element}.png`;
-      button.appendChild(img);
-      this.guardianList.appendChild(button);
-      button.addEventListener("click", () => {
-        this.selectedGuardian = element;
-        this.selectedGuardianRarity = rarity;
-      });
+        this.setupEventListeners();
+        this.highlightSelectedGuardian();
     }
 
-    if (rarity != "mythic") {
-      this.guardians[rarity].forEach((element) => {
-        addGuardianToList(element)
-      });
-    } else if (rarity == "mythic") {
-      this.guardians[rarity][type].forEach((element) => {
-        addGuardianToList(element)
-      });
+    setupEventListeners() {
+        this.typeSelector.addEventListener("change", () => {
+            this.adjustGuardianOptions();
+        });
+
+        this.raritySelector.addEventListener("change", () => {
+            this.adjustTypeVisibility();
+            this.adjustGuardianOptions();
+        });
     }
 
-    this.changeGuardianImage(this.getSelectedGuardianImg());
-  }
+    adjustTypeVisibility() {
+        if (this.raritySelector.value == "mythic") {
+            this.typeSelector.parentElement.classList.remove("hidden");
+        } else {
+            this.typeSelector.parentElement.classList.add("hidden");
+        }
+    }
 
-  changeGuardianImage(newImg) {
-    this.guardianImg.src = newImg;
-  }
+    adjustGuardianOptions() {
+        const rarity = this.raritySelector.value;
+        const type = this.typeSelector.value;
+        this.guardianList.innerHTML = "";
 
-  getSelectedGuardian() {
-    return this.selectedGuardian;
-  }
+        const addGuardianToList = (element) => {
+            const firstHalf = rarity == "mythic" ? "mythics/" : "";
+            const button = document.createElement("button");
+            const img = document.createElement("img");
+            img.src = `../pics/unit/${firstHalf}${element}.png`;
+            button.appendChild(img);
+            this.guardianList.appendChild(button);
+            this.guardianListArray.push(button);
+            this.guardianListArray[this.guardianListArray.length - 1].guardian =
+                element;
+            button.addEventListener("click", () => {
+                this.selectedGuardian = element;
+                this.selectedGuardianRarity = rarity;
+                this.highlightSelectedGuardian();
+            });
+        };
 
-  getSelectedGuardianImg() {
-    console.log(this.selectedGuardianRarity)
-    const firstHalf = this.selectedGuardianRarity == "mythic" ? "mythics/" : "";
-    const currentGuardian = this.getSelectedGuardian();
-    return `../pics/unit/${firstHalf}${currentGuardian}.png`;
-  }
+        if (rarity != "mythic") {
+            this.guardians[rarity].forEach((element) => {
+                addGuardianToList(element);
+            });
+        } else if (rarity == "mythic") {
+            this.guardians[rarity][type].forEach((element) => {
+                addGuardianToList(element);
+            });
+        }
+
+        this.changeGuardianImage(this.getSelectedGuardianImg());
+        this.highlightSelectedGuardian();
+    }
+
+    changeGuardianImage(newImg) {
+        this.guardianImg.src = newImg;
+    }
+
+    getSelectedGuardian() {
+        return this.selectedGuardian;
+    }
+
+    getSelectedGuardianImg() {
+        console.log(this.selectedGuardianRarity);
+        const firstHalf =
+            this.selectedGuardianRarity == "mythic" ? "mythics/" : "";
+        const currentGuardian = this.getSelectedGuardian();
+        return `../pics/unit/${firstHalf}${currentGuardian}.png`;
+    }
+
+    highlightSelectedGuardian() {
+        const childNodes = this.guardianList.childNodes;
+        childNodes.forEach((node) => {
+            // console.log(node);
+            // console.log(node.querySelector("img"));
+        });
+        console.log(this.selectedGuardian);
+        console.log(this.guardianListArray);
+        this.guardianListArray.forEach((element) => {
+            console.log(element.guardian);
+            if (element.guardian == this.selectedGuardian) {
+              element.classList.add("selected");
+            } else {
+              element.classList.remove("selected");
+            }
+        });
+    }
 }
 
 const board = new Board();

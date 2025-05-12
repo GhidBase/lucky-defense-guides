@@ -116,3 +116,8 @@ img.board-frame {
 .guardian-list img {
   height: 100%;
 }
+
+#guardian-selector-modal .guardian-list button.selected {
+  border: 3px solid var(--accent);
+  background-color: var(--khaki-brown);
+}
