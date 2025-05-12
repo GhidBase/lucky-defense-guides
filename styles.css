@@ -659,7 +659,7 @@ a {
 }
 
 .banner img {
-    /* height: 40px; */
+    height: 40px;
     animation: pulse 2s infinite;
 }
 
@@ -676,6 +676,9 @@ a {
 }
 
 @media (max-width: 1000px) {
+    .banner {
+        grid-template-columns: 50px 1fr 50px;
+    }
     .banner .banner-title {
         font-size: 18px;
     }
