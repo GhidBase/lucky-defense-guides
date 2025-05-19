@@ -1,20 +1,15 @@
-/* ============================================================
-   Imports & Root Variables
-   ============================================================ */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap");
 
 :root {
     /* Theme Colors */
-    --red-brown: #794e3b;
-    --khaki-brown: #845744;
-    --accent: #f0e3c3;
-    --accent-transparent: #44403575;
-    --surface-background: #d1bc9f;
-    --outline-brown: #352b22;
+    --red-brown: #794e3b; /* Primary Color */
+    --khaki-brown: #845744; /* Used in the repeating bg-pattern */
+    --accent: #f0e3c3; /* Used as a secondary surface */
+    --accent-transparent: #44403575; /* Used on the pop-up bg cover */
+    --surface-background: #d1bc9f; /* Used as a main surface */
+    --outline-brown: #352b22; /* Main outline color */
 
-    /* UI Colors */
-    --background: #2e1e17;
-    --surface: #d1bc9f;
+    /* Colors for easy modification */
     --primary: var(--red-brown);
     --secondary: var(--khaki-brown);
     --text-color: #604f45;
@@ -26,12 +21,8 @@
     font-family: "Fredoka";
 }
 
-/* ============================================================
-      Base Styles
-      ============================================================ */
 html,
 body {
-    width: 100%;
     margin: 0;
     min-height: 100vh;
     color: var(--text-color);
@@ -39,24 +30,19 @@ body {
     flex-direction: column;
     background: repeating-linear-gradient(
         to right,
-        var(--red-brown),
-        var(--red-brown) 50px,
-        var(--khaki-brown) 50px,
-        var(--khaki-brown) 100px
+        var(--primary),
+        var(--primary) 50px,
+        var(--secondary) 50px,
+        var(--secondary) 100px
     );
 }
 
-/* ============================================================
-      Typography
-      ============================================================ */
 .title {
     font-size: 80px;
     color: white;
     text-shadow: 2px 2px 0 black, -2px 2px 0 black, 2px -2px 0 black,
         -2px -2px 0 black;
     padding: 0 30px;
-    display: flex;
-    align-self: center;
     margin-top: 40px;
     min-height: 100px;
     margin-bottom: 40px;
@@ -71,14 +57,14 @@ h2 {
 /* ============================================================
       Layout Utilities
       ============================================================ */
+
+/* Good when you just need a section to be flexbox */
 .flex-row {
     display: flex;
 }
 
-.middle {
-    align-self: center;
-}
-
+/* Makes the content inside my main-content panel */
+/* a consistent width */
 .text-width {
     margin: auto;
     max-width: 900px;
@@ -99,24 +85,24 @@ h2 {
     border-left: 2px solid var(--outline-brown);
     padding: 8px 16px;
     justify-items: center;
+    /* I use padding-right because the side-panel is 200px wide */
+    /* The mobile screen media query resets this though */
     padding-right: 200px;
 }
 
 .side-bar {
     background-color: var(--surface-background);
-    border-top: 4px solid var(--outline-brown);
     display: flex;
     flex-direction: column;
-    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.3);
     max-width: 220px;
-    flex: 1;
 }
 
 .side-bar:first-child {
     margin: 0;
-    border-top: none;
+    border-top: 2px solid var(--outline-brown);
 }
 
+/* this is the row that contains the side-bar and the body */
 .side-bar-body-row {
     flex: 1;
     display: grid;
@@ -137,12 +123,12 @@ ul {
       ============================================================ */
 
 .side-bar > * {
-    border-top: 1px solid var(--background);
+    border-top: 1px solid var(--outline-brown);
     border-bottom: 1px solid var(--outline-brown);
 }
 
 .side-bar h2 {
-    padding: 10px;
+    padding: 10px 0;
     border-right: 2px solid var(--outline-brown);
 }
 
@@ -179,65 +165,6 @@ ul {
     justify-content: center;
 }
 
-.tab {
-    border: 2px solid black;
-    box-sizing: border-box;
-    border-radius: 0.25em;
-    padding: 4px 8px;
-    background-color: var(--accent);
-    color: var(--accent-text);
-    width: 100%;
-}
-
-.tab * {
-    color: var(--accent-text);
-}
-
-.tab > .tab-header > h2 {
-    text-decoration: none;
-    margin: 0;
-}
-
-.tab > .tab-body h3 {
-    padding: 0 10px;
-}
-
-.tab p {
-    padding: 0 20px;
-}
-
-.tab ol {
-    padding: 0 64px;
-}
-
-.tab-header img {
-    height: 2em;
-    margin-left: auto;
-    transform: rotate(0.5turn);
-}
-
-.tab-header {
-    display: flex;
-    align-items: center;
-}
-
-.tab-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s;
-}
-
-.center-imgs {
-    text-align: center;
-}
-
-.center-imgs img {
-    height: 75px;
-}
-
-.tab-body .img-height-100 {
-    height: 250px;
-}
 
 /* ============================================================
       Images
@@ -330,24 +257,24 @@ ul {
     color: white;
 }
 
-.main-body > a:hover,
-.main-body > a:focus {
+.main-body > a.custom-link:hover,
+.main-body > a.custom-link:focus {
     color: var(--hover-blue, #0056b3);
     text-decoration: underline;
 }
 
-a {
+a.custom-link {
     color: var(--accent-blue, #0050a7);
     position: relative;
     text-decoration: none;
 }
 
-.footer > p > a {
+.footer > p > a.custom-link {
     color: var(--accent-blue, #5facff);
 }
 
-.main-body a::after,
-.footer a::after {
+.main-body a.custom-link::after,
+.footer a.custom-link::after {
     content: "";
     position: absolute;
     left: 0;
@@ -360,10 +287,11 @@ a {
     transition: transform 0.2s ease-out;
 }
 
-.main-body a:hover::after,
-.footer a:hover::after {
+.main-body a.custom-link:hover::after,
+.footer a.custom-link:hover::after {
     transform: scaleX(1);
 }
+
 .nav-footer {
     display: none;
 }
