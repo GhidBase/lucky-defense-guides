@@ -1,0 +1,10 @@
+.centered-imgs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.stretchy-double-img {
+    max-width: 200px;
+    height: auto;
+}

@@ -21,6 +21,15 @@
     font-family: "Fredoka";
 }
 
+.ezoic-ad {
+    overflow-x: visible; /* Allows content to overflow horizontally */
+    white-space: nowrap; /* Prevents wrapping to keep content in a single line */
+}
+
+.ezoic-ad-container {
+    overflow-x: visible;
+}
+
 html,
 body {
     margin: 0;
@@ -69,6 +78,7 @@ h2 {
     margin: auto;
     max-width: 900px;
     padding: 0 20px;
+    overflow-x: visible;
 }
 
 .centered-text-block {
@@ -165,7 +175,6 @@ ul {
     justify-content: center;
 }
 
-
 /* ============================================================
       Images
       ============================================================ */
@@ -257,24 +266,24 @@ ul {
     color: white;
 }
 
-.main-body > a.custom-link:hover,
-.main-body > a.custom-link:focus {
+.main-body > a:hover,
+.main-body > a:focus {
     color: var(--hover-blue, #0056b3);
     text-decoration: underline;
 }
 
-a.custom-link {
+a {
     color: var(--accent-blue, #0050a7);
     position: relative;
     text-decoration: none;
 }
 
-.footer > p > a.custom-link {
+.footer > p > a {
     color: var(--accent-blue, #5facff);
 }
 
-.main-body a.custom-link::after,
-.footer a.custom-link::after {
+.main-body a::after,
+.footer a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -287,8 +296,8 @@ a.custom-link {
     transition: transform 0.2s ease-out;
 }
 
-.main-body a.custom-link:hover::after,
-.footer a.custom-link:hover::after {
+.main-body a:hover::after,
+.footer a:hover::after {
     transform: scaleX(1);
 }
 
