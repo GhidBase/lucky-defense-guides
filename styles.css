@@ -60,27 +60,29 @@ body {
 }
 
 .image-cropped {
-    width: 100%;               /* or any desired width */
-    height: 200px;             /* set desired visible height */
-    object-fit: cover;         /* ensures image fills the container */
-    object-position: center;   /* keeps the center of the image visible */
+    width: 100%; /* or any desired width */
+    height: 200px; /* set desired visible height */
+    object-fit: cover; /* ensures image fills the container */
+    object-position: center; /* keeps the center of the image visible */
     display: block;
 }
 
 .title-container {
     width: 100%;
     height: 180px;
-    text-align: center;
     padding: 20px;
     box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
 .image-cropped-two {
     max-width: 100%;
     max-height: 100%;
-    object-fit: cover;  /* ensures image fills the container */
-    object-position: center; 
+    object-fit: cover; /* ensures image fills the container */
+    object-position: center;
 }
 
 h2 {
