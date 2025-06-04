@@ -136,6 +136,12 @@ class GuardianSelector {
                     "Penguin Musician",
                 ],
             },
+            immortal: [
+                "Reaper Frog",
+                "Reaper Dian",
+                "Awakened Hailey",
+                "Grand Mama",
+            ],
         };
 
         this.adjustTypeVisibility();
@@ -173,7 +179,17 @@ class GuardianSelector {
         this.guardianList.innerHTML = "";
 
         const addGuardianToList = (element) => {
-            const firstHalf = rarity == "mythic" ? "mythics/" : "";
+            let firstHalf;
+            switch (rarity) {
+                case "mythic":
+                    firstHalf = "mythics/";
+                    break;
+                case "immortal":
+                    firstHalf = "immortals/";
+                    break;
+                default:
+                    firstHalf = "";
+            }
             const button = document.createElement("button");
             const img = document.createElement("img");
             img.src = `../pics/unit/${firstHalf}${element}.png`;
@@ -212,8 +228,19 @@ class GuardianSelector {
     }
 
     getSelectedGuardianImg() {
-        const firstHalf =
-            this.selectedGuardianRarity == "mythic" ? "mythics/" : "";
+        let firstHalf;
+        switch (this.selectedGuardianRarity) {
+            case "mythic":
+                firstHalf = "mythics/";
+                break;
+            case "immortal":
+                firstHalf = "immortals/";
+                break;
+            default:
+                firstHalf = "";
+        }
+        // const firstHalf =
+        //     this.selectedGuardianRarity == "mythic" ? "mythics/" : "";
         const currentGuardian = this.getSelectedGuardian();
         return `../pics/unit/${firstHalf}${currentGuardian}.png`;
     }
