@@ -211,6 +211,12 @@ ul {
     display: block;
 }
 
+.stretch-img {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+}
+
 .max-width-img-23 {
     width: 23%;
     height: auto;
@@ -424,6 +430,10 @@ a {
         justify-content: center;
         transform: translateX(-50%);
         border-top: 2px solid var(--outline-brown);
+    }
+
+    .stretch-img {
+        padding: 0;
     }
 
     .footer > p {
