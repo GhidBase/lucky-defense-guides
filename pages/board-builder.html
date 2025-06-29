@@ -1,185 +1,174 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7281531232813347"
-            crossorigin="anonymous"
-        ></script>
-        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-        <!-- Google tag (gtag.js) -->
-        <script
-            async=""
-            src="https://www.googletagmanager.com/gtag/js?id=G-X8KBQ5CE84"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
+  <head>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7281531232813347"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-X8KBQ5CE84"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-            gtag("config", "G-X8KBQ5CE84");
-        </script>
-        <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <title>Board Builder</title>
-        <link href="../styles.css?v=4.61" rel="stylesheet" />
-        <link rel="stylesheet" href="../css/board-builder.css?v=1.3" />
-        <link
-            rel="icon"
-            href="../pics/Icons/LDG_Shield_White_192x192.png"
-            type="image/x-icon"
-        />
-        
-        <meta property="og:title" content="Lucky Defense Board Builder" />
-        <meta
-            property="og:description"
-            content="Show your favorite meta, stun, support, and carry boards using
+      gtag("config", "G-X8KBQ5CE84");
+    </script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Board Builder</title>
+    <link href="../styles.css?v=4.61" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/board-builder.css?v=1.3" />
+    <link
+      rel="icon"
+      href="../pics/Icons/LDG_Shield_White_192x192.png"
+      type="image/x-icon"
+    />
+
+    <meta property="og:title" content="Lucky Defense Board Builder" />
+    <meta
+      property="og:description"
+      content="Show your favorite meta, stun, support, and carry boards using
             the official LuckyDefenseGuides.com board builder tool!"
-        />
-        <meta
-            property="og:image"
-            content="https://luckydefenseguides.com/pics/Icons/LDG_Shield_White_192x192.png"
-        />
-        <meta
-            property="og:url"
-            content="https://luckydefenseguides.com/pages/board-builder.html"
-        />
-        <meta property="og:type" content="website" />
+    />
+    <meta
+      property="og:image"
+      content="https://luckydefenseguides.com/pics/Icons/LDG_Shield_White_192x192.png"
+    />
+    <meta
+      property="og:url"
+      content="https://luckydefenseguides.com/pages/board-builder.html"
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div class="title">Board Builder</div>
 
-    </head>
-    <body>
-        <div class="title">Board Builder</div>
-
-        <div class="side-bar-body-row">
-            <div class="side-bar"></div>
-            <div class="main-body">
-                <div class="text-width">
-                    <div id="guardian-selector-modal">
-                        <div class="inputs">
-                            <h1>Select a Unit</h1>
-                            <div class="user-input">
-                                <label for="rarity-selector">Rarity: </label>
-                                <select
-                                    name="rarity-selector"
-                                    id="rarity-selector"
-                                >
-                                    <option value="mythic">Mythic</option>
-                                    <option value="immortal">Immortal</option>
-                                    <option value="legendary">Legendary</option>
-                                    <option value="epic">Epic</option>
-                                    <option value="rare">Rare</option>
-                                    <option value="common">Common</option>
-                                </select>
-                            </div>
-                            <div class="user-input hidden">
-                                <label for="type-selector">Type: </label>
-                                <select name="type-selector" id="type-selector">
-                                    <option value="waveClear">
-                                        Wave Clearers
-                                    </option>
-                                    <option value="bossKillers">
-                                        Boss Killers
-                                    </option>
-                                    <option value="support">Support</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="guardian-list">
-                            <button>
-                                <img
-                                    id="guardian-img"
-                                    src="../pics/unit/mythics/Rocket Chu.png"
-                                    alt=""
-                                />
-                            </button>
-                        </div>
-                        <div class="user-input">
-                            <label for="difficulty-selector"
-                                >Difficulty:
-                            </label>
-                            <select
-                                name="difficulty-selector"
-                                id="difficulty-selector"
-                            >
-                                <option value="Normal">Normal</option>
-                                <option value="Hard">Hard</option>
-                                <option value="Hell">Hell</option>
-                                <option value="God">God</option>
-                            </select>
-                        </div>
-                        <button id="saveBoardImageBtn">
-                            📸 Save Board Image
-                        </button>
-                    </div>
-                    <!-- End of guardian selector -->
-
-                    <!-- beginning of board container -->
-                    <div class="board-container" id="board-container">
-                        <img
-                            src="../pics/boards/Normal.png"
-                            alt=""
-                            class="board-frame"
-                            id="board-img"
-                        />
-                        <div class="grid-overlay" id="grid-overlay">
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                            <div class="board-cell"></div>
-                        </div>
-                    </div>
-                    <!-- ending of board container -->
-                </div>
+    <div class="side-bar-body-row">
+      <div class="side-bar"></div>
+      <div class="main-body">
+        <h3>
+          * You can also check this website for board building:
+          <a href="https://board-builder.netlify.app/">Board Builder</a> *
+        </h3>
+        <div class="text-width">
+          <div id="guardian-selector-modal">
+            <div class="inputs">
+              <h1>Select a Unit</h1>
+              <div class="user-input">
+                <label for="rarity-selector">Rarity: </label>
+                <select name="rarity-selector" id="rarity-selector">
+                  <option value="mythic">Mythic</option>
+                  <option value="immortal">Immortal</option>
+                  <option value="legendary">Legendary</option>
+                  <option value="epic">Epic</option>
+                  <option value="rare">Rare</option>
+                  <option value="common">Common</option>
+                </select>
+              </div>
+              <div class="user-input hidden">
+                <label for="type-selector">Type: </label>
+                <select name="type-selector" id="type-selector">
+                  <option value="waveClear">Wave Clearers</option>
+                  <option value="bossKillers">Boss Killers</option>
+                  <option value="support">Support</option>
+                </select>
+              </div>
             </div>
-        </div>
-
-        <div class="cover"></div>
-
-        <div id="donationModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Support the Developer</h2>
-                <p>
-                    I work on this site in my spare time. If it helped you,
-                    consider supporting me!
-                </p>
-                <a
-                    href="https://www.buymeacoffee.com/GhidWard"
-                    target="_blank"
-                    class="donate-btn"
-                    >Buy Me a Coffee</a
-                >
+            <div class="guardian-list">
+              <button>
+                <img
+                  id="guardian-img"
+                  src="../pics/unit/mythics/Rocket Chu.png"
+                  alt=""
+                />
+              </button>
             </div>
-        </div>
+            <div class="user-input">
+              <label for="difficulty-selector">Difficulty: </label>
+              <select name="difficulty-selector" id="difficulty-selector">
+                <option value="Normal">Normal</option>
+                <option value="Hard">Hard</option>
+                <option value="Hell">Hell</option>
+                <option value="God">God</option>
+              </select>
+            </div>
+            <button id="saveBoardImageBtn">📸 Save Board Image</button>
+          </div>
+          <!-- End of guardian selector -->
 
-        <div class="footer">
-            <img alt="" class="menu" src="../pics/Icons/menu.svg" />
-            <p style="font-size: 0.8em">
-                © 2025 LuckyDefenseGuides.com. This site is not affiliated with
-                or endorsed by the creators of Lucky Defense. |
-                <a href="/pages/privacy-policy.html">Privacy Policy</a> |
-                <button class="openModalBtn">☕ Support the Developer</button>
-            </p>
+          <!-- beginning of board container -->
+          <div class="board-container" id="board-container">
+            <img
+              src="../pics/boards/Normal.png"
+              alt=""
+              class="board-frame"
+              id="board-img"
+            />
+            <div class="grid-overlay" id="grid-overlay">
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+              <div class="board-cell"></div>
+            </div>
+          </div>
+          <!-- ending of board container -->
         </div>
-        <script src="../javascript/load-sidebar.js?v=1.1"></script>
-        <script src="../javascript/open-navigation.js"></script>
-        <script src="../javascript/board-builder.js?v=1.9"></script>
-    </body>
+      </div>
+    </div>
+
+    <div class="cover"></div>
+
+    <div id="donationModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Support the Developer</h2>
+        <p>
+          I work on this site in my spare time. If it helped you, consider
+          supporting me!
+        </p>
+        <a
+          href="https://www.buymeacoffee.com/GhidWard"
+          target="_blank"
+          class="donate-btn"
+          >Buy Me a Coffee</a
+        >
+      </div>
+    </div>
+
+    <div class="footer">
+      <img alt="" class="menu" src="../pics/Icons/menu.svg" />
+      <p style="font-size: 0.8em">
+        © 2025 LuckyDefenseGuides.com. This site is not affiliated with or
+        endorsed by the creators of Lucky Defense. |
+        <a href="/pages/privacy-policy.html">Privacy Policy</a> |
+        <button class="openModalBtn">☕ Support the Developer</button>
+      </p>
+    </div>
+    <script src="../javascript/load-sidebar.js?v=1.1"></script>
+    <script src="../javascript/open-navigation.js"></script>
+    <script src="../javascript/board-builder.js?v=1.9"></script>
+  </body>
 </html>
