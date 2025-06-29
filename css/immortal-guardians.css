@@ -61,6 +61,8 @@
   order: 1; /* put text first by default */
 }
 
+
+
 /* Mobile view: stack image above text */
 @media (max-width: 600px) {
   .text-right-img-left {

@@ -45,6 +45,12 @@
   color: white;
 }
 
+.toggle-button>.icon {
+  margin-right: auto;
+  margin-left: 8px;
+  height: 1.9em;
+}
+
 .toggle-button-arrow {
   transform: rotate(0.5turn);
   transition: transform 0.3s;
