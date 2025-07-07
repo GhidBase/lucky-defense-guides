@@ -19,13 +19,12 @@
 }
 
 .mythic-title {
-    padding-left: 20px;
-    /* padding-right: 20px; */
-    /* align-items: center; */
+    padding: 0 20px;
+    vertical-align: middle;
 }
 
-.mythic-title > img {
-    vertical-align: middle;
+.mythic-title img {
+    vertical-align: bottom;
 }
 
 @media (max-width: 1000px) {
