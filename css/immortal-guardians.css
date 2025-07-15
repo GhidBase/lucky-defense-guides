@@ -41,6 +41,11 @@
   height: 50px;
 }
 
+.mini-logo {
+  vertical-align: bottom;
+  height: 50px;
+}
+
 .text-right-img-left {
   display: flex;
   flex-wrap: wrap;
@@ -60,8 +65,6 @@
   margin: 0;
   order: 1; /* put text first by default */
 }
-
-
 
 /* Mobile view: stack image above text */
 @media (max-width: 600px) {
