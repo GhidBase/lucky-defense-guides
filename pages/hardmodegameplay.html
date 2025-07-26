@@ -47,23 +47,20 @@
     <link href="../styles.css?v=4.86" rel="stylesheet" />
     <link rel="stylesheet" href="../css/immortal-guardians.css?v=1.9" />
     <link rel="stylesheet" href="../css/roulette-sim.css?v=1.9" />
+    <link href="../css/normal-mode.css?v=4.85" rel="stylesheet" />
   </head>
   <body>
     <div class="title">Hard Mode Gameplay Guide</div>
     <div class="side-bar-body-row">
       <div class="side-bar"></div>
-      <div class="main-body">
-        <div class="text-width">
-          <div class="toggle-section">
-            <div class="toggle-button">
-              <p>Intro</p>
-              <img
-                src="../pics/Icons/chevron-up-white.svg"
-                alt=""
-                class="inline-img toggle-button-arrow"
-              />
+      <div class="main-body no-side-padding-mobile">
+        <div class="text-width-desktop-only">
+          <div class="tab no-border-radius-mobile">
+            <div class="tab-header">
+              <h2>Intro</h2>
+              <img src="../pics/Icons/chevron-up.svg" class="tab-arrow" />
             </div>
-            <div class="toggle-panel collapsed">
+            <div class="tab-body">
               <p>
                 Hard mode is very different from normal. On top of the normal
                 waves and bosses, it comes with a Dungeon which you have to
@@ -83,16 +80,12 @@
             </div>
           </div>
 
-          <div class="toggle-section">
-            <div class="toggle-button">
-              <p>Early Waves (W1-W20)</p>
-              <img
-                src="../pics/Icons/chevron-up-white.svg"
-                alt=""
-                class="inline-img toggle-button-arrow"
-              />
+          <div class="tab no-border-radius-mobile">
+            <div class="tab-header">
+              <h2>Early Waves (W1-W20)</h2>
+              <img src="../pics/Icons/chevron-up.svg" class="tab-arrow" />
             </div>
-            <div class="toggle-panel collapsed">
+            <div class="tab-body">
               <p>At the start, your priorities are:</p>
               <ul>
                 <li>Summon Bandits to build your coin economy</li>
@@ -253,16 +246,13 @@
               </ul>
             </div>
           </div>
-          <div class="toggle-section">
-            <div class="toggle-button">
-              <p>Don’t Forget Dungeon (W21-W42)</p>
-              <img
-                src="../pics/Icons/chevron-up-white.svg"
-                alt=""
-                class="inline-img toggle-button-arrow"
-              />
+
+          <div class="tab no-border-radius-mobile">
+            <div class="tab-header">
+              <h2>Don’t Forget Dungeon (W21-W42)</h2>
+              <img src="../pics/Icons/chevron-up.svg" class="tab-arrow" />
             </div>
-            <div class="toggle-panel collapsed">
+            <div class="tab-body">
               <h1>Continue to increase damage output</h1>
               <p>
                 In this phase, the priority is taking down Dungeon and
@@ -316,16 +306,13 @@
               </ul>
             </div>
           </div>
-          <div class="toggle-section">
-            <div class="toggle-button">
-              <p>Late-game (W43-80)</p>
-              <img
-                src="../pics/Icons/chevron-up-white.svg"
-                alt=""
-                class="inline-img toggle-button-arrow"
-              />
+
+          <div class="tab no-border-radius-mobile">
+            <div class="tab-header">
+              <h2>Late-game (W43-80)</h2>
+              <img src="../pics/Icons/chevron-up.svg" class="tab-arrow" />
             </div>
-            <div class="toggle-panel collapsed">
+            <div class="tab-body">
               <p>
                 Once in the late-game, you need to assess your board to make a
                 very important decision. What Legendary do you want to pick from
@@ -494,6 +481,6 @@
     </div>
     <script src="../javascript/load-sidebar.js?v=1.1"></script>
     <script src="../javascript/open-navigation.js"></script>
-    <script src="../javascript/tab-controller-two.js?v=1.4"></script>
+    <script src="../javascript/tab-controller.js?v=1.4"></script>
   </body>
 </html>
