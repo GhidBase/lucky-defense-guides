@@ -53,7 +53,7 @@ const summaryPanel = document.getElementById("summary-panel");
 const showArtifactDetailsButton = document.getElementById(
     "artifact-details-button"
 );
-const artifactDetailsPanel = document.getElementById("artifact-details-panel");
+const artifactDetailsPanel = document.getElementById("artifact-detailszb-panel");
 
 function runSim(stones, rarity, sellOrMergeLowRarity, showEachroll) {
     console.clear();
@@ -439,7 +439,7 @@ function rouletteGetGuardian(rarity) {
     // Choose a type of spin
     switch (rarity) {
         case "epic":
-            neededChance = 0.35;
+            neededChance = 0.275;
             break;
 
         case "rare":
