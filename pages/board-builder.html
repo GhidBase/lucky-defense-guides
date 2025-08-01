@@ -59,83 +59,81 @@
           * You can also check this website for board building:
           <a href="https://board-builder.netlify.app/">Board Builder</a> *
         </h3>
-        <div class="text-width">
-          <div id="guardian-selector-modal">
-            <div class="inputs">
-              <h1>Select a Unit</h1>
-              <div class="user-input">
-                <label for="rarity-selector">Rarity: </label>
-                <select name="rarity-selector" id="rarity-selector">
-                  <option value="mythic">Mythic</option>
-                  <option value="immortal">Immortal</option>
-                  <option value="legendary">Legendary</option>
-                  <option value="epic">Epic</option>
-                  <option value="rare">Rare</option>
-                  <option value="common">Common</option>
-                </select>
-              </div>
-              <div class="user-input hidden">
-                <label for="type-selector">Type: </label>
-                <select name="type-selector" id="type-selector">
-                  <option value="waveClear">Wave Clearers</option>
-                  <option value="bossKillers">Boss Killers</option>
-                  <option value="support">Support</option>
-                </select>
-              </div>
-            </div>
-            <div class="guardian-list">
-              <button>
-                <img
-                  id="guardian-img"
-                  src="../pics/unit/mythics/Rocket Chu.png"
-                  alt=""
-                />
-              </button>
-            </div>
+        <div id="guardian-selector-modal">
+          <div class="inputs">
+            <h1>Select a Unit</h1>
             <div class="user-input">
-              <label for="difficulty-selector">Difficulty: </label>
-              <select name="difficulty-selector" id="difficulty-selector">
-                <option value="Normal">Normal</option>
-                <option value="Hard">Hard</option>
-                <option value="Hell">Hell</option>
-                <option value="God">God</option>
+              <label for="rarity-selector">Rarity: </label>
+              <select name="rarity-selector" id="rarity-selector">
+                <option value="mythic">Mythic</option>
+                <option value="immortal">Immortal</option>
+                <option value="legendary">Legendary</option>
+                <option value="epic">Epic</option>
+                <option value="rare">Rare</option>
+                <option value="common">Common</option>
               </select>
             </div>
-            <button id="saveBoardImageBtn">📸 Save Board Image</button>
-          </div>
-          <!-- End of guardian selector -->
-
-          <!-- beginning of board container -->
-          <div class="board-container" id="board-container">
-            <img
-              src="../pics/boards/Normal.png"
-              alt=""
-              class="board-frame"
-              id="board-img"
-            />
-            <div class="grid-overlay" id="grid-overlay">
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
-              <div class="board-cell"></div>
+            <div class="user-input hidden">
+              <label for="type-selector">Type: </label>
+              <select name="type-selector" id="type-selector">
+                <option value="waveClear">Wave Clearers</option>
+                <option value="bossKillers">Boss Killers</option>
+                <option value="support">Support</option>
+              </select>
             </div>
           </div>
-          <!-- ending of board container -->
+          <div class="guardian-list">
+            <button>
+              <img
+                id="guardian-img"
+                src="../pics/unit/mythics/Rocket Chu.png"
+                alt=""
+              />
+            </button>
+          </div>
+          <div class="user-input">
+            <label for="difficulty-selector">Difficulty: </label>
+            <select name="difficulty-selector" id="difficulty-selector">
+              <option value="Normal">Normal</option>
+              <option value="Hard">Hard</option>
+              <option value="Hell">Hell</option>
+              <option value="God">God</option>
+            </select>
+          </div>
+          <button id="saveBoardImageBtn">📸 Save Board Image</button>
         </div>
+        <!-- End of guardian selector -->
+
+        <!-- beginning of board container -->
+        <div class="board-container" id="board-container">
+          <img
+            src="../pics/boards/Normal.png"
+            alt=""
+            class="board-frame"
+            id="board-img"
+          />
+          <div class="grid-overlay" id="grid-overlay">
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+            <div class="board-cell"></div>
+          </div>
+        </div>
+        <!-- ending of board container -->
       </div>
     </div>
 
