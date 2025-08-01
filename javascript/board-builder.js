@@ -124,7 +124,7 @@ class GuardianSelector {
         "Grand Mama",
         "Primeval Bomba",
         "chrono-ato",
-        "ninja1",
+        "Ninja1",
       ],
     };
 
