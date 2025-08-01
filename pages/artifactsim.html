@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7281531232813347"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-X8KBQ5CE84"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-X8KBQ5CE84");
+    </script>
+    <title>Artifact Simulator</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="../styles.css?v=4.866" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/roulette-sim.css?v=1.4" />
+    <link
+      rel="icon"
+      href="../pics/Icons/LDG_Shield_White_192x192.png"
+      type="image/x-icon"
+    />
+    <meta property="og:title" content="Lucky Defense Artifact Simulator" />
+    <meta
+      property="og:description"
+      content="How do you get more legendary units with fewer luck stones? Epic or Legendary Roulette Spin? This simulator will help you out!"
+    />
+    <meta
+      property="og:image"
+      content="https://luckydefenseguides.com/pics/Icons/LDG_Shield_White_192x192.png"
+    />
+    <meta
+      property="og:url"
+      content="https://luckydefenseguides.com/tools/roulette-simulator.html"
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div class="title">Artifact Simulator</div>
+    <div class="side-bar-body-row">
+      <div class="side-bar"></div>
+      <div class="main-body no-side-padding-mobile">
+        <div class="text-width">
+          <h2 class="center-text" id="roulette-sim-title">Artifact Sim</h2>
+            <div id="entry-form-container" class="center">
+                <form action="" id="roulette-form" class="main-panel">
+                    <input type="number" id="rollCount" value="1" min="1" max="100000">
+                    <button onclick="roll()">Run Sim</button>
+                    <p>Current Rolls: <span id="total">0</span> rolls</p>
+                </form>
+            </div>
+                <div class="results" id="results"></div>
+            </div>
+          </div>
+
+          <!-- End of the main-body -->
+        </div>
+      </div>
+      <!-- End of the sidebar/body row div -->
+    </div>
+    <div class="cover"></div>
+
+    <div id="donationModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Support the Developer</h2>
+        <p>
+          I work on this site in my spare time. If it helped you, consider
+          supporting me!
+        </p>
+        <a
+          href="https://www.buymeacoffee.com/GhidWard"
+          target="_blank"
+          class="donate-btn"
+          >Buy Me a Coffee</a
+        >
+      </div>
+    </div>
+
+    <div class="footer">
+      <img alt="" class="menu" src="../pics/Icons/menu.svg" />
+      <p style="font-size: 0.8em">
+        © 2025 LuckyDefenseGuides.com. This site is not affiliated with or
+        endorsed by the creators of Lucky Defense. |
+        <a href="/pages/privacy-policy.html">Privacy Policy</a> |
+        <button class="openModalBtn">☕ Support the Developer</button>
+      </p>
+    </div>
+    <script src="../javascript/load-sidebar.js?v=1.1"></script>
+    <script src="../javascript/open-navigation.js"></script>
+    <script src="../javascript/artifact-simulator.js?v=1.2"></script>
+    <script src="../javascript/tab-controller-two.js?v=1.3"></script>
+  </body>
+</html>
