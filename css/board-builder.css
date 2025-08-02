@@ -1,8 +1,8 @@
-.text-width {
+/* .text-width {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 /* ACTUAL BOARD PARTS */
 
@@ -60,9 +60,10 @@ img.board-frame {
 
   border-radius: 8px;
   width: 100%;
+  /* max-width: 100%; */
   gap: 20px;
   padding: 20px;
-  margin: 20px;
+  margin-bottom: 20px;
 
   background-color: var(--red-brown);
   color: white;
@@ -91,6 +92,7 @@ img.board-frame {
   height: 10dvh;
   overflow-x: auto;
   overflow-y: hidden;
+  /* box-sizing: border-box; */
   width: 100%;
   height: 80px;
   padding: 4px;
