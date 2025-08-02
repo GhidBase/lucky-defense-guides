@@ -141,7 +141,9 @@ class GuardianSelector {
                 "Reaper Dian",
                 "Awakened Hailey",
                 "Grand Mama",
-                "Primeval Bomba"
+                "Primeval Bomba",
+                "Chrono Ato",
+                "Ghost Ninja"
             ],
         };
 
