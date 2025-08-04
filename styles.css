@@ -103,7 +103,8 @@ h2 {
 .text-width {
   margin: auto;
   max-width: 900px;
-  /* width: 100%a; */
+  width: 100%;
+  box-sizing: border-box;
   padding: 0 20px;
   overflow-x: visible;
 }
