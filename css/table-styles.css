@@ -54,15 +54,19 @@ table {
 
 .indy-rare {
   color: blue;
+  font-weight: bold;
+
 }
 
 .indy-epic {
   color: purple;
+  font-weight: bold;
+
 }
 
 .indy-legendary {
-  color: black;
-  text-shadow: 1px 0 1px yellow;
+  color: yellow;
+  font-weight: bold;
 }
 
 
