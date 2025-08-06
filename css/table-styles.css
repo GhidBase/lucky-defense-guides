@@ -52,6 +52,19 @@ table {
   padding: 0 20px;
 }
 
+.indy-rare {
+  color: blue;
+}
+
+.indy-epic {
+  color: purple;
+}
+
+.indy-legendary {
+  color: rgb(255, 255, 0);
+}
+
+
 /* Responsive adjustments for mobile */
 @media (max-width: 1000px) {
   table {
