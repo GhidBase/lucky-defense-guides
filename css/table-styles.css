@@ -61,7 +61,8 @@ table {
 }
 
 .indy-legendary {
-  color: rgb(255, 255, 0);
+  color: black;
+  text-shadow: 1px 0 1px yellow;
 }
 
 
