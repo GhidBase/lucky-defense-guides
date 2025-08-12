@@ -33,6 +33,11 @@ const guardians = {
         "Mama",
         "Watt",
         "Zap",
+        "Hailey",
+        "Master Kun",
+        "Verdee",
+        "Penguin Musician",
+        "Ato",
     ],
 };
 
@@ -172,7 +177,7 @@ function addCategoriesToList(list, pulls) {
     }
 
     let firstLegendary = list.querySelector(".Legendary");
-    if (firstEpic) {
+    if (firstLegendary) {
         let legendaryTitle = document.createElement("li");
         legendaryTitle.textContent =
             "Legendaries" + ": " + countedCategories["Legendary"].collected;
