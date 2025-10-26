@@ -5,6 +5,7 @@ const closeButton = document.querySelector(".close");
 openButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     modal.style.display = "block";
+    console.log("hi")
   });
 });
 
