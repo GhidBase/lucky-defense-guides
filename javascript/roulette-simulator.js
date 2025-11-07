@@ -53,7 +53,7 @@ const summaryPanel = document.getElementById("summary-panel");
 const showArtifactDetailsButton = document.getElementById(
     "artifact-details-button"
 );
-const artifactDetailsPanel = document.getElementById("artifact-detailszb-panel");
+const artifactDetailsPanel = document.getElementById("artifact-details-panel");
 
 function runSim(stones, rarity, sellOrMergeLowRarity, showEachroll) {
     console.clear();
